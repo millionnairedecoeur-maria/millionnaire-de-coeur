@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>L'Identité : Le Pilote Invisible de votre Manifestation – Millionnaire de Cœur</title>
   <meta name="description" content="Vous ne recevez pas ce que vous demandez, vous attirez ce qui correspond à votre identité subconsciente. Découvrez comment recalibrer votre pilote invisible pour manifester votre vision." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/fonts/poppins.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --bg: #0d141a; --gold: #D4AF37; --white: #ffffff; }
@@ -297,7 +295,9 @@
           L'intégralité des éléments constituant ce site, notamment et sans limitation : textes, contenus rédactionnels, concepts, idées, noms, titres, projets, programmes, images, photographies, visuels, éléments graphiques, logos, charte graphique, structures, bases de données, noms de domaine ainsi que tout autre contenu original, sont protégés par les dispositions du Code de la propriété intellectuelle et par toute législation internationale applicable. Toute reproduction, représentation, diffusion, transmission, exploitation, adaptation, modification, extraction ou réutilisation, totale ou partielle, par quelque procédé que ce soit, sur tout support, sans autorisation écrite préalable de l'éditeur, est strictement interdite.<br><br>
           <a href="https://www.millionnairedecoeur.com/mentions-legales-millionnaire-de-coeur">Mentions légales</a>
           –
-          <a href="https://www.millionnairedecoeur.com/conditions-generales-millionnaire-de-coeur">Conditions générales de vente, d'annulation et de remboursement et politique de confidentialité.</a>
+          <a href="https://www.millionnairedecoeur.com/conditions-generales-millionnaire-de-coeur">Conditions générales de vente, d'annulation et de remboursement.</a>
+        –
+        <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite">Politique de confidentialité.</a>
         </p>
         <p class="footer-disclaimer">
           ⓘ Les accompagnements proposés ne se substituent pas à un suivi ou à un traitement médical ou psychologique. Pour toute question relevant de la santé, consultez un professionnel de santé.
@@ -334,6 +334,111 @@
       }
     });
   </script>
+
+<!-- BANDEAU COOKIES MDC -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111c26;border-top:1px solid rgba(212,175,55,0.25);padding:20px 28px;font-family:'Poppins',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:260px;">
+        <p style="font-size:0.82rem;font-weight:700;color:#D4AF37;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Gestion des cookies</p>
+        <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.6;margin:0;">Nous utilisons des cookies techniques nécessaires au fonctionnement du site et, avec votre accord, des cookies fonctionnels et marketing. Votre choix est mémorisé 13 mois. <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite" style="color:#D4AF37;text-decoration:underline;">En savoir plus</a></p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0;">
+        <button onclick="cookieRefuse()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);font-family:'Poppins',sans-serif;">Refuser</button>
+        <button onclick="cookieTogglePanel()" id="cookie-btn-custom" style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:#D4AF37;border:1px solid rgba(212,175,55,0.4);font-family:'Poppins',sans-serif;">Personnaliser ▼</button>
+        <button onclick="cookieAcceptAll()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:#D4AF37;color:#0d141a;border:none;font-family:'Poppins',sans-serif;">Tout accepter</button>
+      </div>
+    </div>
+
+    <div id="cookie-panel" style="display:none;border-top:1px solid rgba(212,175,55,0.12);margin-top:16px;padding-top:16px;">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">
+
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;">
+            <p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies techniques <span style="font-size:0.62rem;font-weight:600;color:#D4AF37;background:rgba(212,175,55,0.12);padding:2px 7px;border-radius:2px;margin-left:8px;letter-spacing:0.06em;">TOUJOURS ACTIFS</span></p>
+            <p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Indispensables au fonctionnement du site. Sécurité anti-spam du formulaire de contact (Web3Forms), mémorisation de vos préférences cookies. Ne peuvent pas être désactivés.</p>
+          </div>
+          <div style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;">
+            <input type="checkbox" checked disabled style="opacity:0;width:0;height:0;position:absolute;">
+            <span style="position:absolute;inset:0;background:#D4AF37;border-radius:22px;opacity:0.5;"></span>
+            <span style="position:absolute;width:16px;height:16px;left:19px;top:3px;background:#fff;border-radius:50%;"></span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;">
+            <p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies fonctionnels</p>
+            <p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Améliorent votre expérience : mémorisation de formulaires, préférences d'affichage, inscriptions à des événements ou webinars.</p>
+          </div>
+          <label style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;cursor:pointer;">
+            <input type="checkbox" id="tog-func" style="opacity:0;width:0;height:0;position:absolute;" onchange="cookieUpdateToggle('func',this.checked)">
+            <span id="tog-func-bg" style="position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:22px;transition:background 0.25s;"></span>
+            <span id="tog-func-dot" style="position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.25s;"></span>
+          </label>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;">
+            <p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies marketing & analytics</p>
+            <p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Mesure d'audience et contenu personnalisé. Utilisés si des outils d'analyse ou pixels de conversion sont installés (ex. Meta Pixel, Google Analytics).</p>
+          </div>
+          <label style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;cursor:pointer;">
+            <input type="checkbox" id="tog-mkt" style="opacity:0;width:0;height:0;position:absolute;" onchange="cookieUpdateToggle('mkt',this.checked)">
+            <span id="tog-mkt-bg" style="position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:22px;transition:background 0.25s;"></span>
+            <span id="tog-mkt-dot" style="position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.25s;"></span>
+          </label>
+        </div>
+
+      </div>
+      <div style="display:flex;justify-content:flex-end;">
+        <button onclick="cookieSaveChoices()" style="background:#D4AF37;color:#0d141a;font-size:0.74rem;font-weight:700;letter-spacing:0.06em;padding:9px 22px;border-radius:4px;cursor:pointer;border:none;font-family:'Poppins',sans-serif;">Enregistrer mes choix</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var COOKIE_KEY='mdc_cookie_consent';
+  var EXPIRY_DAYS=396;
+
+  function getCookie(){try{var v=localStorage.getItem(COOKIE_KEY);if(!v)return null;var d=JSON.parse(v);if(Date.now()>d.expires){localStorage.removeItem(COOKIE_KEY);return null;}return d;}catch(e){return null;}}
+  function setCookie(prefs){var d={prefs:prefs,expires:Date.now()+EXPIRY_DAYS*24*60*60*1000};localStorage.setItem(COOKIE_KEY,JSON.stringify(d));}
+  function hideBanner(){document.getElementById('cookie-banner').style.display='none';}
+  function showBanner(){document.getElementById('cookie-banner').style.display='block';}
+
+  window.cookieAcceptAll=function(){setCookie({technical:true,functional:true,marketing:true});hideBanner();}
+  window.cookieRefuse=function(){setCookie({technical:true,functional:false,marketing:false});hideBanner();}
+  window.cookieTogglePanel=function(){
+    var p=document.getElementById('cookie-panel');
+    var btn=document.getElementById('cookie-btn-custom');
+    var open=p.style.display==='block';
+    p.style.display=open?'none':'block';
+    btn.textContent=open?'Personnaliser ▼':'Fermer ▲';
+  }
+  window.cookieUpdateToggle=function(id,checked){
+    var bg=document.getElementById('tog-'+id+'-bg');
+    var dot=document.getElementById('tog-'+id+'-dot');
+    bg.style.background=checked?'#D4AF37':'rgba(255,255,255,0.12)';
+    dot.style.transform=checked?'translateX(16px)':'translateX(0)';
+  }
+  window.cookieSaveChoices=function(){
+    var func=document.getElementById('tog-func').checked;
+    var mkt=document.getElementById('tog-mkt').checked;
+    setCookie({technical:true,functional:func,marketing:mkt});
+    hideBanner();
+  }
+  window.cookieReopenBanner=function(){
+    document.getElementById('cookie-panel').style.display='none';
+    document.getElementById('cookie-btn-custom').textContent='Personnaliser ▼';
+    showBanner();
+  }
+
+  var existing=getCookie();
+  if(!existing){showBanner();}
+})();
+</script>
+<!-- FIN BANDEAU COOKIES -->
 
 </body>
 </html>
