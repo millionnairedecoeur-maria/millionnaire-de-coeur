@@ -383,7 +383,6 @@
             <input type="hidden" name="subject" value="Nouveau message – Millionnaire de Cœur" />
             <input type="hidden" name="from_name" value="Site Millionnaire de Cœur" />
             <input type="hidden" name="redirect" value="false" />
-            <input type="checkbox" name="botcheck" style="display:none;" />
 
             <div class="form-group">
               <label for="name">Nom complet</label>
@@ -397,6 +396,9 @@
               <label for="message">Message *</label>
               <textarea id="message" name="message" placeholder="Votre message…" required></textarea>
             </div>
+
+            <!-- Honeypot anti-spam : invisible pour humains, visible pour bots -->
+            <input type="text" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
 
             <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;margin-top:4px;">
               <input type="checkbox" id="rgpd" name="rgpd" required style="margin-top:4px;accent-color:#D4AF37;width:16px;height:16px;flex-shrink:0;cursor:pointer;" />
