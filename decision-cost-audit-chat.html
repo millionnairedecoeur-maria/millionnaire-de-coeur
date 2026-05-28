@@ -787,8 +787,9 @@ async function callScript(action, params) {
   const body = JSON.stringify({ action, ...params });
   const res  = await fetch(APPS_SCRIPT_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body
+    headers: { 'Content-Type': 'text/plain' },
+    body,
+    redirect: 'follow'
   });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
