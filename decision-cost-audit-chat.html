@@ -632,7 +632,7 @@
 // ════════════════════════════════════════
 // CONFIGURATION — À METTRE À JOUR APRÈS DÉPLOIEMENT DU APPS SCRIPT
 // ════════════════════════════════════════
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwoHI-3Fzx2CuX7bxYh_X3OD96SB2lxre6bpCg4L64w53sdxOMBajADea_8IpIuM1DUoQ/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPXSXAXEDEMqZfLPEJK5zh9n7ZaU1O4T2EYpqmGFySSn2vIoc_UQ5O3b9uCP3sJUsl/exec';
 // Exemple : 'https://script.google.com/macros/s/XXXXX/exec'
 
 const BETA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScy90Ci82o4u2AzB66JZ9SaeiXCzqiLJv-Q14KZ_M1a2_AIUw/viewform';
@@ -784,13 +784,9 @@ async function sendToAI(userText) {
 // APPEL AU APPS SCRIPT
 // ════════════════════════════════════════
 async function callScript(action, params) {
-  const body = JSON.stringify({ action, ...params });
-  const res  = await fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain' },
-    body,
-    redirect: 'follow'
-  });
+  const payload = encodeURIComponent(JSON.stringify({ action, ...params }));
+  const url = APPS_SCRIPT_URL + '?payload=' + payload;
+  const res = await fetch(url, { redirect: 'follow' });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
