@@ -786,7 +786,7 @@ async function sendToAI(userText) {
 async function callScript(action, params) {
   const payload = encodeURIComponent(JSON.stringify({ action, ...params }));
   const url = APPS_SCRIPT_URL + '?payload=' + payload;
-  const res = await fetch(url, { redirect: 'follow' });
+  const res = await fetch(url, { redirect: 'follow', credentials: 'omit' });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
