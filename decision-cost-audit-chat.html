@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decision Cost Audit AI — Maria | Millionnaire de Cœur</title>
+  <meta name="description" content="Outil de clarification décisionnelle par Maria Francheteau. Identifiez le coût invisible de vos indécisions." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="/fonts/poppins.css" />
+  <style>
+    /* ═══ RESET ═══ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #0d141a;
+      --bg2:      #111c24;
+      --gold:     #D4AF37;
+      --gold-dim: rgba(212,175,55,0.18);
+      --gold-glow:rgba(212,175,55,0.45);
+      --white:    #ffffff;
+      --grey:     rgba(255,255,255,0.55);
+      --radius:   16px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes fadeIn   { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes pulse    { 0%,100%{opacity:.4;} 50%{opacity:1;} }
+    @keyframes spin     { to { transform:rotate(360deg); } }
+    @keyframes shimmer  { 0%{background-position:-200% center;} 100%{background-position:200% center;} }
+    @keyframes dotDot   { 0%,80%,100%{transform:scale(0);opacity:.3;} 40%{transform:scale(1);opacity:1;} }
+    @keyframes scanLine { 0%{left:-150px;opacity:0;} 50%{opacity:.6;} 100%{left:110%;opacity:0;} }
+
+    /* ═══════════════════════════════════════════
+       ÉCRAN 1 — ACCÈS
+    ═══════════════════════════════════════════ */
+    #screen-access {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.06) 0%, transparent 65%);
+    }
+
+    .access-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--bg2);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 24px;
+      padding: 48px 40px;
+      animation: fadeIn .6s ease both;
+      box-shadow: 0 0 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .access-card::before {
+      content:'';
+      position:absolute;
+      top:0; left:-150px;
+      width:120px; height:100%;
+      background: rgba(212,175,55,0.12);
+      filter:blur(40px);
+      animation: scanLine 6s 1.5s infinite ease-in-out;
+      pointer-events:none;
+    }
+
+    .access-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      justify-content: center;
+    }
+    .access-logo img {
+      width: 40px; height: 40px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 8px var(--gold-glow));
+    }
+    .access-logo-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .access-title {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .access-title h1 {
+      font-size: clamp(18px, 4vw, 22px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #fff 30%, #D4AF37 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .access-title .maria-name {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      -webkit-text-fill-color: var(--gold);
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
+
+    .access-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+      margin: 0 auto 28px;
+      width: 80%;
+    }
+
+    .access-intro {
+      font-size: 13px;
+      color: var(--grey);
+      text-align: center;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .access-form { display: flex; flex-direction: column; gap: 14px; }
+
+    .access-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .access-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,175,55,0.22);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .access-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+    }
+    .access-input::placeholder { color: rgba(255,255,255,0.25); }
+
+    .access-btn {
+      width: 100%;
+      background: var(--gold);
+      color: #0d141a;
+      border: none;
+      border-radius: 40px;
+      padding: 15px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .25s;
+      margin-top: 6px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .access-btn:hover:not(:disabled) { background: #e8c84a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,175,55,0.3); }
+    .access-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .access-error {
+      font-size: 12px;
+      color: #e74c3c;
+      text-align: center;
+      display: none;
+      margin-top: 4px;
+    }
+
+    .access-footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.6;
+    }
+    .access-footer a { color: rgba(212,175,55,0.5); text-decoration: none; }
+    .access-footer a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════
+       BANNIÈRE BÊTA
+    ═══════════════════════════════════════════ */
+    #beta-banner {
+      display: none;
+      background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.06));
+      border: 1px solid rgba(212,175,55,0.35);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 0 16px 0;
+      animation: fadeIn .5s ease both;
+      position: relative;
+      z-index: 10;
+    }
+    .beta-banner-inner { max-width: 800px; margin: 0 auto; display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+    .beta-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .beta-text { flex: 1; min-width: 200px; }
+    .beta-text p { font-size: 13px; line-height: 1.6; color: var(--white); margin: 0 0 8px; }
+    .beta-text p:last-child { margin: 0; }
+    .beta-link {
+      display: inline-block;
+      background: var(--gold);
+      color: #0d141a;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 7px 16px;
+      border-radius: 20px;
+      transition: background .2s;
+    }
+    .beta-link:hover { background: #e8c84a; }
+    #beta-close {
+      background: none; border: none; color: var(--grey); cursor: pointer;
+      font-size: 18px; line-height: 1; padding: 2px 6px; flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       ÉCRAN 2 — INTERFACE DE L'OUTIL
+    ═══════════════════════════════════════════ */
+    #screen-chat {
+      display: none;
+      flex-direction: column;
+      height: 100vh;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    .chat-header {
+      flex-shrink: 0;
+      background: rgba(13,20,26,0.97);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .chat-header-left { display: flex; align-items: center; gap: 12px; }
+    .chat-header-logo {
+      width: 34px; height: 34px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 6px var(--gold-glow));
+    }
+    .chat-header-title { line-height: 1.2; }
+    .chat-header-title .main { font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px; }
+    .chat-header-title .sub  { font-size: 11px; color: var(--gold); font-weight: 700; letter-spacing: 2px; }
+
+    .chat-header-right { display: flex; align-items: center; gap: 12px; }
+
+    .days-badge {
+      background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+
+    .btn-logout {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--grey);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: all .2s;
+    }
+    .btn-logout:hover { border-color: rgba(212,175,55,0.3); color: var(--gold); }
+
+    /* ── Messages ── */
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      scroll-behavior: smooth;
+    }
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.2); border-radius: 4px; }
+
+    .msg {
+      display: flex;
+      gap: 10px;
+      animation: fadeIn .35s ease both;
+      max-width: 82%;
+    }
+    .msg.user { align-self: flex-end; flex-direction: row-reverse; }
+    .msg.ai   { align-self: flex-start; }
+
+    .msg-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .msg.ai   .msg-avatar { background: rgba(212,175,55,0.18); color: var(--gold); border: 1px solid rgba(212,175,55,0.3); }
+    .msg.user .msg-avatar { background: rgba(255,255,255,0.08); color: var(--grey); border: 1px solid rgba(255,255,255,0.1); }
+
+    .msg-bubble {
+      padding: 13px 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .msg.ai   .msg-bubble {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-bottom-left-radius: 4px;
+      color: var(--white);
+    }
+    .msg.user .msg-bubble {
+      background: rgba(212,175,55,0.14);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-bottom-right-radius: 4px;
+      color: var(--white);
+    }
+
+    /* Typing indicator */
+    .typing-dots {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: var(--radius);
+      border-bottom-left-radius: 4px;
+    }
+    .typing-dots span {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: dotDot 1.4s infinite ease-in-out;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .typing-dots span:nth-child(3) { animation-delay: .4s; }
+
+    /* ── Input zone ── */
+    .chat-input-area {
+      flex-shrink: 0;
+      padding: 16px 20px 20px;
+      border-top: 1px solid rgba(212,175,55,0.1);
+      background: rgba(13,20,26,0.97);
+    }
+    .chat-input-inner {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    #chat-input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      resize: none;
+      outline: none;
+      min-height: 48px;
+      max-height: 160px;
+      overflow-y: auto;
+      transition: border-color .2s, box-shadow .2s;
+      line-height: 1.5;
+    }
+    #chat-input:focus {
+      border-color: rgba(212,175,55,0.45);
+      box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+    }
+    #chat-input::placeholder { color: rgba(255,255,255,0.22); }
+    #send-btn {
+      background: var(--gold);
+      color: #0d141a;
+      border: none;
+      border-radius: 12px;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all .2s;
+    }
+    #send-btn:hover:not(:disabled) { background: #e8c84a; transform: scale(1.05); }
+    #send-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+    #send-btn svg { width: 18px; height: 18px; }
+
+    .chat-disclaimer {
+      text-align: center;
+      font-size: 10px;
+      color: rgba(255,255,255,0.18);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* ═══ ÉCRAN EXPIRÉ ═══ */
+    #screen-expired {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .expired-card {
+      max-width: 420px;
+      animation: fadeIn .5s ease both;
+    }
+    .expired-card h2 { font-size: 22px; font-weight: 900; margin-bottom: 12px; }
+    .expired-card p  { color: var(--grey); font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+    .expired-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #0d141a;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      transition: background .2s;
+    }
+    .expired-btn:hover { background: #e8c84a; }
+
+    /* ═══ LOADING SPINNER ═══ */
+    #loading-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(13,20,26,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .spinner {
+      width: 40px; height: 40px;
+      border: 3px solid rgba(212,175,55,0.2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 600px) {
+      .access-card { padding: 36px 24px; }
+      .msg { max-width: 93%; }
+      .chat-header { padding: 0 14px; }
+      .chat-messages { padding: 16px 14px; }
+      .chat-input-area { padding: 12px 14px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     LOADING OVERLAY
+════════════════════════════════════════ -->
+<div id="loading-overlay"><div class="spinner"></div></div>
+
+<!-- ════════════════════════════════════════
+     ÉCRAN 1 — ACCÈS
+════════════════════════════════════════ -->
+<div id="screen-access">
+  <div class="access-card">
+    <div class="access-logo">
+      <img src="/images/logo-coeur.png" alt="MDC" onerror="this.style.display='none'" />
+      <span class="access-logo-text">Millionnaire de Cœur</span>
+    </div>
+
+    <div class="access-title">
+      <h1>Decision Cost Audit AI</h1>
+      <span class="maria-name">— Maria</span>
+    </div>
+
+    <div class="access-divider"></div>
+
+    <p class="access-intro">
+      Entrez votre email et votre code d'accès personnel<br>pour accéder à l'outil.
+    </p>
+
+    <form class="access-form" onsubmit="handleAccessSubmit(event)">
+      <div>
+        <label class="access-label" for="input-email">Votre email</label>
+        <input
+          id="input-email"
+          class="access-input"
+          type="email"
+          placeholder="votre@email.com"
+          autocomplete="email"
+          required
+        />
+      </div>
+      <div>
+        <label class="access-label" for="input-code">Votre code d'accès</label>
+        <input
+          id="input-code"
+          class="access-input"
+          type="text"
+          placeholder="MC-DCA-XXXX"
+          autocomplete="off"
+          autocapitalize="characters"
+          spellcheck="false"
+          required
+        />
+      </div>
+      <p id="access-error" class="access-error"></p>
+      <button type="submit" id="access-btn" class="access-btn">Accéder →</button>
+    </form>
+
+    <p class="access-footer">
+      Pas encore d'accès ? <a href="/entrepreneurs-decision-cost-audit-ai.html">Découvrir l'outil</a><br>
+      <a href="/precisions.html">Précisions & cadre éthique</a>
+    </p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     BANNIÈRE BÊTA (conditionnelle)
+════════════════════════════════════════ -->
+<div id="beta-banner">
+  <div class="beta-banner-inner">
+    <span class="beta-icon">🤝</span>
+    <div class="beta-text">
+      <p><strong>Accès bêta gratuit activé.</strong> En échange, comme convenu avec Maria, merci de remplir le formulaire de feedback et de rédiger un témoignage écrit sur votre expérience — envoyés par mail/WhatsApp à la fin de votre période.</p>
+      <a id="beta-form-link" href="#" target="_blank" class="beta-link">→ Formulaire feedback</a>
+    </div>
+    <button id="beta-close" onclick="closeBetaBanner()" title="Fermer">✕</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     ÉCRAN 2 — INTERFACE DE L'OUTIL
+════════════════════════════════════════ -->
+<div id="screen-chat" style="display:none; flex-direction:column; height:100vh;">
+
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <img src="/images/logo-coeur.png" class="chat-header-logo" alt="MDC" onerror="this.style.display='none'" />
+      <div class="chat-header-title">
+        <div class="main">Decision Cost Audit AI</div>
+        <div class="sub">— Maria</div>
+      </div>
+    </div>
+    <div class="chat-header-right">
+      <div class="days-badge" id="days-badge">Accès actif</div>
+      <button class="btn-logout" onclick="handleLogout()">Déconnexion</button>
+    </div>
+  </div>
+
+  <div class="chat-messages" id="chat-messages"></div>
+
+  <div class="chat-input-area">
+    <div class="chat-input-inner">
+      <textarea
+        id="chat-input"
+        placeholder="Écrivez votre message…"
+        rows="1"
+        onkeydown="handleInputKeydown(event)"
+        oninput="autoResize(this)"
+      ></textarea>
+      <button id="send-btn" onclick="sendMessage()" title="Envoyer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+    <p class="chat-disclaimer">Cet outil est un support de clarification uniquement. Maria Francheteau ne décide pas à votre place et n'est pas responsable de vos choix ou de leurs conséquences.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     ÉCRAN EXPIRÉ
+════════════════════════════════════════ -->
+<div id="screen-expired" style="display:none; min-height:100vh; align-items:center; justify-content:center; padding:32px 20px; text-align:center;">
+  <div class="expired-card">
+    <p style="font-size:40px; margin-bottom:16px;">⏱</p>
+    <h2>Votre accès est arrivé à son terme.</h2>
+    <p>Votre période d'accès est clôturée automatiquement.<br>Pour renouveler ou choisir un nouveau pass, rendez-vous sur la page de l'outil.</p>
+    <a href="/entrepreneurs-decision-cost-audit-ai.html" class="expired-btn">Voir les accès disponibles →</a>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════
+// CONFIGURATION — À METTRE À JOUR APRÈS DÉPLOIEMENT DU APPS SCRIPT
+// ════════════════════════════════════════
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzX0MH9wK5itqKXyLTen_a-XwBkrrZui1piAw3coQ2vRu7CxPonI3f3o06zcBj_qDV3Hw/exec';
+// Exemple : 'https://script.google.com/macros/s/XXXXX/exec'
+
+const BETA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScy90Ci82o4u2AzB66JZ9SaeiXCzqiLJv-Q14KZ_M1a2_AIUw/viewform';
+
+// ════════════════════════════════════════
+// ÉTAT DE LA SESSION
+// ════════════════════════════════════════
+let SESSION = {
+  email: '',
+  code:  '',
+  type:  '',
+  daysLeft: 0,
+  isBeta: false
+};
+
+let conversationHistory = [];
+let isWaiting = false;
+
+// ════════════════════════════════════════
+// ACCÈS — SOUMISSION DU FORMULAIRE
+// ════════════════════════════════════════
+async function handleAccessSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('input-email').value.trim();
+  const code  = document.getElementById('input-code').value.trim().toUpperCase();
+  const btn   = document.getElementById('access-btn');
+  const err   = document.getElementById('access-error');
+
+  err.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Vérification…';
+  showLoading(true);
+
+  try {
+    const res = await callScript('validate', { email, code });
+
+    if (res.valid) {
+      SESSION = { email, code, type: res.type, daysLeft: res.daysLeft, isBeta: res.isBeta };
+
+      // Afficher bannière bêta si première activation beta
+      if (res.isBeta && res.firstActivation) {
+        document.getElementById('beta-form-link').href = BETA_FORM_URL;
+        document.getElementById('beta-banner').style.display = 'block';
+      }
+
+      // Badge jours restants
+      updateDaysBadge(res.daysLeft, res.type);
+
+      // Afficher l'outil
+      document.getElementById('screen-access').style.display = 'none';
+      const chatScreen = document.getElementById('screen-chat');
+      chatScreen.style.display = 'flex';
+
+      showLoading(false);
+
+      // Démarrer la conversation — STEP 0
+      await startConversation();
+
+    } else {
+      showLoading(false);
+      if (res.reason === 'expired') {
+        document.getElementById('screen-access').style.display = 'none';
+        document.getElementById('screen-expired').style.display = 'flex';
+      } else {
+        err.textContent = 'Code invalide ou non reconnu. Vérifiez votre code et réessayez.';
+        err.style.display = 'block';
+      }
+      btn.disabled = false;
+      btn.textContent = 'Accéder →';
+    }
+  } catch (ex) {
+    showLoading(false);
+    err.textContent = 'Erreur de connexion. Veuillez réessayer dans un instant.';
+    err.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Accéder →';
+    console.error(ex);
+  }
+}
+
+// ════════════════════════════════════════
+// DÉMARRAGE DE LA CONVERSATION
+// ════════════════════════════════════════
+async function startConversation() {
+  conversationHistory = [];
+  // Envoyer un premier message système pour déclencher STEP 0
+  await sendToAI('Commencer ici');
+}
+
+// ════════════════════════════════════════
+// ENVOI D'UN MESSAGE
+// ════════════════════════════════════════
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text  = input.value.trim();
+  if (!text || isWaiting) return;
+
+  input.value = '';
+  autoResize(input);
+  input.focus();
+
+  appendMessage('user', text);
+  conversationHistory.push({ role: 'user', content: text });
+
+  await sendToAI(text);
+}
+
+async function sendToAI(userText) {
+  isWaiting = true;
+  document.getElementById('send-btn').disabled = true;
+
+  showTyping(true);
+
+  try {
+    const res = await callScript('chat', {
+      email:    SESSION.email,
+      code:     SESSION.code,
+      messages: conversationHistory
+    });
+
+    showTyping(false);
+
+    if (res.error === 'access_denied') {
+      document.getElementById('screen-chat').style.display = 'none';
+      document.getElementById('screen-expired').style.display = 'flex';
+      return;
+    }
+
+    const aiText = res.response || 'Je rencontre une difficulté technique. Veuillez réessayer.';
+    appendMessage('ai', aiText);
+    conversationHistory.push({ role: 'assistant', content: aiText });
+
+    if (res.daysLeft !== undefined) {
+      SESSION.daysLeft = res.daysLeft;
+      updateDaysBadge(res.daysLeft, SESSION.type);
+    }
+
+  } catch (ex) {
+    showTyping(false);
+    appendMessage('ai', 'Connexion momentanément interrompue. Veuillez réessayer.');
+    console.error(ex);
+  }
+
+  isWaiting = false;
+  document.getElementById('send-btn').disabled = false;
+}
+
+// ════════════════════════════════════════
+// APPEL AU APPS SCRIPT
+// ════════════════════════════════════════
+async function callScript(action, params) {
+  const body = JSON.stringify({ action, ...params });
+  const res  = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body
+  });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return res.json();
+}
+
+// ════════════════════════════════════════
+// AFFICHAGE DES MESSAGES
+// ════════════════════════════════════════
+function appendMessage(role, text) {
+  const container = document.getElementById('chat-messages');
+  const isUser = role === 'user';
+
+  const msgDiv = document.createElement('div');
+  msgDiv.className = 'msg ' + (isUser ? 'user' : 'ai');
+
+  const avatar = document.createElement('div');
+  avatar.className = 'msg-avatar';
+  avatar.textContent = isUser ? 'V' : 'M';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.textContent = text;
+
+  msgDiv.appendChild(avatar);
+  msgDiv.appendChild(bubble);
+  container.appendChild(msgDiv);
+  scrollToBottom();
+}
+
+function showTyping(show) {
+  const container = document.getElementById('chat-messages');
+  const existing  = document.getElementById('typing-indicator');
+  if (show && !existing) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'msg ai';
+    msgDiv.id = 'typing-indicator';
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.textContent = 'M';
+    const dots = document.createElement('div');
+    dots.className = 'typing-dots';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+    msgDiv.appendChild(avatar);
+    msgDiv.appendChild(dots);
+    container.appendChild(msgDiv);
+    scrollToBottom();
+  } else if (!show && existing) {
+    existing.remove();
+  }
+}
+
+function scrollToBottom() {
+  const c = document.getElementById('chat-messages');
+  c.scrollTop = c.scrollHeight;
+}
+
+// ════════════════════════════════════════
+// BADGE JOURS
+// ════════════════════════════════════════
+function updateDaysBadge(daysLeft, type) {
+  const badge = document.getElementById('days-badge');
+  if (!badge) return;
+  if (type === 'admin') { badge.textContent = 'Accès admin'; return; }
+  if (daysLeft >= 360) { badge.textContent = 'Pass 12 mois'; return; }
+  if (daysLeft >= 170) { badge.textContent = 'Pass 6 mois'; return; }
+  const word = daysLeft <= 1 ? 'jour' : 'jours';
+  badge.textContent = daysLeft + ' ' + word + ' restant' + (daysLeft > 1 ? 's' : '');
+  if (daysLeft <= 2) badge.style.color = '#e74c3c';
+}
+
+// ════════════════════════════════════════
+// UTILITAIRES UI
+// ════════════════════════════════════════
+function handleInputKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+}
+
+function showLoading(show) {
+  document.getElementById('loading-overlay').style.display = show ? 'flex' : 'none';
+}
+
+function closeBetaBanner() {
+  document.getElementById('beta-banner').style.display = 'none';
+}
+
+function handleLogout() {
+  SESSION = { email:'', code:'', type:'', daysLeft:0, isBeta:false };
+  conversationHistory = [];
+  document.getElementById('screen-chat').style.display = 'none';
+  document.getElementById('screen-access').style.display = 'flex';
+  document.getElementById('input-email').value = '';
+  document.getElementById('input-code').value  = '';
+  document.getElementById('access-btn').disabled = false;
+  document.getElementById('access-btn').textContent = 'Accéder →';
+  document.getElementById('access-error').style.display = 'none';
+  document.getElementById('beta-banner').style.display = 'none';
+  document.getElementById('chat-messages').innerHTML = '';
+}
+
+// Auto-focus email au chargement
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('input-email').focus();
+});
+</script>
+</body>
+</html>
