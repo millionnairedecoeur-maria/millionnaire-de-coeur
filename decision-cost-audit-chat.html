@@ -784,9 +784,14 @@ async function sendToAI(userText) {
 // APPEL AU APPS SCRIPT
 // ════════════════════════════════════════
 async function callScript(action, params) {
-  const payload = encodeURIComponent(JSON.stringify({ action, ...params }));
-  const url = APPS_SCRIPT_URL + '?payload=' + payload;
-  const res = await fetch(url, { redirect: 'follow', credentials: 'omit' });
+  const body = JSON.stringify({ action, ...params });
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body,
+    redirect: 'follow',
+    credentials: 'omit'
+  });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
