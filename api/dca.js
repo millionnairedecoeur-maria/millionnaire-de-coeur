@@ -1,14 +1,12 @@
 // ═══════════════════════════════════════════════════════════════
 // DECISION COST AUDIT AI — Vercel Proxy
 // MDC — Millionnaire de Cœur — Maria Francheteau
-// Ce fichier fait le pont entre le site et Google Apps Script
-// sans aucun problème de CORS.
+// Reçoit POST du browser (sans CORS), appelle Apps Script en GET
 // ═══════════════════════════════════════════════════════════════
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRpr8zQbTDVAD1HsDnxcospfXSCj6ENjsvwbP2zBnHgZe3ZmVHEVmPuxsLn62glx_tYg/exec';
 
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -22,10 +20,14 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(req.body)
+    // Appel Apps Script en GET avec ?payload= pour éviter les problèmes
+    // de redirection POST (Google redirige les POST → perd le body)
+    const payload = encodeURIComponent(JSON.stringify(req.body));
+    const url = APPS_SCRIPT_URL + '?payload=' + payload;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      redirect: 'follow'
     });
 
     const text = await response.text();

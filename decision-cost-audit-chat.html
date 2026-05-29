@@ -746,8 +746,8 @@ async function sendToAI(userText) {
 
   showTyping(true);
 
-  // S'assurer que le message utilisateur est dans l'historique avant l'appel
-  // (nécessaire pour que Groq reçoive toujours user en premier)
+  // Construire l'historique à envoyer — toujours commencer par un message user
+  // pour respecter le format Groq (system → user → assistant → user...)
   const historyToSend = [...conversationHistory];
   if (historyToSend.length === 0 || historyToSend[historyToSend.length - 1].role !== 'user') {
     historyToSend.push({ role: 'user', content: userText });
@@ -770,9 +770,7 @@ async function sendToAI(userText) {
 
     const aiText = res.response || 'Je rencontre une difficulté technique. Veuillez réessayer.';
     appendMessage('ai', aiText);
-    // Mettre à jour l'historique avec le message user + réponse IA
-    conversationHistory = historyToSend;
-    conversationHistory.push({ role: 'assistant', content: aiText });
+    conversationHistory = [...historyToSend, { role: 'assistant', content: aiText }];
 
     if (res.daysLeft !== undefined) {
       SESSION.daysLeft = res.daysLeft;
