@@ -746,11 +746,18 @@ async function sendToAI(userText) {
 
   showTyping(true);
 
+  // S'assurer que le message utilisateur est dans l'historique avant l'appel
+  // (nécessaire pour que Groq reçoive toujours user en premier)
+  const historyToSend = [...conversationHistory];
+  if (historyToSend.length === 0 || historyToSend[historyToSend.length - 1].role !== 'user') {
+    historyToSend.push({ role: 'user', content: userText });
+  }
+
   try {
     const res = await callScript('chat', {
       email:    SESSION.email,
       code:     SESSION.code,
-      messages: conversationHistory
+      messages: historyToSend
     });
 
     showTyping(false);
@@ -763,6 +770,8 @@ async function sendToAI(userText) {
 
     const aiText = res.response || 'Je rencontre une difficulté technique. Veuillez réessayer.';
     appendMessage('ai', aiText);
+    // Mettre à jour l'historique avec le message user + réponse IA
+    conversationHistory = historyToSend;
     conversationHistory.push({ role: 'assistant', content: aiText });
 
     if (res.daysLeft !== undefined) {
