@@ -7,7 +7,7 @@
 // ═══════════════════════════════════════════════════════════════
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRpr8zQbTDVAD1HsDnxcospfXSCj6ENjsvwbP2zBnHgZe3ZmVHEVmPuxsLn62glx_tYg/exec';
-const GROQ_API_KEY    = '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';
+const GROQ_API_KEY    = process.env.GROQ_API_KEY;
 const GROQ_URL        = 'https://api.groq.com/openai/v1/chat/completions';
 const GROQ_MODEL      = 'llama-3.3-70b-versatile';
 
