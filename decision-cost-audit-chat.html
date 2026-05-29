@@ -632,7 +632,7 @@
 // ════════════════════════════════════════
 // CONFIGURATION — À METTRE À JOUR APRÈS DÉPLOIEMENT DU APPS SCRIPT
 // ════════════════════════════════════════
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRpr8zQbTDVAD1HsDnxcospfXSCj6ENjsvwbP2zBnHgZe3ZmVHEVmPuxsLn62glx_tYg/exec';
+const APPS_SCRIPT_URL = '/api/dca';
 // Exemple : 'https://script.google.com/macros/s/XXXXX/exec'
 
 const BETA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScy90Ci82o4u2AzB66JZ9SaeiXCzqiLJv-Q14KZ_M1a2_AIUw/viewform';
@@ -781,16 +781,14 @@ async function sendToAI(userText) {
 }
 
 // ════════════════════════════════════════
-// APPEL AU APPS SCRIPT
+// APPEL AU PROXY VERCEL (sans CORS)
 // ════════════════════════════════════════
 async function callScript(action, params) {
-  // Limiter l'historique à 10 messages pour éviter URLs trop longues
-  if (params.messages && params.messages.length > 10) {
-    params = { ...params, messages: params.messages.slice(-10) };
-  }
-  const payload = encodeURIComponent(JSON.stringify({ action, ...params }));
-  const url = APPS_SCRIPT_URL + '?payload=' + payload;
-  const res = await fetch(url, { redirect: 'follow', credentials: 'omit' });
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, ...params })
+  });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
