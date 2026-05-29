@@ -632,10 +632,46 @@
 // ════════════════════════════════════════
 // CONFIGURATION — À METTRE À JOUR APRÈS DÉPLOIEMENT DU APPS SCRIPT
 // ════════════════════════════════════════
-const APPS_SCRIPT_URL = '/api/dca';
-// Exemple : 'https://script.google.com/macros/s/XXXXX/exec'
+// Validation des codes → Apps Script (GET, fiable)
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRpr8zQbTDVAD1HsDnxcospfXSCj6ENjsvwbP2zBnHgZe3ZmVHEVmPuxsLn62glx_tYg/exec';
+// Chat → Groq directement depuis le navigateur
+const GROQ_API_KEY = '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';
+const GROQ_URL     = 'https://api.groq.com/openai/v1/chat/completions';
 
 const BETA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScy90Ci82o4u2AzB66JZ9SaeiXCzqiLJv-Q14KZ_M1a2_AIUw/viewform';
+
+const SYSTEM_PROMPT = `You are DECISION COST AUDIT AI — Maria, a calm, warm, clear, highly structured sovereign decision-audit assistant created by Maria Francheteau (Millionnaire de Cœur).
+
+Your role is to help the user:
+- identify the real decision they are delaying
+- reveal the visible and hidden layers beneath indecision
+- estimate the real cost of keeping the decision open
+- clarify what is emotionally, energetically, practically, or strategically interfering
+- structure a grounded next step
+- close with a sovereign decision protocol
+
+This is a DAILY CLARITY SUPPORT TOOL — NOT a replacement for Maria's private consultations, quantum readings, or liberation work. NOT therapeutic, medical, legal, financial, or political advice.
+
+CORE IDENTITY: calm, warm, respectful, professional, clear, precise, emotionally intelligent, grounded, structured. Always use "vous" in French. Always respectful in English.
+
+CRITICAL — AUTHENTICATION ALREADY DONE: The user has already been authenticated. NEVER ask for a code. NEVER mention code formats or prefixes.
+
+AGE RESTRICTION: Before any meaningful audit, ask for first name/anonymity and date of birth. Refuse if under 18.
+
+CONVERSATION START — STEP 0: "Avant de commencer : je ne décide pas à votre place. Cet outil est un support de clarification et d'audit du coût de l'indécision. Il ne remplace pas une consultation privée avec Maria. Il ne traite pas les sujets médicaux, juridiques, financiers ou politiques. Vous restez entièrement responsable de vos choix, de vos décisions, de vos actions et de leurs conséquences."
+Then ask: "Souhaitez-vous que j'utilise votre prénom ou préférez-vous rester anonyme ? A) Prénom  B) Anonyme"
+Then ask date of birth. Then proceed to audit.
+
+NON-NEGOTIABLE: Never decide for the user. No legal/financial/medical/psychological advice. Maria Francheteau is not responsible for any consequence.
+
+PROHIBITED DOMAINS: Medical | Psychological/psychiatric | Death/suicide/self-harm | Violence | Sexual | Trauma/abuse | Minors | Illegal acts | Drugs | Weapons | Politics | Occult rituals
+Refusal FR: "Je n'ai pas le droit de répondre à ça. Veuillez vous adresser à un médecin, un professionnel de santé ou les autorités compétentes."
+
+AUDIT FLOW (one question at a time): Decision context → One decision → Impacted domains → Time + stakes → Emotional heatmap → Body signals → Branching → Pattern signals → Pattern reveal → Cost inputs → Full cost receipt + decision protocol.
+
+ALWAYS END: User is 100% responsible. Maria Francheteau not responsible. No professional advice. This tool does not replace a private session with Maria.
+
+LANGUAGE: Detect from first message. French → French. English → English.`;
 
 // ════════════════════════════════════════
 // ÉTAT DE LA SESSION
@@ -746,18 +782,11 @@ async function sendToAI(userText) {
 
   showTyping(true);
 
-  // Construire l'historique à envoyer — toujours commencer par un message user
-  // pour respecter le format Groq (system → user → assistant → user...)
-  const historyToSend = [...conversationHistory];
-  if (historyToSend.length === 0 || historyToSend[historyToSend.length - 1].role !== 'user') {
-    historyToSend.push({ role: 'user', content: userText });
-  }
-
   try {
     const res = await callScript('chat', {
       email:    SESSION.email,
       code:     SESSION.code,
-      messages: historyToSend
+      messages: conversationHistory
     });
 
     showTyping(false);
@@ -770,7 +799,7 @@ async function sendToAI(userText) {
 
     const aiText = res.response || 'Je rencontre une difficulté technique. Veuillez réessayer.';
     appendMessage('ai', aiText);
-    conversationHistory = [...historyToSend, { role: 'assistant', content: aiText }];
+    conversationHistory.push({ role: 'assistant', content: aiText });
 
     if (res.daysLeft !== undefined) {
       SESSION.daysLeft = res.daysLeft;
@@ -788,16 +817,54 @@ async function sendToAI(userText) {
 }
 
 // ════════════════════════════════════════
-// APPEL AU PROXY VERCEL (sans CORS)
+// VALIDATION → Apps Script GET (fiable)
+// CHAT → Groq direct depuis le navigateur
 // ════════════════════════════════════════
 async function callScript(action, params) {
-  const res = await fetch(APPS_SCRIPT_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ action, ...params })
-  });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  return res.json();
+  if (action === 'validate') {
+    // Validation via Apps Script GET — court, fiable
+    const payload = encodeURIComponent(JSON.stringify({ action, ...params }));
+    const res = await fetch(APPS_SCRIPT_URL + '?payload=' + payload, { redirect: 'follow' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+
+  if (action === 'chat') {
+    // Groq directement — pas de proxy, pas de CORS
+    const { messages } = params;
+
+    const groqMessages = [{ role: 'system', content: SYSTEM_PROMPT }];
+    if (messages && messages.length > 0) {
+      const filtered = [...messages];
+      while (filtered.length > 0 && filtered[0].role !== 'user') filtered.shift();
+      groqMessages.push(...filtered.map(m => ({
+        role: m.role === 'user' ? 'user' : 'assistant',
+        content: m.content
+      })));
+    }
+    if (groqMessages.length === 1) {
+      groqMessages.push({ role: 'user', content: 'Commencer' });
+    }
+
+    const res = await fetch(GROQ_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + GROQ_API_KEY
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: groqMessages,
+        temperature: 0.75,
+        max_tokens: 2048
+      })
+    });
+    const json = await res.json();
+    if (json.choices?.[0]?.message?.content) {
+      return { response: json.choices[0].message.content, daysLeft: SESSION.daysLeft };
+    }
+    throw new Error(json.error?.message || 'Groq error');
+  }
 }
 
 // ════════════════════════════════════════
