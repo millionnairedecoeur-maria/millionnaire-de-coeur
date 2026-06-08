@@ -276,6 +276,21 @@
   <div class="articles-section">
     <div class="articles-grid" id="articlesGrid">
 
+    <a href="la-permission-de-decider.html" class="article-card">
+      <img src="/images/lapermissiondedecider.jpg" alt="La Permission de Décider" class="article-card-img" loading="lazy" />
+      <div class="article-card-body">
+        <p class="article-card-category">Décision · Neurosciences</p>
+        <h2 class="article-card-title">La Permission de Décider</h2>
+        <div class="article-card-footer">
+          <div class="article-card-author">
+            <div class="author-initials">MF</div>
+            <span class="author-name">Maria Francheteau</span>
+          </div>
+          <span class="article-card-read">LIRE →</span>
+        </div>
+      </div>
+    </a>
+
     <a href="une-decision-souveraine.html" class="article-card">
       <img src="/images/unedecisionsouveraine.jpg" alt="Une décision souveraine vous remet sur votre trajectoire" class="article-card-img" loading="lazy" />
       <div class="article-card-body">
@@ -625,26 +640,4 @@
   window.cookieUpdateToggle=function(id,checked){
     var bg=document.getElementById('tog-'+id+'-bg');
     var dot=document.getElementById('tog-'+id+'-dot');
-    bg.style.background=checked?'#D4AF37':'rgba(255,255,255,0.12)';
-    dot.style.transform=checked?'translateX(16px)':'translateX(0)';
-  }
-  window.cookieSaveChoices=function(){
-    var func=document.getElementById('tog-func').checked;
-    var mkt=document.getElementById('tog-mkt').checked;
-    setCookie({technical:true,functional:func,marketing:mkt});
-    hideBanner();
-  }
-  window.cookieReopenBanner=function(){
-    document.getElementById('cookie-panel').style.display='none';
-    document.getElementById('cookie-btn-custom').textContent='Personnaliser ▼';
-    showBanner();
-  }
-
-  var existing=getCookie();
-  if(!existing){showBanner();}
-})();
-</script>
-<!-- FIN BANDEAU COOKIES -->
-
-</body>
-</html>
+    bg.style.background=c
