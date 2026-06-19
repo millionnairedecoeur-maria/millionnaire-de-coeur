@@ -789,6 +789,9 @@
   <!-- ═══════════════════════════════════════
        SECTION 4 — BIO MARIA
   ═══════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════
+       SECTION 4 — BIO MARIA
+  ═══════════════════════════════════════ -->
   <section class="bio-section" aria-labelledby="bio-name">
 
     <!-- Titre centré au-dessus des deux colonnes -->
@@ -799,8 +802,8 @@
 
     <div class="bio-inner">
 
-      <!-- Colonne gauche : texte -->
-      <div class="bio-text-col">
+      <!-- Colonne gauche : texte (50% de la largeur) -->
+      <div class="bio-text-col" style="flex:none;width:calc(50% - 30px);min-width:0;text-align:left;">
 
         <!-- Photo mobile uniquement -->
         <div class="bio-photo-mobile">
@@ -831,9 +834,9 @@
 
       </div>
 
-      <!-- Colonne droite : photo -->
-      <div class="bio-photo-col">
-        <img src="/maria-francheteau.jpg" alt="Maria Francheteau" loading="lazy" />
+      <!-- Colonne droite : photo (50% de la largeur) -->
+      <div class="bio-photo-col" style="flex:none;width:calc(50% - 30px);max-width:none;">
+        <img src="/maria-francheteau.jpg" alt="Maria Francheteau" loading="lazy" style="width:100%;max-width:460px;display:block;margin:0 auto;" />
       </div>
 
     </div>
