@@ -756,8 +756,11 @@
   cursor: pointer;
 }
 
-.carousel-ring:hover {
-  animation-play-state: paused;
+/* Pause au hover uniquement sur desktop (pas sur mobile/touch) */
+@media (hover: hover) {
+  .carousel-ring:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes spinRing {
@@ -1275,5 +1278,26 @@
 </script>
 <!-- FIN BANDEAU COOKIES -->
 
+<script id="carousel3d-js">
+(function() {
+  function restartCarousel() {
+    var ring = document.getElementById("carouselRing");
+    if (!ring) return;
+    ring.style.animationPlayState = "running";
+    // Force reflow pour relancer si bloquee
+    ring.style.animation = "none";
+    void ring.offsetWidth;
+    ring.style.animation = "";
+  }
+  // Au retour via bouton Retour (bfcache mobile)
+  window.addEventListener("pageshow", function(e) {
+    restartCarousel();
+  });
+  // Quand l onglet redevient visible
+  document.addEventListener("visibilitychange", function() {
+    if (!document.hidden) restartCarousel();
+  });
+})();
+</script>
 </body>
 </html>
