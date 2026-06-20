@@ -765,11 +765,12 @@
   backface-visibility: visible;
 }
 .c-card a { display: block; width: 100%; height: 100%; }
-.c-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-.c-card:hover { box-shadow: 0 0 0 2px rgba(212,175,55,0.9), 0 15px 60px rgba(212,175,55,0.35); }
-.c-card:hover img { transform: scale(1.04); }
+.c-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (hover: hover) {
+  .c-card:hover { box-shadow: 0 0 0 2px rgba(212,175,55,0.9), 0 15px 60px rgba(212,175,55,0.35); }
+}
 @media (max-width: 768px) {
-  .carousel-scene { perspective: 700px; perspective-origin: 50% 38%; padding: 30px 0 60px; overflow: hidden; }
+  .carousel-scene { perspective: 700px; padding: 30px 0 60px; overflow: hidden; }
   .carousel-ring { width: 220px; height: 170px; }
   .c-card { width: 220px; height: 170px; transform: rotateY(calc(var(--i) * 72deg)) translateZ(180px); border-radius: 4px; }
 }
@@ -1219,29 +1220,33 @@
 (function() {
   var angle = 0;
   var paused = false;
-  var speed = 0.35;
+  var speed = 0.09;
   var tilt = -8;
-  var ring;
+  var ring = null;
+  var isTouchDevice = ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
 
   function step() {
-    ring = ring || document.getElementById("carouselRing");
-    if (!ring) { requestAnimationFrame(step); return; }
-    if (!paused) {
+    if (!ring) ring = document.getElementById("carouselRing");
+    if (ring && !paused) {
       angle = (angle + speed) % 360;
       ring.style.transform = "rotateX(" + tilt + "deg) rotateY(" + angle + "deg)";
     }
     requestAnimationFrame(step);
   }
 
-  // Pause au hover sur desktop uniquement
+  // Pause hover uniquement sur desktop (pas tactile)
   document.addEventListener("DOMContentLoaded", function() {
     ring = document.getElementById("carouselRing");
-    if (!ring) return;
-    var isTouch = window.matchMedia("(hover: none)").matches;
-    if (!isTouch) {
+    if (ring && !isTouchDevice) {
       ring.addEventListener("mouseenter", function() { paused = true; });
       ring.addEventListener("mouseleave", function() { paused = false; });
     }
+  });
+
+  // Reset au retour arriere mobile (bfcache + visibilitychange)
+  window.addEventListener("pageshow", function() { paused = false; });
+  document.addEventListener("visibilitychange", function() {
+    if (!document.hidden) paused = false;
   });
 
   requestAnimationFrame(step);
