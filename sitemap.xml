@@ -133,6 +133,11 @@
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
+  <url>
+    <loc>https://www.millionnairedecoeur.com/le-cout-reel-de-lindecision-pour-les-entrepreneurs</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 
   <!-- Pages légales -->
   <url>
