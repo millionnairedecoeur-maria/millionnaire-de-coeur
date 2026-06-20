@@ -736,6 +736,109 @@
   animation: nebulaB 22s ease-in-out infinite alternate;
 }
 </style>
+<style id="carousel3d-css">
+/* â•â•â• CARROUSEL 3D OFFRES â•â•â• */
+.carousel-scene {
+  width: 100%;
+  perspective: 1200px;
+  perspective-origin: 50% 38%;
+  padding: 60px 0 100px;
+  overflow: visible;
+}
+
+.carousel-ring {
+  width: 360px;
+  height: 280px;
+  position: relative;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+  animation: spinRing 28s linear infinite;
+  cursor: pointer;
+}
+
+.carousel-ring:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spinRing {
+  from { transform: rotateX(-8deg) rotateY(0deg); }
+  to   { transform: rotateX(-8deg) rotateY(360deg); }
+}
+
+.c-card {
+  position: absolute;
+  width: 360px;
+  height: 270px;
+  left: 0; top: 0;
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(300px);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,0.25),
+    0 15px 50px rgba(0,0,0,0.6);
+  transition: box-shadow 0.3s;
+  backface-visibility: visible;
+}
+
+.c-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.c-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.c-card:hover {
+  box-shadow:
+    0 0 0 2px rgba(212,175,55,0.9),
+    0 15px 60px rgba(212,175,55,0.35);
+}
+
+.c-card:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 768px) {
+  .carousel-scene {
+    perspective: 700px;
+    perspective-origin: 50% 38%;
+    padding: 30px 0 60px;
+    overflow: hidden;
+  }
+  .carousel-ring {
+    width: 220px;
+    height: 170px;
+  }
+  .c-card {
+    width: 220px;
+    height: 170px;
+    transform: rotateY(calc(var(--i) * 72deg)) translateZ(180px);
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  .carousel-scene {
+    perspective: 600px;
+    padding: 20px 0 50px;
+  }
+  .carousel-ring {
+    width: 180px;
+    height: 140px;
+  }
+  .c-card {
+    width: 180px;
+    height: 140px;
+    transform: rotateY(calc(var(--i) * 72deg)) translateZ(150px);
+  }
+}
+</style>
 </head>
 
 <body>
@@ -951,22 +1054,34 @@
       Choisissez l'espace le plus juste pour ce que vous traversez aujourd'hui :
     </h3>
 
-    <div class="offers-list">
-      <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="offer-card" aria-label="Decision Cost Audit AI">
-        <img src="accueil-audit-ai.jpg" alt="Decision Cost Audit AI" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" class="offer-card" aria-label="Quantum Decision Catalyst">
-        <img src="accueil-catalyst.jpg" alt="Quantum Decision Catalyst" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-expansion" class="offer-card" aria-label="Quantum Expansion">
-        <img src="accueil-expansion.jpg" alt="Quantum Expansion" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-sovereignty" class="offer-card" aria-label="Quantum Sovereignty">
-        <img src="accueil-sovereignty.jpg" alt="Quantum Sovereignty" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-legacy" class="offer-card" aria-label="Quantum Legacy">
-        <img src="accueil-legacy.jpg" alt="Quantum Legacy" />
-      </a>
+    <div class="carousel-scene">
+      <div class="carousel-ring" id="carouselRing">
+        <div class="c-card" style="--i:0">
+          <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" aria-label="Decision Cost Audit AI">
+            <img src="accueil-audit-ai.jpg" alt="Decision Cost Audit AI" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:1">
+          <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" aria-label="Quantum Decision Catalyst">
+            <img src="accueil-catalyst.jpg" alt="Quantum Decision Catalyst" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:2">
+          <a href="https://www.millionnairedecoeur.com/quantum-expansion" aria-label="Quantum Expansion">
+            <img src="accueil-expansion.jpg" alt="Quantum Expansion" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:3">
+          <a href="https://www.millionnairedecoeur.com/quantum-sovereignty" aria-label="Quantum Sovereignty">
+            <img src="accueil-sovereignty.jpg" alt="Quantum Sovereignty" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:4">
+          <a href="https://www.millionnairedecoeur.com/quantum-legacy" aria-label="Quantum Legacy">
+            <img src="accueil-legacy.jpg" alt="Quantum Legacy" loading="lazy" />
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
