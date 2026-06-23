@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Coût Caché d'une Décision Repoussée pour les Entrepreneurs – Millionnaire de Cœur</title>
+  <meta name="description" content="Repousser une décision n'est pas neutre. Chaque jour de report génère un coût invisible : cognitif, énergétique, financier, et stratégique. Il est temps de le calculer." />
+  <link rel="stylesheet" href="/fonts/poppins.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0d141a; --gold: #D4AF37; --white: #ffffff; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { background-color: var(--bg); color: var(--white); font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    @keyframes quantumSweep { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    @keyframes navFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background-color: var(--bg); border-bottom: 1px solid rgba(212,175,55,0.10); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 70px; animation: navFadeIn 0.6s ease both; }
+    .header-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .header-logo img { height: 44px; width: 44px; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 0 8px rgba(212,175,55,0.5)); }
+    .header-nav { display: flex; align-items: center; gap: 34px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+    .header-nav li { position: relative; }
+    .header-nav a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: var(--white); transition: color 0.2s; white-space: nowrap; display: block; padding-bottom: 3px; }
+    .header-nav a:hover { color: var(--gold); }
+    .header-nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .header-lang { font-size: 0.80rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; align-items: center; gap: 3px; transition: color 0.2s; }
+    .header-lang:hover { color: var(--gold); }
+    .header-cart { width: 21px; height: 21px; color: var(--white); transition: color 0.2s; cursor: pointer; flex-shrink: 0; }
+    .header-cart:hover { color: var(--gold); }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+    @media (max-width: 900px) { .header { padding: 0 20px; } .header-nav { display: none; position: fixed !important; top: 70px; left: 0 !important; right: 0; transform: none !important; background: rgba(13,20,26,0.99); flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; border-top: 1px solid rgba(212,175,55,0.14); } .header-nav.open { display: flex; } .burger { display: flex; } }
+    .page-content { padding-top: 70px; }
+    .article-wrapper { background-color: #0d141a; padding: 0 20px; }
+    .article-inner { max-width: 780px; margin: 0 auto; padding: 80px 0 100px; }
+    .article-title-block { text-align: center; padding: 60px 0 50px; }
+    .article-shimmer { background: linear-gradient(90deg, #ffffff 0%, #ffffff 45%, #D4AF37 50%, #ffffff 55%, #ffffff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: quantumSweep 7s linear infinite; font-family: 'Poppins', sans-serif; font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; text-transform: uppercase; letter-spacing: -0.5px; }
+    .article-hero-img { display: block; width: 88%; max-width: 680px; margin: 0 auto 60px; border-radius: 4px; box-shadow: 0 8px 40px rgba(212,175,55,0.15); }
+    .article-intro { font-size: 0.98rem; line-height: 1.8; color: rgba(255,255,255,0.75); font-weight: 300; text-align: center; max-width: 660px; margin: 0 auto 60px; font-style: italic; letter-spacing: 0.01em; }
+    .v-bar { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 700; color: #D4AF37; text-transform: uppercase; border-left: 4px solid #D4AF37; padding-left: 15px; margin: 50px 0 20px; box-shadow: -5px 0 10px rgba(212,175,55,0.3); }
+    .article-inner p { font-size: 0.93rem; font-weight: 300; line-height: 1.95; color: #ffffff; margin-bottom: 22px; letter-spacing: 0.015em; }
+    .article-inner p strong { font-weight: 600; color: #ffffff; }
+    .article-inner p em { font-style: italic; color: rgba(255,255,255,0.8); }
+    .article-box { margin: 50px 0; padding: 36px 40px; background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.2); border-radius: 2px; }
+    .article-box h3 { font-family: 'Poppins', sans-serif; color: #D4AF37; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: 24px; }
+    .article-box p { font-size: 0.93rem; font-weight: 300; line-height: 1.9; color: #ffffff; margin-bottom: 16px; }
+    .article-box p:last-child { margin-bottom: 0; }
+    .article-footer-cta { text-align: center; padding: 70px 0 0; border-top: 1px solid rgba(212,175,55,0.15); margin-top: 70px; }
+    .article-footer-cta h3 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; color: #ffffff; margin-bottom: 36px; font-weight: 700; letter-spacing: -0.3px; line-height: 1.3; }
+    .quantum-button { font-family: 'Poppins', sans-serif; display: inline-block; padding: 18px 52px; background-color: #0d141a; color: #D4AF37; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; border: 1px solid #D4AF37; font-size: 0.82rem; transition: 0.3s; box-sizing: border-box; }
+    .quantum-button:hover { transform: scale(1.02); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 30px rgba(212,175,55,0.3); }
+    @media (max-width: 600px) { .article-inner { padding: 50px 0 60px; } .article-title-block { padding: 40px 0 36px; } .article-shimmer { font-size: 1.6rem; } .article-hero-img { width: 100%; } .article-box { padding: 24px 20px; } .quantum-button { padding: 16px 24px; width: 100%; letter-spacing: 2px; font-size: 0.78rem; text-align: center; } }
+    .footer { background-color: #0d141a; border-top: 1px solid rgba(212,175,55,0.12); padding: 50px 40px 36px; font-family: 'Poppins', sans-serif; }
+    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; align-items: start; }
+    .footer-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; margin-bottom: 8px; }
+    .footer-email { font-size: 0.82rem; color: #ffffff; display: block; margin-bottom: 28px; transition: color 0.2s; }
+    .footer-email:hover { color: var(--gold); }
+    .footer-social-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; margin-bottom: 14px; line-height: 1.4; }
+    .footer-social-icons { display: flex; gap: 18px; align-items: center; }
+    .footer-social-icons a { color: #ffffff; transition: color 0.25s; display: flex; align-items: center; }
+    .footer-social-icons a:hover { color: var(--gold); }
+    .footer-social-icons svg { width: 22px; height: 22px; fill: currentColor; }
+    .footer-center { text-align: center; }
+    .footer-legal-text { font-size: 0.67rem; color: #ffffff; line-height: 1.75; margin-bottom: 10px; }
+    .footer-legal-text a { color: #ffffff; text-decoration: underline; transition: color 0.2s; }
+    .footer-legal-text a:hover { color: var(--gold); }
+    .footer-disclaimer { font-size: 0.64rem; color: #ffffff; line-height: 1.6; margin-top: 14px; }
+    .footer-right { text-align: right; }
+    .footer-nav-links { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+    .footer-nav-links a { font-size: 0.82rem; color: #ffffff; transition: color 0.2s; }
+    .footer-nav-links a:hover { color: var(--gold); }
+    @media (max-width: 768px) { .footer { padding: 36px 20px 24px; } .footer-grid { grid-template-columns: 1fr; display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; } .footer-left, .footer-center, .footer-right { text-align: center !important; width: 100%; } .footer-left { order: 1; } .footer-right { order: 2; } .footer-center { order: 3; } .footer-social-icons { justify-content: center; } .footer-nav-links { align-items: center; width: 100%; } }
+  </style>
+</head>
+<body>
+<header class="header" role="banner">
+  <a href="https://www.millionnairedecoeur.com/" class="header-logo" aria-label="Millionnaire de Cœur - Accueil">
+    <img src="/logo.jpg" alt="Logo Millionnaire de Cœur" style="mix-blend-mode:screen;" />
+  </a>
+  <ul class="header-nav" id="headerNav" role="navigation" aria-label="Navigation principale">
+    <li><a href="https://www.millionnairedecoeur.com/">Accueil</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/services">Services</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">KOSMOS</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/articles-decisions-entrepreneurs" class="active">Articles</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/temoignages-millionnaire-de-coeur">Témoignages</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a></li>
+  </ul>
+  <div class="header-right">
+    <span class="header-lang">FR <span style="font-size:0.6rem;">▾</span></span>
+    <svg class="header-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-label="Panier"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="page-content">
+  <div class="article-wrapper">
+    <div class="article-inner">
+      <div class="article-title-block">
+        <h1 class="article-shimmer">Le coût caché d'une décision repoussée pour les entrepreneurs</h1>
+      </div>
+      <img class="article-hero-img" src="/images/coutcachedecisionrepousseeentrepreneurs.jpg" alt="Coût caché décision repoussée entrepreneur" loading="lazy">
+      <p class="article-intro">Il y a les décisions que vous prenez. Et il y a les décisions que vous ne prenez pas — celles que vous reportez, que vous remettez à plus tard, que vous laissez en suspension. Ces dernières ne sont pas neutres. Elles ont un coût. Et ce coût est, dans la plupart des cas, bien supérieur à celui de la mauvaise décision que vous aviez peur de prendre.</p>
+
+      <h2 class="v-bar">Le coût cognitif de l'indécision</h2>
+      <p>Chaque décision non prise occupe de l'espace mental. La psychologie cognitive appelle cela les « tâches incomplètes » ou l'effet Zeigarnik : le cerveau maintient actives en mémoire de travail les situations non résolues, en consommant continuellement des ressources attentionnelles pour les surveiller.</p>
+      <p>Concrètement : une décision que vous n'avez pas prise il y a trois semaines monopolise une fraction de votre capacité cognitive chaque jour. Pas en permanence en conscience — mais dans ce fond de traitement mental qui tourne en arrière-plan. Multipliez par le nombre de décisions en suspension dans votre entreprise. L'entrepreneur qui a cinq ou dix grandes décisions non tranchées fonctionne avec un cortex préfrontal partiellement saturé — ce qui dégrade sa capacité à traiter les nouvelles situations avec clarté.</p>
+      <p>C'est l'une des raisons pour lesquelles les périodes d'indécision prolongée s'accompagnent si souvent d'une fatigue inexplicable : vous consommez de l'énergie sans rien produire.</p>
+
+      <h2 class="v-bar">Le coût stratégique : les fenêtres d'opportunité</h2>
+      <p>Certaines décisions ont une fenêtre temporelle. Un partenariat stratégique à saisir, un marché en expansion à prendre avant les concurrents, un talent rare disponible pendant quelques semaines, une offre de rachat qui ne se représentera pas. Ces décisions ne « attendent » pas que vous soyez prêt. Elles se ferment.</p>
+      <p>Le coût d'une décision repoussée ici n'est pas abstrait — c'est une opportunité que quelqu'un d'autre a saisie pendant que vous hésitez. C'est un avantage concurrentiel cédé par défaut, non pas parce que votre concurrent était meilleur, mais parce qu'il a décidé plus vite.</p>
+      <p>Dans un environnement où la vélocité décisionnelle est devenu un avantage compétitif à part entière, l'indécision chronique n'est pas une prudence — c'est un désavantage structurel.</p>
+
+      <div class="article-box">
+        <h3>Le calcul du coût de report</h3>
+        <p>Voici un exercice que j'utilise avec mes clients : prenez une décision que vous reportez depuis plus de 30 jours. Estimez trois coûts :</p>
+        <p><strong>Coût cognitif :</strong> combien d'heures par semaine cette décision non prise mobilise-t-elle votre attention (même partiellement) ? Multipliez par votre taux horaire.</p>
+        <p><strong>Coût d'opportunité :</strong> qu'est-ce qui ne se fait pas pendant que vous n'avez pas tranché ? Quelle action, quel projet, quelle relation est bloquée en amont de cette décision ?</p>
+        <p><strong>Coût de dégradation :</strong> est-ce que la situation empire chaque semaine que vous attendez ? Un collaborateur en difficulté dont vous ne traitez pas le cas devient un problème d'équipe. Un contrat défavorable continue de peser. Une offre dévalorisée continue d'attirer les mauvais clients.</p>
+        <p>Additionnez les trois. Le chiffre obtenu est le coût réel de votre report — pas le risque de la décision elle-même.</p>
+      </div>
+
+      <h2 class="v-bar">Le coût relationnel</h2>
+      <p>Les décisions non prises ont aussi un coût relationnel que les entrepreneurs sous-estiment systématiquement. Quand vous ne décidez pas, ceux qui attendent votre décision — collaborateurs, partenaires, clients, fournisseurs — sont mis dans une position d'incertitude. Ils ne peuvent pas planifier, s'organiser, s'engager. Ils perdent confiance dans votre capacité à diriger.</p>
+      <p>L'indécision prolongée est l'un des signaux les plus démoralisants pour une équipe. Elle ne communique pas de la prudence — elle communique de l'hésitation, et parfois de la peur. Et une équipe qui perçoit de la peur dans son dirigeant ajuste ses comportements en conséquence : elle prend moins d'initiatives, attend des directives, s'implique moins.</p>
+
+      <h2 class="v-bar">Décider pour libérer</h2>
+      <p>Il est tentant de croire que reporter une décision difficile est une forme de prudence — qu'on attend d'avoir plus d'information, plus de recul, le bon moment. Dans de rares cas, c'est vrai. Mais dans la plupart des situations entrepreneuriales, l'information supplémentaire que vous attendez n'arrivera pas. Et si elle arrive, la situation aura déjà évolué.</p>
+      <p>Décider — même imparfaitement — libère des ressources. Cognitives, énergétiques, relationnelles, stratégiques. Une décision prise, même avec une marge d'incertitude, permet à votre système de se réorganiser, à votre équipe d'avancer, à vous-même de retrouver de la capacité pour la prochaine décision.</p>
+      <p>La capacité à décider vite et bien, même en contexte d'information incomplète, est l'une des compétences les plus rentables qu'un entrepreneur puisse développer. Et elle se développe — pas en accumulant plus d'information, mais en développant une plus grande tolérance à l'incertitude et une capacité décisionnelle plus haute.</p>
+
+      <div class="article-footer-cta">
+        <h3>Vous avez des décisions en suspens depuis trop longtemps ?<br>Calculons ensemble ce qu'elles vous coûtent vraiment.</h3>
+        <a href="https://www.millionnairedecoeur.com/services" class="quantum-button">VOIR LES SERVICES →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-left" style="text-align:left;">
+      <p class="footer-label">CONTACT</p>
+      <a href="mailto:millionnairedecoeur@gmail.com" class="footer-email">millionnairedecoeur@gmail.com</a>
+      <p class="footer-social-label">SUIVEZ MOI<br>SUR LES RESEAUX SOCIAUX</p>
+      <div class="footer-social-icons">
+        <a href="https://www.youtube.com/@lechoixducoeur888" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=100010965070076" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+        <a href="https://www.instagram.com/millionnairedecoeur/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://www.linkedin.com/in/mariafrancheteau/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-center">
+      <p class="footer-legal-text">©2026. Tous droits réservés à Maria Francheteau<br>("Millionnaire de Coeur" et "Kosmos Coeur d'Enfant") – SIRET n° : 84927049100020.<br><br>L'intégralité des éléments constituant ce site sont protégés par le Code de la propriété intellectuelle.<br><br><a href="https://www.millionnairedecoeur.com/mentions-legales-millionnaire-de-coeur">Mentions légales</a> – <a href="https://www.millionnairedecoeur.com/conditions-generales-millionnaire-de-coeur">CGV</a> – <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite">Politique de confidentialité</a></p>
+      <p class="footer-disclaimer">ⓘ Les accompagnements ne se substituent pas à un suivi médical ou psychologique.</p>
+    </div>
+    <nav class="footer-right" style="text-align:right;" aria-label="Navigation pied de page">
+      <div class="footer-nav-links">
+        <a href="https://www.millionnairedecoeur.com/">Accueil</a>
+        <a href="https://www.millionnairedecoeur.com/services">Services</a>
+        <a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">Kosmos</a>
+        <a href="https://www.millionnairedecoeur.com/temoignages-millionnaire-de-coeur">Témoignages</a>
+        <a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a>
+      </div>
+    </nav>
+  </div>
+</footer>
+<script>const b=document.getElementById('burgerBtn');const n=document.getElementById('headerNav');b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);});document.addEventListener('click',(e)=>{if(!b.contains(e.target)&&!n.contains(e.target)){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});</script>
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111c26;border-top:1px solid rgba(212,175,55,0.25);padding:20px 28px;font-family:'Poppins',sans-serif;"><div style="max-width:1200px;margin:0 auto;"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;"><div style="flex:1;min-width:260px;"><p style="font-size:0.82rem;font-weight:700;color:#D4AF37;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Gestion des cookies</p><p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.6;margin:0;">Nous utilisons des cookies techniques et, avec votre accord, des cookies fonctionnels et marketing. <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite" style="color:#D4AF37;text-decoration:underline;">En savoir plus</a></p></div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0;"><button onclick="cookieRefuse()" style="font-size:0.74rem;font-weight:600;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);font-family:'Poppins',sans-serif;">Refuser</button><button onclick="cookieAcceptAll()" style="font-size:0.74rem;font-weight:600;padding:9px 18px;border-radius:4px;cursor:pointer;background:#D4AF37;color:#0d141a;border:none;font-family:'Poppins',sans-serif;">Tout accepter</button></div></div></div></div>
+<script>(function(){var K='mdc_cookie_consent',D=396;function g(){try{var v=localStorage.getItem(K);if(!v)return null;var d=JSON.parse(v);if(Date.now()>d.expires){localStorage.removeItem(K);return null;}return d;}catch(e){return null;}}function s(p){localStorage.setItem(K,JSON.stringify({prefs:p,expires:Date.now()+D*86400000}));}window.cookieAcceptAll=function(){s({technical:true,functional:true,marketing:true});document.getElementById('cookie-banner').style.display='none';}window.cookieRefuse=function(){s({technical:true,functional:false,marketing:false});document.getElementById('cookie-banner').style.display='none';}if(!g()){document.getElementById('cookie-banner').style.display='block';}})();</script>
+</body>
+</html>
