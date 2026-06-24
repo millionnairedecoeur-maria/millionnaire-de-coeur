@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kosmos Cœur d'Enfant – Maria Francheteau | Millionnaire de Cœur</title>
-  <meta name="description" content="Kosmos Cœur d'Enfant : un mouvement d'espoir pour protéger, nourrir et révéler le potentiel des enfants. Découvrez la mission de Maria Francheteau." />
+  <title>Kosmos Cœur d'Enfant — Mission de Maria Francheteau | MDC</title>
+  <meta name="description" content="Kosmos Cœur d'Enfant : le mouvement d'espoir né de la vision de Maria Francheteau pour protéger, nourrir et révéler le potentiel des enfants. Parce que votre réussite d'aujourd'hui peut devenir une lumière pour les autres demain." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -1343,8 +1343,45 @@
       }
     }
   </style>
+<style id="blue-nebula-css">
+/* === BLUE NEBULA BACKGROUND === */
+@keyframes nebulaA {
+  0%   { transform: translate(0,0) scale(1); opacity: 0.8; }
+  100% { transform: translate(6%,5%) scale(1.15); opacity: 1; }
+}
+@keyframes nebulaB {
+  0%   { transform: translate(0,0) scale(1.05); opacity: 0.7; }
+  100% { transform: translate(-5%,-4%) scale(1); opacity: 1; }
+}
+
+#blue-nebula {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+#blue-nebula::before {
+  content: "";
+  position: absolute;
+  top: -5%; left: -10%;
+  width: 72%; height: 68%;
+  background: radial-gradient(ellipse at center, rgba(30,80,220,0.55) 0%, transparent 65%);
+  animation: nebulaA 16s ease-in-out infinite alternate;
+}
+#blue-nebula::after {
+  content: "";
+  position: absolute;
+  bottom: -10%; right: -10%;
+  width: 68%; height: 72%;
+  background: radial-gradient(ellipse at center, rgba(15,50,190,0.45) 0%, transparent 65%);
+  animation: nebulaB 22s ease-in-out infinite alternate;
+}
+</style>
 </head>
 <body>
+<div id="blue-nebula" aria-hidden="true"></div>
 
 <header class="header" role="banner">
 

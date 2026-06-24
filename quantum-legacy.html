@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantum Legacy – Maria Francheteau | Millionnaire de Cœur</title>
-  <meta name="description" content="Pour les leaders dont les décisions ont un impact structurel. Un espace privé élite de discernement stratégique avancé. Sur candidature ou invitation uniquement." />
+  <title>Leadership & Impact Générationnel | Quantum Legacy</title>
+  <meta name="description" content="Pour les leaders dont les décisions ont un impact structurel, générationnel et transgénérationnel. Discernement stratégique avancé. Espace privé élite sur candidature. Par Maria Francheteau." />
   <link rel="stylesheet" href="/fonts/poppins.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -179,8 +179,45 @@
       .legal-simple{padding:30px 16px}
     }
   </style>
+<style id="blue-nebula-css">
+/* === BLUE NEBULA BACKGROUND === */
+@keyframes nebulaA {
+  0%   { transform: translate(0,0) scale(1); opacity: 0.8; }
+  100% { transform: translate(6%,5%) scale(1.15); opacity: 1; }
+}
+@keyframes nebulaB {
+  0%   { transform: translate(0,0) scale(1.05); opacity: 0.7; }
+  100% { transform: translate(-5%,-4%) scale(1); opacity: 1; }
+}
+
+#blue-nebula {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+#blue-nebula::before {
+  content: "";
+  position: absolute;
+  top: -5%; left: -10%;
+  width: 72%; height: 68%;
+  background: radial-gradient(ellipse at center, rgba(30,80,220,0.55) 0%, transparent 65%);
+  animation: nebulaA 16s ease-in-out infinite alternate;
+}
+#blue-nebula::after {
+  content: "";
+  position: absolute;
+  bottom: -10%; right: -10%;
+  width: 68%; height: 72%;
+  background: radial-gradient(ellipse at center, rgba(15,50,190,0.45) 0%, transparent 65%);
+  animation: nebulaB 22s ease-in-out infinite alternate;
+}
+</style>
 </head>
 <body>
+<div id="blue-nebula" aria-hidden="true"></div>
 
 <header class="header" role="banner">
   <a href="https://www.millionnairedecoeur.com/" class="header-logo" aria-label="Millionnaire de Cœur - Accueil">

@@ -1,10 +1,53 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Millionnaire de Cœur – Clarté Décisionnelle & Intelligence Énergétique | Maria Francheteau</title>
-  <meta name="description" content="Maria Francheteau – Clarté décisionnelle pour entrepreneurs & Intelligence énergétique. Révélez ce qui freine vos décisions et retrouvez toute l'aisance pour choisir lucidement." />
+  <title>Coach Décision pour Entrepreneurs | Maria Francheteau</title>
+  <meta name="description" content="Maria Francheteau lit l'invisible et les risques cachés derrière chaque décision d'entrepreneur. Catalyseur de Décision Quantique — clarté décisionnelle & intelligence énergétique. Décidez depuis votre puissance." />
+  <!-- Schema.org — Données structurées pour Google et les IA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "name": "Maria Francheteau",
+        "url": "https://www.millionnairedecoeur.com",
+        "image": "https://www.millionnairedecoeur.com/maria-francheteau.jpg",
+        "jobTitle": "Coach en Clarté Décisionnelle pour Entrepreneurs",
+        "description": "Maria Francheteau aide les entrepreneurs à prendre des décisions lucides en révélant les freins invisibles et le coût réel de l'indécision.",
+        "sameAs": [
+          "https://fr.linkedin.com/in/mariafrancheteau",
+          "https://www.youtube.com/@lechoixducoeur888",
+          "https://www.instagram.com/millionnairedecoeur/"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Millionnaire de Cœur",
+          "url": "https://www.millionnairedecoeur.com"
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "Millionnaire de Cœur",
+        "url": "https://www.millionnairedecoeur.com",
+        "logo": "https://www.millionnairedecoeur.com/logo.jpg",
+        "description": "Cabinet de coaching en clarté décisionnelle pour entrepreneurs. Accompagnement pour prendre des décisions stratégiques lucides et sortir des blocages invisibles.",
+        "founder": {
+          "@type": "Person",
+          "name": "Maria Francheteau"
+        },
+        "sameAs": [
+          "https://www.instagram.com/millionnairedecoeur/",
+          "https://www.youtube.com/@lechoixducoeur888",
+          "https://fr.linkedin.com/in/mariafrancheteau"
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="/fonts/poppins.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -700,11 +743,91 @@
     }
 
   </style>
+<style id="blue-nebula-css">
+/* === BLUE NEBULA BACKGROUND - Accueil === */
+@keyframes nebulaA {
+  0%   { transform: translate(0,0) scale(1); opacity: 0.8; }
+  100% { transform: translate(6%,5%) scale(1.15); opacity: 1; }
+}
+@keyframes nebulaB {
+  0%   { transform: translate(0,0) scale(1.05); opacity: 0.7; }
+  100% { transform: translate(-5%,-4%) scale(1); opacity: 1; }
+}
+
+#blue-nebula {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+#blue-nebula::before {
+  content: "";
+  position: absolute;
+  top: -5%; left: -10%;
+  width: 72%; height: 68%;
+  background: radial-gradient(ellipse at center, rgba(30,80,220,0.55) 0%, transparent 65%);
+  animation: nebulaA 16s ease-in-out infinite alternate;
+}
+#blue-nebula::after {
+  content: "";
+  position: absolute;
+  bottom: -10%; right: -10%;
+  width: 68%; height: 72%;
+  background: radial-gradient(ellipse at center, rgba(15,50,190,0.45) 0%, transparent 65%);
+  animation: nebulaB 22s ease-in-out infinite alternate;
+}
+</style>
+<style id="carousel3d-css">
+.carousel-scene {
+  width: 100%;
+  perspective: 1200px;
+  perspective-origin: 50% 38%;
+  padding: 60px 0 100px;
+  overflow: visible;
+}
+.carousel-ring {
+  width: 360px;
+  height: 280px;
+  position: relative;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.c-card {
+  position: absolute;
+  width: 360px;
+  height: 270px;
+  left: 0; top: 0;
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(300px);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.25), 0 15px 50px rgba(0,0,0,0.6);
+  transition: box-shadow 0.3s;
+  backface-visibility: visible;
+}
+.c-card a { display: block; width: 100%; height: 100%; }
+.c-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (hover: hover) {
+  .c-card:hover { box-shadow: 0 0 0 2px rgba(212,175,55,0.9), 0 15px 60px rgba(212,175,55,0.35); }
+}
+@media (max-width: 768px) {
+  .carousel-scene { perspective: 700px; padding: 30px 0 60px; overflow: hidden; }
+  .carousel-ring { width: 220px; height: 170px; }
+  .c-card { width: 220px; height: 170px; transform: rotateY(calc(var(--i) * 72deg)) translateZ(180px); border-radius: 4px; }
+}
+@media (max-width: 400px) {
+  .carousel-scene { perspective: 600px; padding: 20px 0 50px; }
+  .carousel-ring { width: 180px; height: 140px; }
+  .c-card { width: 180px; height: 140px; transform: rotateY(calc(var(--i) * 72deg)) translateZ(150px); }
+}
+</style>
 </head>
 
 <body>
-
-  <!-- ═══════════════════════════════════════
+<div id="blue-nebula" aria-hidden="true"></div>
+<!-- ═══════════════════════════════════════
        HEADER
   ═══════════════════════════════════════ -->
   <header class="header" role="banner">
@@ -915,22 +1038,34 @@
       Choisissez l'espace le plus juste pour ce que vous traversez aujourd'hui :
     </h3>
 
-    <div class="offers-list">
-      <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="offer-card" aria-label="Decision Cost Audit AI">
-        <img src="accueil-audit-ai.jpg" alt="Decision Cost Audit AI" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" class="offer-card" aria-label="Quantum Decision Catalyst">
-        <img src="accueil-catalyst.jpg" alt="Quantum Decision Catalyst" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-expansion" class="offer-card" aria-label="Quantum Expansion">
-        <img src="accueil-expansion.jpg" alt="Quantum Expansion" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-sovereignty" class="offer-card" aria-label="Quantum Sovereignty">
-        <img src="accueil-sovereignty.jpg" alt="Quantum Sovereignty" />
-      </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-legacy" class="offer-card" aria-label="Quantum Legacy">
-        <img src="accueil-legacy.jpg" alt="Quantum Legacy" />
-      </a>
+    <div class="carousel-scene">
+      <div class="carousel-ring" id="carouselRing">
+        <div class="c-card" style="--i:0">
+          <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" aria-label="Decision Cost Audit AI">
+            <img src="accueil-audit-ai.jpg" alt="Decision Cost Audit AI" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:1">
+          <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" aria-label="Quantum Decision Catalyst">
+            <img src="accueil-catalyst.jpg" alt="Quantum Decision Catalyst" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:2">
+          <a href="https://www.millionnairedecoeur.com/quantum-expansion" aria-label="Quantum Expansion">
+            <img src="accueil-expansion.jpg" alt="Quantum Expansion" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:3">
+          <a href="https://www.millionnairedecoeur.com/quantum-sovereignty" aria-label="Quantum Sovereignty">
+            <img src="accueil-sovereignty.jpg" alt="Quantum Sovereignty" loading="lazy" />
+          </a>
+        </div>
+        <div class="c-card" style="--i:4">
+          <a href="https://www.millionnairedecoeur.com/quantum-legacy" aria-label="Quantum Legacy">
+            <img src="accueil-legacy.jpg" alt="Quantum Legacy" loading="lazy" />
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1124,5 +1259,41 @@
 </script>
 <!-- FIN BANDEAU COOKIES -->
 
+<script id="carousel3d-js">
+(function() {
+  var angle = 0;
+  var paused = false;
+  var speed = 0.09;
+  var tilt = -8;
+  var ring = null;
+  var isTouchDevice = ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+
+  function step() {
+    if (!ring) ring = document.getElementById("carouselRing");
+    if (ring && !paused) {
+      angle = (angle + speed) % 360;
+      ring.style.transform = "rotateX(" + tilt + "deg) rotateY(" + angle + "deg)";
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Pause hover uniquement sur desktop (pas tactile)
+  document.addEventListener("DOMContentLoaded", function() {
+    ring = document.getElementById("carouselRing");
+    if (ring && !isTouchDevice) {
+      ring.addEventListener("mouseenter", function() { paused = true; });
+      ring.addEventListener("mouseleave", function() { paused = false; });
+    }
+  });
+
+  // Reset au retour arriere mobile (bfcache + visibilitychange)
+  window.addEventListener("pageshow", function() { paused = false; });
+  document.addEventListener("visibilitychange", function() {
+    if (!document.hidden) paused = false;
+  });
+
+  requestAnimationFrame(step);
+})();
+</script>
 </body>
 </html>

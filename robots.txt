@@ -1,0 +1,32 @@
+# robots.txt — millionnairedecoeur.com
+# Mis à jour le 20 juin 2026
+
+# Autorisation : recherche et citation IA (pas d'entraînement de modèles)
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Autorisation explicite des crawlers IA majeurs
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.millionnairedecoeur.com/sitemap.xml
