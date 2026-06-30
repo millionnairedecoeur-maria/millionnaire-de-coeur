@@ -130,18 +130,28 @@
     .hero-sub { font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.7); line-height: 1.85; }
     .hero-photo {
       position: relative;
+      display: flex; align-items: center; justify-content: center;
     }
     .hero-photo img {
       width: 100%; max-width: 480px; height: 560px;
       object-fit: cover; object-position: top center;
-      border-radius: 4px;
-      filter: grayscale(15%) contrast(1.05);
-      border: 1px solid rgba(212,175,55,0.2);
-      box-shadow: 0 0 60px rgba(212,175,55,0.08);
+      border-radius: 6px;
+      filter: grayscale(10%) contrast(1.05);
+      box-shadow:
+        0 0 14px rgba(212,175,55,0.40),
+        0 0 32px rgba(212,175,55,0.22),
+        0 0 60px rgba(212,175,55,0.10);
+      transition: box-shadow 0.4s;
+    }
+    .hero-photo img:hover {
+      box-shadow:
+        0 0 20px rgba(212,175,55,0.60),
+        0 0 48px rgba(212,175,55,0.35),
+        0 0 80px rgba(212,175,55,0.16);
     }
     .hero-photo::before {
-      content: ''; position: absolute; inset: -4px; border-radius: 6px;
-      background: linear-gradient(135deg, rgba(212,175,55,0.2), transparent 60%);
+      content: ''; position: absolute; inset: -3px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.35), transparent 55%);
       z-index: -1;
     }
     @media (max-width: 768px) {
@@ -187,9 +197,18 @@
     }
     .photo-section-img img {
       width: 100%; height: 440px; object-fit: cover; object-position: center;
-      border-radius: 4px; filter: grayscale(10%) contrast(1.05);
-      border: 1px solid rgba(212,175,55,0.18);
-      box-shadow: 0 0 40px rgba(212,175,55,0.07);
+      border-radius: 6px; filter: grayscale(10%) contrast(1.05);
+      box-shadow:
+        0 0 14px rgba(212,175,55,0.38),
+        0 0 30px rgba(212,175,55,0.20),
+        0 0 55px rgba(212,175,55,0.09);
+      transition: box-shadow 0.4s;
+    }
+    .photo-section-img img:hover {
+      box-shadow:
+        0 0 20px rgba(212,175,55,0.58),
+        0 0 45px rgba(212,175,55,0.32),
+        0 0 75px rgba(212,175,55,0.14);
     }
     .photo-section-text {}
     .photo-section-text .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
@@ -269,9 +288,40 @@
 
     .gold { color: var(--gold); }
   </style>
+
+  <style id="blue-nebula-css">
+  @keyframes nebulaA {
+    0%   { transform: translate(0,0) scale(1); opacity: 0.8; }
+    100% { transform: translate(6%,5%) scale(1.15); opacity: 1; }
+  }
+  @keyframes nebulaB {
+    0%   { transform: translate(0,0) scale(1.05); opacity: 0.7; }
+    100% { transform: translate(-5%,-4%) scale(1); opacity: 1; }
+  }
+  #blue-nebula {
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 999;
+    overflow: hidden; mix-blend-mode: screen;
+  }
+  #blue-nebula::before {
+    content: ""; position: absolute;
+    top: -5%; left: -10%;
+    width: 72%; height: 68%;
+    background: radial-gradient(ellipse at center, rgba(30,80,220,0.55) 0%, transparent 65%);
+    animation: nebulaA 16s ease-in-out infinite alternate;
+  }
+  #blue-nebula::after {
+    content: ""; position: absolute;
+    bottom: -10%; right: -10%;
+    width: 68%; height: 72%;
+    background: radial-gradient(ellipse at center, rgba(15,50,190,0.45) 0%, transparent 65%);
+    animation: nebulaB 22s ease-in-out infinite alternate;
+  }
+  </style>
 </head>
 
 <body>
+<div id="blue-nebula" aria-hidden="true"></div>
 
 <!-- ═══ HEADER ═══ -->
 <header class="header" role="banner">
@@ -308,7 +358,7 @@
     <div class="energy-line" aria-hidden="true"></div>
   </div>
   <div class="hero-photo">
-    <img src="/maria-francheteau.jpg" alt="Maria Francheteau — Coach en Clarté Décisionnelle" />
+    <img src="/maria-francheteau-travail.jpg" alt="Maria Francheteau — Coach en Clarté Décisionnelle" />
   </div>
 </section>
 
@@ -334,8 +384,8 @@
   <p class="section-label">Ce qui me définit</p>
   <h2 id="qui-title">Stratégique. Visionnaire.<br><span class="gold">Futuriste.</span></h2>
 
-  <p>Je suis docteure en droit — une formation qui m'a appris à lire entre les lignes, à identifier les risques invisibles, à voir les conséquences avant qu'elles n'arrivent. Mais ce que la vie m'a enseigné va bien au-delà du droit.</p>
-  <p>Je lis l'invisible. Je lis le champ quantique. Cette capacité me permet de percevoir ce qui bloque réellement une décision — au-delà des chiffres, au-delà des arguments rationnels. Les freins émotionnels, les loyautés inconscientes, les peurs masquées en prudence, les patterns identitaires qui sabotent les choix les plus stratégiques.</p>
+  <p>Je suis docteure en droit — une formation qui m'a appris à lire entre les lignes, à identifier les risques invisibles, à voir les conséquences avant qu'elles n'arrivent. Mais ce que la vie m'a enseignée va bien au-delà du droit.</p>
+  <p>Je lis l'invisible. Je lis le champ quantique. Cette capacité me permet de percevoir ce qui bloque réellement une décision et les risques potentiels cachés — au-delà des chiffres, au-delà des arguments rationnels. Les freins émotionnels, les loyautés inconscientes, les peurs masquées en prudence, les patterns identitaires qui sabotent les choix les plus stratégiques.</p>
 
   <div class="pillars">
     <div class="pillar">
