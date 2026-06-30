@@ -220,6 +220,13 @@
     <changefreq>yearly</changefreq>
   </url>
 
+  <url>
+    <loc>https://www.millionnairedecoeur.com/a-propos</loc>
+    <lastmod>2026-06-30</lastmod>
+    <priority>0.9</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
   <!-- Pages legales -->
   <url>
     <loc>https://www.millionnairedecoeur.com/cgv</loc>
