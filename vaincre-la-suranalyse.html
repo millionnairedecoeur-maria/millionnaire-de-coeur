@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vaincre la Suranalyse : Sortir de la Paralysie Décisionnelle | MDC</title>
+  <link rel="canonical" href="https://www.millionnairedecoeur.com/vaincre-la-suranalyse" />
   <meta name="description" content="La suranalyse est la forme la plus élégante de la procrastination. Comment sortir du labyrinthe de la paralysie décisionnelle et reprendre votre autorité d'entrepreneur. Par Maria Francheteau." />
   <link rel="stylesheet" href="/fonts/poppins.css" />
   <style>
@@ -406,55 +407,4 @@
 
       </div>
       <div style="display:flex;justify-content:flex-end;">
-        <button onclick="cookieSaveChoices()" style="background:#D4AF37;color:#0d141a;font-size:0.74rem;font-weight:700;letter-spacing:0.06em;padding:9px 22px;border-radius:4px;cursor:pointer;border:none;font-family:'Poppins',sans-serif;">Enregistrer mes choix</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  var COOKIE_KEY='mdc_cookie_consent';
-  var EXPIRY_DAYS=396;
-
-  function getCookie(){try{var v=localStorage.getItem(COOKIE_KEY);if(!v)return null;var d=JSON.parse(v);if(Date.now()>d.expires){localStorage.removeItem(COOKIE_KEY);return null;}return d;}catch(e){return null;}}
-  function setCookie(prefs){var d={prefs:prefs,expires:Date.now()+EXPIRY_DAYS*24*60*60*1000};localStorage.setItem(COOKIE_KEY,JSON.stringify(d));}
-  function hideBanner(){document.getElementById('cookie-banner').style.display='none';}
-  function showBanner(){document.getElementById('cookie-banner').style.display='block';}
-
-  window.cookieAcceptAll=function(){setCookie({technical:true,functional:true,marketing:true});hideBanner();}
-  window.cookieRefuse=function(){setCookie({technical:true,functional:false,marketing:false});hideBanner();}
-  window.cookieTogglePanel=function(){
-    var p=document.getElementById('cookie-panel');
-    var btn=document.getElementById('cookie-btn-custom');
-    var open=p.style.display==='block';
-    p.style.display=open?'none':'block';
-    btn.textContent=open?'Personnaliser ▼':'Fermer ▲';
-  }
-  window.cookieUpdateToggle=function(id,checked){
-    var bg=document.getElementById('tog-'+id+'-bg');
-    var dot=document.getElementById('tog-'+id+'-dot');
-    bg.style.background=checked?'#D4AF37':'rgba(255,255,255,0.12)';
-    dot.style.transform=checked?'translateX(16px)':'translateX(0)';
-  }
-  window.cookieSaveChoices=function(){
-    var func=document.getElementById('tog-func').checked;
-    var mkt=document.getElementById('tog-mkt').checked;
-    setCookie({technical:true,functional:func,marketing:mkt});
-    hideBanner();
-  }
-  window.cookieReopenBanner=function(){
-    document.getElementById('cookie-panel').style.display='none';
-    document.getElementById('cookie-btn-custom').textContent='Personnaliser ▼';
-    showBanner();
-  }
-
-  var existing=getCookie();
-  if(!existing){showBanner();}
-})();
-</script>
-<!-- FIN BANDEAU COOKIES -->
-
-</body>
-</html>
-</html>
+        <button onclick="cookieSaveChoices()" style="background:#D4AF37;color:#0d141a;font-size:0.74rem;font-weight:700;letter-spacing:0.06em;padding:9px 22px;border-ra

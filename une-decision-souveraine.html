@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Décider depuis soi : La Biologie de la Décision Souveraine | MDC</title>
+  <link rel="canonical" href="https://www.millionnairedecoeur.com/une-decision-souveraine" />
   <meta name="description" content="Négocier avec soi même, c'est se quitter. Pourquoi filtrer vos décisions par le regard des autres consomme 40% d'énergie mentale — et comment décider depuis votre vraie puissance." />
   <link rel="stylesheet" href="/fonts/poppins.css" />
   <style>
@@ -318,29 +319,4 @@
         <p style="font-size:0.82rem;font-weight:700;color:#D4AF37;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Gestion des cookies</p>
         <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.6;margin:0;">Nous utilisons des cookies techniques nécessaires au fonctionnement du site et, avec votre accord, des cookies fonctionnels et marketing. Votre choix est mémorisé 13 mois. <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite" style="color:#D4AF37;text-decoration:underline;">En savoir plus</a></p>
       </div>
-      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0;">
-        <button onclick="cookieRefuse()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);font-family:'Poppins',sans-serif;">Refuser</button>
-        <button onclick="cookieTogglePanel()" id="cookie-btn-custom" style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:#D4AF37;border:1px solid rgba(212,175,55,0.4);font-family:'Poppins',sans-serif;">Personnaliser ▼</button>
-        <button onclick="cookieAcceptAll()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:#D4AF37;color:#0d141a;border:none;font-family:'Poppins',sans-serif;">Tout accepter</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-(function(){
-  var COOKIE_KEY='mdc_cookie_consent';
-  var EXPIRY_DAYS=396;
-  function getCookie(){try{var v=localStorage.getItem(COOKIE_KEY);if(!v)return null;var d=JSON.parse(v);if(Date.now()>d.expires){localStorage.removeItem(COOKIE_KEY);return null;}return d;}catch(e){return null;}}
-  function setCookie(prefs){var d={prefs:prefs,expires:Date.now()+EXPIRY_DAYS*24*60*60*1000};localStorage.setItem(COOKIE_KEY,JSON.stringify(d));}
-  function hideBanner(){document.getElementById('cookie-banner').style.display='none';}
-  function showBanner(){document.getElementById('cookie-banner').style.display='block';}
-  window.cookieAcceptAll=function(){setCookie({technical:true,functional:true,marketing:true});hideBanner();}
-  window.cookieRefuse=function(){setCookie({technical:true,functional:false,marketing:false});hideBanner();}
-  window.cookieTogglePanel=function(){var p=document.getElementById('cookie-panel');if(p){var open=p.style.display==='block';p.style.display=open?'none':'block';}}
-  window.cookieSaveChoices=function(){hideBanner();}
-  var existing=getCookie();
-  if(!existing){showBanner();}
-})();
-</script>
-</body>
-</html>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:w
