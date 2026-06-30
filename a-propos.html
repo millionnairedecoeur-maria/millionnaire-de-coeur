@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>À Propos — Maria Francheteau | Millionnaire de Cœur</title>
   <link rel="canonical" href="https://www.millionnairedecoeur.com/a-propos" />
-  <meta name="description" content="Maria Francheteau — Docteure en droit, coach en clarté décisionnelle pour entrepreneurs. Elle lit l'invisible et le champ quantique pour révéler le coût caché de chaque décision. Fondatrice de Millionnaire de Cœur depuis 2019." />
+  <meta name="description" content="Maria Francheteau — Docteure en droit, coach en clarté décisionnelle pour entrepreneurs. Elle lit l'invisible et le champ quantique pour révéler le coût caché de chaque décision. Fondatrice de Millionnaire de Cœur." />
 
-  <!-- Schema.org — Données structurées enrichies pour Google et les IA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -16,33 +15,16 @@
     "url": "https://www.millionnairedecoeur.com/a-propos",
     "image": "https://www.millionnairedecoeur.com/maria-francheteau.jpg",
     "jobTitle": "Coach en Clarté Décisionnelle et Intelligence Quantique pour Entrepreneurs",
-    "description": "Maria Francheteau est docteure en droit, spécialiste en libération émotionnelle et énergie quantique. Elle lit l'invisible et le champ quantique pour aider les entrepreneurs à prendre des décisions lucides et stratégiques. Fondatrice de Millionnaire de Cœur en 2019, après une embolie pulmonaire qui a transformé sa vision de la vie et du leadership.",
-    "knowsAbout": ["clarté décisionnelle", "intelligence quantique", "libération émotionnelle", "coaching entrepreneurs", "énergie quantique", "champ quantique", "prise de décision", "leadership"],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Doctorat en Droit"
-    },
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "Coach en Clarté Décisionnelle pour Entrepreneurs",
-      "description": "Accompagnement des entrepreneurs dans la prise de décisions stratégiques lucides grâce à la lecture du champ quantique et à la libération émotionnelle"
-    },
-    "founder": {
-      "@type": "Organization",
-      "name": "Millionnaire de Cœur",
-      "url": "https://www.millionnairedecoeur.com",
-      "foundingDate": "2019"
-    },
+    "description": "Maria Francheteau est docteure en droit, spécialiste en libération émotionnelle et énergie quantique. Elle lit l'invisible et le champ quantique pour aider les entrepreneurs à prendre des décisions lucides. Fondatrice de Millionnaire de Cœur, après une embolie pulmonaire en 2019 qui a transformé sa vision de la vie.",
+    "knowsAbout": ["clarté décisionnelle","intelligence quantique","libération émotionnelle","coaching entrepreneurs","énergie quantique","champ quantique","prise de décision","leadership"],
+    "alumniOf": {"@type":"EducationalOrganization","name":"Doctorat en Droit"},
+    "hasOccupation": {"@type":"Occupation","name":"Coach en Clarté Décisionnelle pour Entrepreneurs"},
+    "founder": {"@type":"Organization","name":"Millionnaire de Cœur","url":"https://www.millionnairedecoeur.com","foundingDate":"2019"},
     "sameAs": [
       "https://fr.linkedin.com/in/mariafrancheteau",
       "https://www.youtube.com/@lechoixducoeur888",
       "https://www.instagram.com/millionnairedecoeur/"
-    ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Millionnaire de Cœur",
-      "url": "https://www.millionnairedecoeur.com"
-    }
+    ]
   }
   </script>
 
@@ -61,17 +43,14 @@
     }
 
     html { scroll-behavior: smooth; overflow-x: hidden; }
-
-    body {
-      background-color: var(--bg);
-      color: var(--white);
-      font-family: 'Poppins', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
+    body { background-color: var(--bg); color: var(--white); font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
 
+    /* ── ANIMATIONS ── */
+    @keyframes quantumSweep {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
     @keyframes laserSweep {
       0%   { background-position: -200% 0; }
       100% { background-position:  200% 0; }
@@ -89,18 +68,13 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* NAV */
+    /* ── HEADER ── */
     .header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       background-color: var(--bg);
       border-bottom: 1px solid rgba(212,175,55,0.10);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 70px;
       animation: navFadeIn 0.6s ease both;
     }
     .header-logo img { height: 44px; width: 44px; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 0 8px rgba(212,175,55,0.5)); }
@@ -108,162 +82,153 @@
       display: flex; align-items: center; gap: 34px; list-style: none;
       position: absolute; left: 50%; transform: translateX(-50%);
     }
-    .header-nav a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: rgba(255,255,255,0.75); transition: color 0.2s; }
-    .header-nav a:hover, .header-nav a.active { color: var(--gold); }
-    .header-right { display: flex; align-items: center; gap: 18px; }
-    .header-lang { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5); cursor: pointer; }
-    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
-    @media (max-width: 768px) {
-      .header-nav { display: none; }
+    .header-nav li { position: relative; }
+    .header-nav a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: var(--white); transition: color 0.2s; white-space: nowrap; display: block; padding-bottom: 3px; }
+    .header-nav a:hover { color: var(--gold); }
+    .header-nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .header-lang { font-size: 0.80rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; align-items: center; gap: 3px; transition: color 0.2s; }
+    .header-lang:hover { color: var(--gold); }
+    .header-cart { width: 21px; height: 21px; color: var(--white); transition: color 0.2s; cursor: pointer; flex-shrink: 0; }
+    .header-cart:hover { color: var(--gold); }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+    @media (max-width: 900px) {
+      .header { padding: 0 20px; }
+      .header-nav {
+        display: none; position: fixed !important; top: 70px; left: 0 !important; right: 0;
+        transform: none !important; background: rgba(13,20,26,0.99);
+        flex-direction: column; align-items: flex-start; gap: 20px;
+        padding: 28px 24px; border-top: 1px solid rgba(212,175,55,0.14);
+      }
+      .header-nav.open { display: flex; }
       .burger { display: flex; }
     }
 
+    /* ── ENERGY LINE ── */
     .energy-line {
-      height: 3px; width: 180px; margin: 20px auto 0;
+      height: 3px; width: 180px; margin: 24px auto 0;
       background: linear-gradient(90deg, rgba(212,175,55,0.3) 0%, rgba(212,175,55,1) 50%, rgba(212,175,55,0.3) 100%);
       background-size: 200% 100%;
       animation: laserSweep 3s infinite linear;
-      box-shadow: 0 0 15px rgba(212,175,55,0.4);
-      border-radius: 2px;
+      box-shadow: 0 0 15px rgba(212,175,55,0.4); border-radius: 2px;
     }
 
-    .gold { color: var(--gold); }
-    .gold-glow { animation: softGoldGlow 4s ease-in-out infinite; }
-
-    /* HERO */
+    /* ── HERO ── */
     .hero {
-      padding: 140px 32px 60px;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
+      padding: 120px 40px 60px;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
       animation: fadeUp 0.8s ease both;
     }
-    .hero-eyebrow {
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
-      color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
-    }
+    .hero-text {}
+    .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: clamp(2.6rem, 5vw, 4.2rem);
-      line-height: 1.2; color: var(--white); margin-bottom: 24px;
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem); line-height: 1.15; color: var(--white); margin-bottom: 24px;
     }
-    .hero-sub {
-      font-size: 1rem; font-weight: 400; color: rgba(255,255,255,0.65);
-      line-height: 1.8; max-width: 680px; margin: 0 auto;
+    .hero-sub { font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.7); line-height: 1.85; }
+    .hero-photo {
+      position: relative;
+    }
+    .hero-photo img {
+      width: 100%; max-width: 480px; height: 560px;
+      object-fit: cover; object-position: top center;
+      border-radius: 4px;
+      filter: grayscale(15%) contrast(1.05);
+      border: 1px solid rgba(212,175,55,0.2);
+      box-shadow: 0 0 60px rgba(212,175,55,0.08);
+    }
+    .hero-photo::before {
+      content: ''; position: absolute; inset: -4px; border-radius: 6px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.2), transparent 60%);
+      z-index: -1;
+    }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; padding: 100px 20px 40px; gap: 40px; }
+      .hero-photo { order: -1; }
+      .hero-photo img { height: 380px; max-width: 100%; }
     }
 
-    /* SECTIONS */
-    .section { padding: 80px 32px; max-width: 900px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em;
-      color: var(--gold); text-transform: uppercase; margin-bottom: 16px;
-    }
-    .section h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800;
-      line-height: 1.2; margin-bottom: 32px; color: var(--white);
-    }
-    .section p {
-      font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,0.82);
-      margin-bottom: 20px;
-    }
+    /* ── DIVIDER ── */
+    .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent); margin: 0 auto; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 80px 40px; max-width: 900px; margin: 0 auto; }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+    .section h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 32px; color: var(--white); }
+    .section p { font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,0.82); margin-bottom: 20px; }
     .section p:last-child { margin-bottom: 0; }
+    @media (max-width: 768px) { .section { padding: 60px 20px; } }
 
-    /* DIVIDER */
-    .divider {
-      width: 100%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
-      margin: 0 auto;
-    }
-
-    /* QUOTE BLOCK */
+    /* ── QUOTE BLOCK ── */
     .quote-block {
       border-left: 3px solid var(--gold);
-      padding: 24px 32px;
-      margin: 40px 0;
-      background: rgba(212,175,55,0.04);
-      border-radius: 0 8px 8px 0;
+      padding: 24px 32px; margin: 40px 0;
+      background: rgba(212,175,55,0.04); border-radius: 0 8px 8px 0;
     }
     .quote-block p {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.5;
-      margin: 0;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem); font-weight: 400;
+      color: var(--white); line-height: 1.5; margin: 0;
     }
 
-    /* PILLARS */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin: 40px 0;
-    }
-    .pillar {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(212,175,55,0.15);
-      border-radius: 8px;
-      padding: 28px 24px;
-    }
-    .pillar-icon { font-size: 1.6rem; margin-bottom: 12px; }
-    .pillar h3 { font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; letter-spacing: 0.05em; }
-    .pillar p { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.7); margin: 0; }
+    /* ── PILLARS ── */
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 40px 0; }
+    .pillar { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.15); border-radius: 8px; padding: 28px 22px; }
+    .pillar-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .pillar h3 { font-size: 0.92rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; letter-spacing: 0.04em; }
+    .pillar p { font-size: 0.86rem; line-height: 1.7; color: rgba(255,255,255,0.68); margin: 0; }
 
-    /* TIMELINE */
+    /* ── PHOTO SECTION ── */
+    .photo-section {
+      max-width: 900px; margin: 0 auto; padding: 0 40px 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .photo-section-img img {
+      width: 100%; height: 440px; object-fit: cover; object-position: center;
+      border-radius: 4px; filter: grayscale(10%) contrast(1.05);
+      border: 1px solid rgba(212,175,55,0.18);
+      box-shadow: 0 0 40px rgba(212,175,55,0.07);
+    }
+    .photo-section-text {}
+    .photo-section-text .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 14px; }
+    .photo-section-text h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.25; margin-bottom: 20px; }
+    .photo-section-text p { font-size: 0.95rem; line-height: 1.85; color: rgba(255,255,255,0.8); margin-bottom: 16px; }
+    @media (max-width: 768px) {
+      .photo-section { grid-template-columns: 1fr; padding: 0 20px 40px; gap: 32px; }
+      .photo-section-img img { height: 320px; }
+    }
+
+    /* ── TIMELINE ── */
     .timeline { margin: 40px 0; }
-    .timeline-item {
-      display: flex; gap: 24px; margin-bottom: 36px; align-items: flex-start;
-    }
-    .timeline-year {
-      flex-shrink: 0; width: 68px; padding-top: 4px;
-      font-size: 0.78rem; font-weight: 700; color: var(--gold);
-      letter-spacing: 0.1em;
-    }
+    .timeline-item { display: flex; gap: 24px; margin-bottom: 36px; align-items: flex-start; }
+    .timeline-year { flex-shrink: 0; width: 80px; padding-top: 4px; font-size: 0.78rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; }
     .timeline-content { flex: 1; border-left: 1px solid rgba(212,175,55,0.2); padding-left: 24px; }
     .timeline-content h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
     .timeline-content p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.7); margin: 0; }
 
-    /* CTA */
+    /* ── CTA ── */
     .cta-block {
-      text-align: center;
-      padding: 80px 32px;
+      text-align: center; padding: 80px 32px;
       background: linear-gradient(180deg, rgba(212,175,55,0.04) 0%, transparent 100%);
       border-top: 1px solid rgba(212,175,55,0.12);
     }
     .cta-block h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-weight: 400;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--white); margin-bottom: 32px; line-height: 1.3;
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 36px; line-height: 1.3;
     }
     .btn-gold {
-      display: inline-block;
-      padding: 16px 40px;
-      background: var(--gold);
-      color: #000;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block; padding: 16px 40px; background: var(--gold);
+      color: #000; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; border-radius: 2px; transition: opacity 0.2s, transform 0.2s;
     }
     .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-outline {
-      display: inline-block;
-      margin-left: 16px;
-      padding: 15px 36px;
-      border: 1px solid rgba(212,175,55,0.5);
-      color: var(--gold);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: border-color 0.2s, background 0.2s;
+      display: inline-block; margin-left: 16px; padding: 15px 36px;
+      border: 1px solid rgba(212,175,55,0.5); color: var(--gold);
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; border-radius: 2px; transition: border-color 0.2s, background 0.2s;
     }
     .btn-outline:hover { border-color: var(--gold); background: rgba(212,175,55,0.06); }
     @media (max-width: 600px) {
@@ -271,177 +236,344 @@
       .btn-gold { display: block; }
     }
 
-    /* FOOTER */
-    .footer {
-      background: #080d11;
-      border-top: 1px solid rgba(212,175,55,0.08);
-      padding: 48px 32px 28px;
-      text-align: center;
+    /* ── FOOTER ── */
+    .footer { background-color: #0d141a; border-top: 1px solid rgba(212,175,55,0.12); padding: 50px 40px 36px; font-family: 'Poppins', sans-serif; }
+    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; align-items: start; }
+    .footer-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; margin-bottom: 8px; }
+    .footer-email { font-size: 0.82rem; color: #ffffff; display: block; margin-bottom: 28px; transition: color 0.2s; }
+    .footer-email:hover { color: var(--gold); }
+    .footer-social-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; margin-bottom: 14px; line-height: 1.4; }
+    .footer-social-icons { display: flex; gap: 18px; align-items: center; }
+    .footer-social-icons a { color: #ffffff; transition: color 0.25s; display: flex; align-items: center; }
+    .footer-social-icons a:hover { color: var(--gold); }
+    .footer-social-icons svg { width: 22px; height: 22px; fill: currentColor; }
+    .footer-center { text-align: center; }
+    .footer-logo-img { width: 52px; height: 52px; object-fit: contain; margin: 0 auto 18px; display: block; mix-blend-mode: screen; filter: drop-shadow(0 0 10px rgba(212,175,55,0.6)); }
+    .footer-legal-text { font-size: 0.67rem; color: #ffffff; line-height: 1.75; margin-bottom: 10px; }
+    .footer-legal-text a { color: #ffffff; text-decoration: underline; transition: color 0.2s; }
+    .footer-legal-text a:hover { color: var(--gold); }
+    .footer-disclaimer { font-size: 0.64rem; color: #ffffff; line-height: 1.6; margin-top: 14px; }
+    .footer-right { text-align: right; }
+    .footer-nav-links { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+    .footer-nav-links a { font-size: 0.82rem; color: #ffffff; transition: color 0.2s; }
+    .footer-nav-links a:hover { color: var(--gold); }
+    @media (max-width: 768px) {
+      .footer { padding: 36px 20px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; display: flex; flex-direction: column; align-items: center; width: 100%; }
+      .footer-left, .footer-center, .footer-right { text-align: center; width: 100%; }
+      .footer-right { text-align: center !important; }
+      .footer-social-icons { justify-content: center; }
+      .footer-nav-links { align-items: center; }
+      .footer-logo-img { margin: 0 auto 18px; }
     }
-    .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; }
-    .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+    .gold { color: var(--gold); }
   </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <header class="header" role="banner">
-    <a href="https://www.millionnairedecoeur.com/" class="header-logo" aria-label="Millionnaire de Cœur - Accueil">
-      <img src="/logo.jpg" alt="Logo Millionnaire de Cœur" />
-    </a>
-    <ul class="header-nav" role="navigation" aria-label="Navigation principale">
-      <li><a href="https://www.millionnairedecoeur.com/">Accueil</a></li>
-      <li><a href="https://www.millionnairedecoeur.com/services">Services</a></li>
-      <li><a href="https://www.millionnairedecoeur.com/a-propos" class="active">À Propos</a></li>
-      <li><a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">KOSMOS</a></li>
-      <li><a href="https://www.millionnairedecoeur.com/articles-decisions-entrepreneurs">Articles</a></li>
-      <li><a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a></li>
-    </ul>
-    <div class="header-right">
-      <span class="header-lang">FR <span style="font-size:0.6rem;">▾</span></span>
-      <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+<!-- ═══ HEADER ═══ -->
+<header class="header" role="banner">
+  <a href="https://www.millionnairedecoeur.com/" class="header-logo" aria-label="Millionnaire de Cœur - Accueil">
+    <img src="/logo.jpg" alt="Logo Millionnaire de Cœur" />
+  </a>
+  <ul class="header-nav" id="headerNav" role="navigation" aria-label="Navigation principale">
+    <li><a href="https://www.millionnairedecoeur.com/">Accueil</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/services">Services</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/a-propos" class="active">À Propos</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">KOSMOS</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/articles-decisions-entrepreneurs">Articles</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a></li>
+  </ul>
+  <div class="header-right">
+    <span class="header-lang">FR <span style="font-size:0.6rem;">▾</span></span>
+    <svg class="header-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-label="Panier">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+    <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="page-title">
+<!-- ═══ HERO ═══ -->
+<section class="hero" aria-labelledby="page-title">
+  <div class="hero-text">
     <p class="hero-eyebrow">Maria Francheteau</p>
-    <h1 id="page-title">Je lis ce que les autres<br>ne voient <span class="gold">pas encore.</span></h1>
-    <p class="hero-sub">Docteure en droit. Spécialiste en libération émotionnelle et énergie quantique. Coach en clarté décisionnelle pour entrepreneurs depuis 2019. Je lis l'invisible et le champ quantique pour révéler le coût réel de chaque décision.</p>
+    <h1 id="page-title">Je lis ce que<br>les autres ne voient<br><span class="gold">pas encore.</span></h1>
+    <p class="hero-sub">Docteure en droit. Spécialiste en libération émotionnelle et énergie quantique. Coach en clarté décisionnelle pour entrepreneurs. Je lis l'invisible et le champ quantique pour révéler le coût réel de chaque décision.</p>
     <div class="energy-line" aria-hidden="true"></div>
-  </section>
+  </div>
+  <div class="hero-photo">
+    <img src="/maria-francheteau.jpg" alt="Maria Francheteau — Coach en Clarté Décisionnelle" />
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- TURNING POINT -->
-  <section class="section" aria-labelledby="tournant-title">
-    <p class="section-label">L'origine</p>
-    <h2 id="tournant-title">2019 : La décision<br>qui a tout <span class="gold">changé.</span></h2>
+<!-- ═══ L'ORIGINE ═══ -->
+<section class="section" aria-labelledby="origine-title">
+  <p class="section-label">L'origine</p>
+  <h2 id="origine-title">2019 : La décision<br>qui a tout <span class="gold">changé.</span></h2>
 
-    <div class="quote-block">
-      <p>"Quand la vie s'arrête en une fraction de seconde, tu comprends que chaque décision que tu as repoussée était une vie que tu n'as pas vécue."</p>
-    </div>
-
-    <p>En 2019, une embolie pulmonaire a failli tout interrompre. Ce que cette expérience m'a offert, c'est une clarté absolue : la vie est précieuse, le temps est compté, et chaque décision non prise a un coût réel — souvent invisible, toujours lourd.</p>
-    <p>Dans les semaines qui ont suivi, j'ai fait ce que peu de gens osent faire : j'ai tout réexaminé. Mon parcours de docteure en droit, mes compétences en lecture énergétique, ma capacité à voir ce que les autres ne voient pas encore. Et j'ai pris une décision souveraine : consacrer ma vie à aider les entrepreneurs à ne plus jamais subir leurs choix.</p>
-    <p>C'est ainsi qu'est née <strong style="color:var(--white);">Millionnaire de Cœur</strong>, et ma première offre : <em style="color:var(--gold);">Décision du Cœur</em>. La décision a toujours été au centre de tout ce que je construis.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- QUI JE SUIS -->
-  <section class="section" aria-labelledby="qui-title">
-    <p class="section-label">Ce qui me définit</p>
-    <h2 id="qui-title">Stratégique. Visionnaire.<br><span class="gold">Futuriste.</span></h2>
-
-    <p>Je suis docteure en droit — une formation qui m'a appris à lire entre les lignes, à identifier les risques invisibles, à voir les conséquences avant qu'elles n'arrivent. Mais ce que la vie m'a enseigné va bien au-delà du droit.</p>
-    <p>Je lis l'invisible. Je lis le champ quantique. Cette capacité me permet de percevoir ce qui bloque réellement une décision — au-delà des chiffres, au-delà des arguments rationnels. Les freins émotionnels, les loyautés inconscientes, les peurs masquées en prudence, les patterns identitaires qui sabotent les choix les plus stratégiques.</p>
-    <p>Spécialisée en libération émotionnelle et intelligence quantique, j'ai développé une méthode unique qui croise rigueur analytique et lecture énergétique. Le résultat : des décisions prises depuis la puissance, pas depuis la peur.</p>
-
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-icon">⚖️</div>
-        <h3>Docteure en Droit</h3>
-        <p>Formation d'excellence qui forge la pensée analytique, la lecture des risques et la précision dans l'action.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🔬</div>
-        <h3>Intelligence Quantique</h3>
-        <p>Je lis le champ quantique et l'invisible pour révéler ce que les analyses classiques ne peuvent pas capturer.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🧠</div>
-        <h3>Libération Émotionnelle</h3>
-        <p>Spécialiste des blocages invisibles qui paralysent les décisions — freins identitaires, loyautés inconscientes, coûts cachés.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🎯</div>
-        <h3>Clarté Décisionnelle</h3>
-        <p>Méthode propriétaire pour transformer l'indécision en action lucide, stratégique et alignée.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- PARCOURS -->
-  <section class="section" aria-labelledby="parcours-title">
-    <p class="section-label">Le parcours</p>
-    <h2 id="parcours-title">De la décision du Cœur<br>à la <span class="gold">souveraineté décisionnelle.</span></h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">2019</div>
-        <div class="timeline-content">
-          <h3>Le tournant — Embolie pulmonaire &amp; nouvelle naissance</h3>
-          <p>Une embolie pulmonaire change tout. La vie redevient précieuse. Première offre créée : <em>Décision du Cœur</em>. Les entrepreneurs leaders sont les premiers clients — ceux qui construisent le monde ont besoin de décider depuis leur puissance.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2019–</div>
-        <div class="timeline-content">
-          <h3>Millionnaire de Cœur — La machine de vision</h3>
-          <p>Création de Millionnaire de Cœur. Accompagnement d'entrepreneurs et de particuliers. Développement de la méthode propriétaire croisant droit, énergie quantique et libération émotionnelle.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Aujourd'hui</div>
-        <div class="timeline-content">
-          <h3>Decision Cost Audit AI &amp; Offres Quantum</h3>
-          <p>Lancement du Decision Cost Audit AI — premier outil IA de diagnostic décisionnel pour entrepreneurs. Développement des offres Quantum (Catalyst, Expansion, Sovereignty, Legacy) pour un accompagnement de haute précision.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Vision</div>
-        <div class="timeline-content">
-          <h3>Projet KOSMOS — Cœur d'Enfant</h3>
-          <p>La réussite des entrepreneurs d'aujourd'hui devient la lumière des enfants de demain. Projet KOSMOS : mouvement d'espoir pour protéger, nourrir et révéler le potentiel des enfants à travers le monde.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- VISION -->
-  <section class="section" aria-labelledby="vision-title">
-    <p class="section-label">La vision</p>
-    <h2 id="vision-title">Éclairer les entrepreneurs<br>qui <span class="gold">construisent le monde.</span></h2>
-
-    <p>Les entrepreneurs ne sont pas juste des chefs d'entreprise. Ce sont des bâtisseurs. Ils construisent le monde d'aujourd'hui et celui de demain — leurs décisions ont un impact qui dépasse leurs murs, leurs clients, leurs équipes.</p>
-    <p>Ma mission est de les guider vers une clarté décisionnelle totale : prendre les bonnes décisions, au bon moment, depuis leur puissance et non depuis leur peur. Décider depuis le Cœur, avec la précision d'un stratège et la vision d'un futuriste.</p>
-    <p>L'empreinte que je veux laisser : avoir éclairé, accompagné et libéré le plus grand nombre possible d'entrepreneurs — pour qu'ils construisent non seulement des entreprises prospères, mais des vies alignées et un monde meilleur. C'est le sens profond du <strong style="color:var(--white);">Projet KOSMOS</strong> : votre réussite d'aujourd'hui peut devenir une lumière pour les autres demain.</p>
-
-    <div class="quote-block" style="margin-top:40px;">
-      <p>"Millionnaire de Cœur est bâti sur une conviction : la stratégie sans le Cœur construit des empires vides. Le Cœur sans stratégie reste un beau rêve. Les deux ensemble — c'est une Destinée."</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-block">
-    <h2>Prêt à décider<br>depuis votre <span class="gold">puissance ?</span></h2>
-    <a href="https://www.millionnairedecoeur.com/services" class="btn-gold">Découvrir les offres</a>
-    <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="btn-outline">Essayer le Decision Cost Audit AI</a>
+  <div class="quote-block">
+    <p>"Quand la vie s'arrête en une fraction de seconde, tu comprends que chaque décision que tu as repoussée était une vie que tu n'as pas vécue."</p>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="https://www.millionnairedecoeur.com/">Accueil</a>
-      <a href="https://www.millionnairedecoeur.com/services">Services</a>
-      <a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">KOSMOS</a>
-      <a href="https://www.millionnairedecoeur.com/articles-decisions-entrepreneurs">Articles</a>
-      <a href="https://www.millionnairedecoeur.com/temoignages">Témoignages</a>
-      <a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a>
-      <a href="https://www.millionnairedecoeur.com/mentions-legales">Mentions légales</a>
+  <p>En 2019, une embolie pulmonaire a failli tout interrompre. Ce que cette expérience m'a offert, c'est une clarté absolue : la vie est précieuse, le temps est compté, et chaque décision non prise a un coût réel — souvent invisible, toujours lourd.</p>
+  <p>Dans les semaines qui ont suivi, j'ai pris une décision souveraine : consacrer ma vie à aider les autres à ne plus jamais subir leurs choix. Ma première offre est née immédiatement : <em style="color:var(--gold);">Décision du Cœur.</em> La décision a toujours été au centre de tout ce que je construis.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ QUI JE SUIS ═══ -->
+<section class="section" aria-labelledby="qui-title">
+  <p class="section-label">Ce qui me définit</p>
+  <h2 id="qui-title">Stratégique. Visionnaire.<br><span class="gold">Futuriste.</span></h2>
+
+  <p>Je suis docteure en droit — une formation qui m'a appris à lire entre les lignes, à identifier les risques invisibles, à voir les conséquences avant qu'elles n'arrivent. Mais ce que la vie m'a enseigné va bien au-delà du droit.</p>
+  <p>Je lis l'invisible. Je lis le champ quantique. Cette capacité me permet de percevoir ce qui bloque réellement une décision — au-delà des chiffres, au-delà des arguments rationnels. Les freins émotionnels, les loyautés inconscientes, les peurs masquées en prudence, les patterns identitaires qui sabotent les choix les plus stratégiques.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-icon">⚖️</div>
+      <h3>Docteure en Droit</h3>
+      <p>Formation d'excellence qui forge la pensée analytique, la lecture des risques et la précision dans l'action.</p>
     </div>
-    <p class="footer-copy">© 2025–2026 Millionnaire de Cœur — Maria Francheteau. Tous droits réservés.</p>
-  </footer>
+    <div class="pillar">
+      <div class="pillar-icon">🔬</div>
+      <h3>Intelligence Quantique</h3>
+      <p>Je lis le champ quantique et l'invisible pour révéler ce que les analyses classiques ne peuvent pas capturer.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🧠</div>
+      <h3>Libération Émotionnelle</h3>
+      <p>Spécialiste des blocages invisibles — freins identitaires, loyautés inconscientes, coûts cachés de l'indécision.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">🎯</div>
+      <h3>Clarté Décisionnelle</h3>
+      <p>Méthode propriétaire pour transformer l'indécision en action lucide, stratégique et alignée.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PHOTO 2 + PARCOURS ═══ -->
+<div class="photo-section">
+  <div class="photo-section-img">
+    <img src="/maria-francheteau-2.jpg" alt="Maria Francheteau — Millionnaire de Cœur" />
+  </div>
+  <div class="photo-section-text">
+    <p class="section-label">Le parcours</p>
+    <h2>De <em style="font-style:italic;font-family:'Cormorant Garamond',serif;">Décision du Cœur</em><br>à la <span class="gold">souveraineté décisionnelle.</span></h2>
+    <p>Un parcours construit autour d'une seule conviction : les meilleures décisions ne viennent pas de la peur, mais de la puissance intérieure. Chaque évolution de ma marque reflète un approfondissement de cette vérité.</p>
+    <p>Entrepreneurs leaders d'abord, puis particuliers — ceux qui construisent le monde méritent d'être accompagnés avec la plus haute précision.</p>
+  </div>
+</div>
+
+<!-- ═══ TIMELINE ═══ -->
+<section class="section" style="padding-top: 0;" aria-labelledby="parcours-title">
+  <h2 id="parcours-title" style="display:none;">Le parcours de Maria Francheteau</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">2019</div>
+      <div class="timeline-content">
+        <h3>Le tournant — Embolie pulmonaire &amp; naissance de la mission</h3>
+        <p>Une embolie pulmonaire transforme tout. La vie redevient précieuse. Première offre : <em>Décision du Cœur.</em> Les entrepreneurs leaders sont les premiers clients accompagnés.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2019–</div>
+      <div class="timeline-content">
+        <h3>Énergie Quantique du Cœur — Première marque</h3>
+        <p>Création de la première identité de marque. Développement de la méthode croisant droit, libération émotionnelle et lecture du champ quantique. Ouverture aux particuliers en parallèle des entrepreneurs.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Puis</div>
+      <div class="timeline-content">
+        <h3>La Puissance du Cœur — Évolution</h3>
+        <p>La marque évolue, la méthode s'affine. La puissance — celle du Cœur allié à la stratégie — devient le fil conducteur de chaque accompagnement.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Aujourd'hui</div>
+      <div class="timeline-content">
+        <h3>Millionnaire de Cœur — Decision Cost Audit AI &amp; Offres Quantum</h3>
+        <p>La vision prend sa forme définitive. Lancement du Decision Cost Audit AI — premier outil IA de diagnostic décisionnel. Offres Quantum (Catalyst, Expansion, Sovereignty, Legacy) pour un accompagnement de haute précision.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">Vision</div>
+      <div class="timeline-content">
+        <h3>Projet KOSMOS — Cœur d'Enfant</h3>
+        <p>La réussite des entrepreneurs d'aujourd'hui devient la lumière des enfants de demain. KOSMOS : mouvement d'espoir pour protéger, nourrir et révéler le potentiel des enfants à travers le monde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ LA VISION ═══ -->
+<section class="section" aria-labelledby="vision-title">
+  <p class="section-label">La vision</p>
+  <h2 id="vision-title">Éclairer les entrepreneurs<br>qui <span class="gold">construisent le monde.</span></h2>
+
+  <p>Les entrepreneurs ne sont pas juste des chefs d'entreprise. Ce sont des bâtisseurs. Ils construisent le monde d'aujourd'hui et de demain — leurs décisions ont un impact qui dépasse leurs murs, leurs clients, leurs équipes.</p>
+  <p>Ma mission est de les guider vers une clarté décisionnelle totale : prendre les bonnes décisions, au bon moment, depuis leur puissance — pas depuis leur peur. Décider depuis le Cœur, avec la précision d'un stratège et la vision d'un futuriste.</p>
+  <p>L'empreinte que je veux laisser : avoir éclairé, accompagné et libéré le plus grand nombre possible d'entrepreneurs — pour qu'ils construisent non seulement des entreprises prospères, mais des vies alignées et un monde meilleur. C'est le sens profond du <strong style="color:var(--white);">Projet KOSMOS</strong> : votre réussite d'aujourd'hui peut devenir une lumière pour les autres demain.</p>
+
+  <div class="quote-block" style="margin-top:40px;">
+    <p>"Millionnaire de Cœur est bâti sur une conviction : la stratégie sans le Cœur construit des empires vides. Le Cœur sans stratégie reste un beau rêve. Les deux ensemble — c'est une Destinée."</p>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-block">
+  <h2>Prêt à décider<br>depuis votre <span class="gold">puissance ?</span></h2>
+  <a href="https://www.millionnairedecoeur.com/services" class="btn-gold">Découvrir les offres</a>
+  <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="btn-outline">Essayer le Decision Cost Audit AI</a>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-grid">
+
+    <div class="footer-left">
+      <p class="footer-label">CONTACT</p>
+      <a href="mailto:millionnairedecoeur@gmail.com" class="footer-email">millionnairedecoeur@gmail.com</a>
+      <p class="footer-social-label">SUIVEZ MOI<br>SUR LES RESEAUX SOCIAUX</p>
+      <div class="footer-social-icons">
+        <a href="https://www.youtube.com/@lechoixducoeur888" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100010965070076" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/millionnairedecoeur/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/mariafrancheteau/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-center">
+      <img src="/logo.jpg" alt="Logo Millionnaire de Cœur" class="footer-logo-img" />
+      <p class="footer-legal-text">
+        ©2026. Tous droits réservés à Maria Francheteau<br>
+        ("Millionnaire de Coeur" et "Kosmos Coeur d'Enfant") – SIRET n° : 84927049100020.<br><br>
+        L'intégralité des éléments constituant ce site, notamment et sans limitation : textes, contenus rédactionnels, concepts, idées, noms, titres, projets, programmes, images, photographies, visuels, éléments graphiques, logos, charte graphique, structures, bases de données, noms de domaine ainsi que tout autre contenu original, sont protégés par les dispositions du Code de la propriété intellectuelle et par toute législation internationale applicable.<br><br>
+        <a href="https://www.millionnairedecoeur.com/mentions-legales-millionnaire-de-coeur">Mentions légales</a>
+        –
+        <a href="https://www.millionnairedecoeur.com/conditions-generales-millionnaire-de-coeur">Conditions générales</a>
+        –
+        <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite">Politique de confidentialité.</a>
+      </p>
+      <p class="footer-disclaimer">ⓘ Les accompagnements proposés ne se substituent pas à un suivi ou à un traitement médical ou psychologique. Pour toute question relevant de la santé, consultez un professionnel de santé.</p>
+    </div>
+
+    <nav class="footer-right" aria-label="Navigation pied de page">
+      <div class="footer-nav-links">
+        <a href="https://www.millionnairedecoeur.com/">Accueil</a>
+        <a href="https://www.millionnairedecoeur.com/services">Services</a>
+        <a href="https://www.millionnairedecoeur.com/a-propos">À Propos</a>
+        <a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">Kosmos</a>
+        <a href="https://www.millionnairedecoeur.com/temoignages-millionnaire-de-coeur">Témoignages</a>
+        <a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a>
+      </div>
+    </nav>
+
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const nav    = document.getElementById('headerNav');
+  burger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  document.addEventListener('click', function(e) {
+    if (!nav.contains(e.target) && !burger.contains(e.target)) {
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  function applyFooterOrder() {
+    const left   = document.querySelector('.footer-left');
+    const center = document.querySelector('.footer-center');
+    const right  = document.querySelector('.footer-right');
+    if (window.innerWidth <= 768) {
+      left.style.order = '1'; right.style.order = '2'; center.style.order = '3';
+    } else {
+      left.style.order = ''; center.style.order = ''; right.style.order = '';
+    }
+  }
+  applyFooterOrder();
+  window.addEventListener('resize', applyFooterOrder);
+</script>
+
+<!-- BANDEAU COOKIES MDC -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111c26;border-top:1px solid rgba(212,175,55,0.25);padding:20px 28px;font-family:'Poppins',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:260px;">
+        <p style="font-size:0.82rem;font-weight:700;color:#D4AF37;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Gestion des cookies</p>
+        <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.6;margin:0;">Nous utilisons des cookies techniques nécessaires au fonctionnement du site et, avec votre accord, des cookies fonctionnels et marketing. Votre choix est mémorisé 13 mois. <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite" style="color:#D4AF37;text-decoration:underline;">En savoir plus</a></p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0;">
+        <button onclick="cookieRefuse()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);font-family:'Poppins',sans-serif;">Refuser</button>
+        <button onclick="cookieTogglePanel()" id="cookie-btn-custom" style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:#D4AF37;border:1px solid rgba(212,175,55,0.4);font-family:'Poppins',sans-serif;">Personnaliser ▼</button>
+        <button onclick="cookieAcceptAll()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:#D4AF37;color:#0d141a;border:none;font-family:'Poppins',sans-serif;">Tout accepter</button>
+      </div>
+    </div>
+    <div id="cookie-panel" style="display:none;border-top:1px solid rgba(212,175,55,0.12);margin-top:16px;padding-top:16px;">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;"><p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies techniques <span style="font-size:0.62rem;font-weight:600;color:#D4AF37;background:rgba(212,175,55,0.12);padding:2px 7px;border-radius:2px;margin-left:8px;">TOUJOURS ACTIFS</span></p><p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Indispensables au fonctionnement du site.</p></div>
+          <div style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;"><input type="checkbox" checked disabled style="opacity:0;width:0;height:0;position:absolute;"><span style="position:absolute;inset:0;background:#D4AF37;border-radius:22px;opacity:0.5;"></span><span style="position:absolute;width:16px;height:16px;left:19px;top:3px;background:#fff;border-radius:50%;"></span></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;"><p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies fonctionnels</p><p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Améliorent votre expérience et mémorisation de vos préférences.</p></div>
+          <label style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;cursor:pointer;"><input type="checkbox" id="tog-func" style="opacity:0;width:0;height:0;position:absolute;" onchange="cookieUpdateToggle('func',this.checked)"><span id="tog-func-bg" style="position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:22px;transition:background 0.25s;"></span><span id="tog-func-dot" style="position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.25s;"></span></label>
+        </div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;"><p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies marketing &amp; analytics</p><p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Mesure d'audience et contenu personnalisé.</p></div>
+          <label style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;cursor:pointer;"><input type="checkbox" id="tog-mkt" style="opacity:0;width:0;height:0;position:absolute;" onchange="cookieUpdateToggle('mkt',this.checked)"><span id="tog-mkt-bg" style="position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:22px;transition:background 0.25s;"></span><span id="tog-mkt-dot" style="position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.25s;"></span></label>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;">
+        <button onclick="cookieSaveChoices()" style="background:#D4AF37;color:#0d141a;font-size:0.74rem;font-weight:700;letter-spacing:0.06em;padding:9px 22px;border-radius:4px;cursor:pointer;border:none;font-family:'Poppins',sans-serif;">Enregistrer mes choix</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var COOKIE_KEY='mdc_cookie_consent';
+  var EXPIRY_DAYS=396;
+  function getCookie(){try{var v=localStorage.getItem(COOKIE_KEY);if(!v)return null;var d=JSON.parse(v);if(Date.now()>d.expires){localStorage.removeItem(COOKIE_KEY);return null;}return d;}catch(e){return null;}}
+  function setCookie(prefs){var d={prefs:prefs,expires:Date.now()+EXPIRY_DAYS*24*60*60*1000};localStorage.setItem(COOKIE_KEY,JSON.stringify(d));}
+  function hideBanner(){document.getElementById('cookie-banner').style.display='none';}
+  function showBanner(){document.getElementById('cookie-banner').style.display='block';}
+  window.cookieAcceptAll=function(){setCookie({technical:true,functional:true,marketing:true});hideBanner();}
+  window.cookieRefuse=function(){setCookie({technical:true,functional:false,marketing:false});hideBanner();}
+  window.cookieTogglePanel=function(){var p=document.getElementById('cookie-panel');var btn=document.getElementById('cookie-btn-custom');var open=p.style.display==='block';p.style.display=open?'none':'block';btn.textContent=open?'Personnaliser ▼':'Fermer ▲';}
+  window.cookieUpdateToggle=function(id,checked){var bg=document.getElementById('tog-'+id+'-bg');var dot=document.getElementById('tog-'+id+'-dot');bg.style.background=checked?'#D4AF37':'rgba(255,255,255,0.12)';dot.style.transform=checked?'translateX(16px)':'translateX(0)';}
+  window.cookieSaveChoices=function(){var func=document.getElementById('tog-func').checked;var mkt=document.getElementById('tog-mkt').checked;setCookie({technical:true,functional:func,marketing:mkt});hideBanner();}
+  var existing=getCookie();
+  if(!existing){showBanner();}
+})();
+</script>
 
 </body>
 </html>
