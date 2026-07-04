@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/decision-cost-audit-chat",
+      "destination": "/entrepreneurs-decision-cost-audit-ai",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/temoignages-millionnaire-de-coeur",
@@ -10,12 +17,4 @@
       "destination": "/mentions-legales"
     },
     {
-      "source": "/conditions-generales-millionnaire-de-coeur",
-      "destination": "/cgv"
-    },
-    {
-      "source": "/politique-de-confidentialite",
-      "destination": "/politique-de-confidentialite"
-    }
-  ]
-}
+      "source": "/conditions-generales-millionnaire-d
