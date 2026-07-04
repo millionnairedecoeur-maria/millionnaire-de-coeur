@@ -16,4 +16,24 @@
       "destination": "/a-propos",
       "permanent": true
     },
-  
+    {
+      "source": "/reservez-un-appel",
+      "destination": "/contact-entrepreneurs-millionnaire-de-coeur",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/temoignages-millionnaire-de-coeur",
+      "destination": "/temoignages"
+    },
+    {
+      "source": "/mentions-legales-millionnaire-de-coeur",
+      "destination": "/mentions-legales"
+    },
+    {
+      "source": "/conditions-generales-millionnaire-de-coeur",
+      "destination": "/cgv"
+    }
+  ]
+}
