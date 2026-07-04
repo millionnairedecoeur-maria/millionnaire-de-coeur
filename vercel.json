@@ -5,16 +5,15 @@
       "source": "/decision-cost-audit-chat",
       "destination": "/entrepreneurs-decision-cost-audit-ai",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/temoignages-millionnaire-de-coeur",
-      "destination": "/temoignages"
     },
     {
-      "source": "/mentions-legales-millionnaire-de-coeur",
-      "destination": "/mentions-legales"
+      "source": "/votre-experience-millionnaire-de-coeur",
+      "destination": "/services",
+      "permanent": true
     },
     {
-      "source": "/conditions-generales-millionnaire-d
+      "source": "/coach-en-liberation-emotionnelle-quantique-et-transformation-interieure",
+      "destination": "/a-propos",
+      "permanent": true
+    },
+  
