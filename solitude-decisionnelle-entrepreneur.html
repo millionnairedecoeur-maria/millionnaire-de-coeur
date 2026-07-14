@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Solitude Décisionnelle de l'Entrepreneur : Ce que Personne Ne Dit | MDC</title>
+  <link rel="canonical" href="https://www.millionnairedecoeur.com/solitude-decisionnelle-entrepreneur" />
+  <meta name="description" content="La solitude décisionnelle de l'entrepreneur est le poids invisible qui épuise les dirigeants. Découvrez ses 5 signes, son coût réel et comment décider depuis un état de clarté souveraine. Par Maria Francheteau." />
+  <meta property="og:title" content="La Solitude Décisionnelle de l'Entrepreneur : Ce que Personne Ne Dit" />
+  <meta property="og:description" content="Chaque entrepreneur décide seul. Mais décider seul depuis l'épuisement n'est pas la même chose que décider depuis la clarté souveraine. Découvrez la différence — et ce qu'elle coûte vraiment." />
+  <meta property="og:url" content="https://www.millionnairedecoeur.com/solitude-decisionnelle-entrepreneur" />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="/fonts/poppins.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0d141a; --gold: #D4AF37; --white: #ffffff; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { background-color: var(--bg); color: var(--white); font-family: 'Poppins', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+
+    @keyframes quantumSweep { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+    @keyframes navFadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── HEADER ── */
+    .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background-color: var(--bg); border-bottom: 1px solid rgba(212,175,55,0.10); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 70px; animation: navFadeIn 0.6s ease both; }
+    .header-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .header-logo img { height: 44px; width: 44px; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 0 8px rgba(212,175,55,0.5)); }
+    .header-nav { display: flex; align-items: center; gap: 34px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+    .header-nav li { position: relative; }
+    .header-nav a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; color: var(--white); transition: color 0.2s; white-space: nowrap; display: block; padding-bottom: 3px; }
+    .header-nav a:hover { color: var(--gold); }
+    .header-nav a.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+    .header-lang { font-size: 0.80rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; align-items: center; gap: 3px; transition: color 0.2s; }
+    .header-lang:hover { color: var(--gold); }
+    .header-cart { width: 21px; height: 21px; color: var(--white); transition: color 0.2s; cursor: pointer; flex-shrink: 0; }
+    .header-cart:hover { color: var(--gold); }
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+    @media (max-width: 900px) {
+      .header { padding: 0 20px; }
+      .header-nav { display: none; position: fixed !important; top: 70px; left: 0 !important; right: 0; transform: none !important; background: rgba(13,20,26,0.99); flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; border-top: 1px solid rgba(212,175,55,0.14); }
+      .header-nav.open { display: flex; }
+      .burger { display: flex; }
+    }
+
+    /* ── PAGE ── */
+    .page-content { padding-top: 70px; }
+
+    /* ── ARTICLE ── */
+    .article-wrapper { background-color: #0d141a; padding: 0 20px; }
+    .article-inner { max-width: 780px; margin: 0 auto; padding: 80px 0 100px; }
+
+    .article-title-block { text-align: center; padding: 60px 0 50px; }
+    .article-shimmer {
+      background: linear-gradient(90deg, #ffffff 0%, #ffffff 45%, #D4AF37 50%, #ffffff 55%, #ffffff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: quantumSweep 7s linear infinite;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .article-hero-img {
+      display: block;
+      width: 88%;
+      max-width: 680px;
+      margin: 0 auto 60px;
+      border-radius: 4px;
+      box-shadow: 0 8px 40px rgba(212,175,55,0.15);
+    }
+
+    .article-intro {
+      font-size: 0.98rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 60px;
+      font-style: italic;
+      letter-spacing: 0.01em;
+    }
+
+    .v-bar {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #D4AF37;
+      text-transform: uppercase;
+      border-left: 4px solid #D4AF37;
+      padding-left: 15px;
+      margin: 50px 0 20px;
+      box-shadow: -5px 0 10px rgba(212,175,55,0.3);
+    }
+
+    .article-inner p {
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.95;
+      color: #ffffff;
+      margin-bottom: 22px;
+      letter-spacing: 0.015em;
+    }
+    .article-inner p strong { font-weight: 600; color: #ffffff; }
+    .article-inner p em { font-style: italic; color: rgba(255,255,255,0.8); }
+
+    .article-box {
+      margin: 50px 0;
+      padding: 36px 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 2px;
+    }
+    .article-box h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #D4AF37;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .article-box p { font-size: 0.93rem; font-weight: 300; line-height: 1.9; color: #ffffff; margin-bottom: 16px; }
+    .article-box p:last-child { margin-bottom: 0; }
+
+    .sign-list { list-style: none; margin: 0 0 30px; padding: 0; }
+    .sign-list li {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #ffffff;
+      padding: 16px 20px 16px 50px;
+      margin-bottom: 12px;
+      border-left: 3px solid rgba(212,175,55,0.3);
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      letter-spacing: 0.01em;
+    }
+    .sign-list li::before {
+      content: attr(data-num);
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      color: #D4AF37;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .sign-list li strong { font-weight: 600; color: #D4AF37; }
+
+    .cost-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 30px 0;
+    }
+    .cost-card {
+      padding: 24px 20px;
+      border: 1px solid rgba(212,175,55,0.15);
+      background: rgba(255,255,255,0.02);
+    }
+    .cost-card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+    .cost-card p { font-size: 0.88rem; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0; }
+
+    .faq-block { margin: 60px 0 0; }
+    .faq-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #D4AF37;
+      margin-bottom: 28px;
+    }
+    .faq-item { margin-bottom: 28px; border-bottom: 1px solid rgba(212,175,55,0.10); padding-bottom: 28px; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .faq-a {
+      font-size: 0.93rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+    }
+
+    .article-footer-cta { text-align: center; padding: 70px 0 0; border-top: 1px solid rgba(212,175,55,0.15); margin-top: 70px; }
+    .article-footer-cta h3 { font-family: 'Poppins', sans-serif; font-size: 1.5rem; color: #ffffff; margin-bottom: 16px; font-weight: 700; letter-spacing: -0.3px; line-height: 1.3; }
+    .article-footer-cta p { font-size: 0.9rem; color: rgba(255,255,255,0.65); font-weight: 300; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    .quantum-button {
+      font-family: 'Poppins', sans-serif;
+      display: inline-block;
+      padding: 18px 52px;
+      background-color: #0d141a;
+      color: #D4AF37;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      border: 1px solid #D4AF37;
+      font-size: 0.82rem;
+      transition: 0.3s;
+      box-sizing: border-box;
+    }
+    .quantum-button:hover { transform: scale(1.02); border-color: #ffffff; color: #ffffff; box-shadow: 0 0 30px rgba(212,175,55,0.3); }
+
+    .cta-secondary {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .cta-secondary:hover { color: #D4AF37; }
+
+    @media (max-width: 600px) {
+      .article-inner { padding: 50px 0 60px; }
+      .article-title-block { padding: 40px 0 36px; }
+      .article-shimmer { font-size: 1.6rem; }
+      .article-hero-img { width: 100%; }
+      .article-box { padding: 24px 20px; }
+      .cost-grid { grid-template-columns: 1fr; }
+      .quantum-button { padding: 16px 24px; width: 100%; letter-spacing: 2px; font-size: 0.78rem; text-align: center; }
+    }
+
+    /* ── ARTICLES LIÉS ── */
+    .articles-lies { margin: 60px 0 0; padding: 40px 0 0; border-top: 1px solid rgba(212,175,55,0.15); }
+    .articles-lies-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #D4AF37; margin-bottom: 20px; }
+    .articles-lies-grid { display: flex; flex-direction: column; gap: 14px; }
+    .article-lie { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.85); transition: color 0.2s; line-height: 1.5; display: block; }
+    .article-lie:hover { color: #D4AF37; }
+
+    /* ── FOOTER ── */
+    .footer { background-color: #0d141a; border-top: 1px solid rgba(212,175,55,0.12); padding: 50px 40px 36px; font-family: 'Poppins', sans-serif; }
+    .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 40px; align-items: start; }
+    .footer-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; margin-bottom: 8px; }
+    .footer-email { font-size: 0.82rem; color: #ffffff; display: block; margin-bottom: 28px; transition: color 0.2s; }
+    .footer-email:hover { color: var(--gold); }
+    .footer-social-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff; margin-bottom: 14px; line-height: 1.4; }
+    .footer-social-icons { display: flex; gap: 18px; align-items: center; }
+    .footer-social-icons a { color: #ffffff; transition: color 0.25s; display: flex; align-items: center; }
+    .footer-social-icons a:hover { color: var(--gold); }
+    .footer-social-icons svg { width: 22px; height: 22px; fill: currentColor; }
+    .footer-center { text-align: center; }
+    .footer-logo-img { width: 52px; height: 52px; object-fit: contain; margin: 0 auto 18px; display: block; mix-blend-mode: screen; filter: drop-shadow(0 0 10px rgba(212,175,55,0.6)); }
+    .footer-legal-text { font-size: 0.67rem; color: #ffffff; line-height: 1.75; margin-bottom: 10px; }
+    .footer-legal-text a { color: #ffffff; text-decoration: underline; transition: color 0.2s; }
+    .footer-legal-text a:hover { color: var(--gold); }
+    .footer-disclaimer { font-size: 0.64rem; color: #ffffff; line-height: 1.6; margin-top: 14px; }
+    .footer-right { text-align: right; }
+    .footer-nav-links { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+    .footer-nav-links a { font-size: 0.82rem; color: #ffffff; transition: color 0.2s; }
+    .footer-nav-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .footer { padding: 36px 20px 24px; }
+      .footer-grid { grid-template-columns: 1fr; display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; }
+      .footer-left, .footer-center, .footer-right { text-align: center !important; width: 100%; }
+      .footer-social-icons { justify-content: center; }
+      .footer-nav-links { align-items: center; width: 100%; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "La Solitude Décisionnelle de l'Entrepreneur : Ce que Personne Ne Dit",
+    "description": "La solitude décisionnelle de l'entrepreneur est le poids invisible qui épuise les dirigeants. Découvrez ses 5 signes, son coût réel et comment décider depuis un état de clarté souveraine.",
+    "author": {
+      "@type": "Person",
+      "name": "Maria Francheteau",
+      "url": "https://www.millionnairedecoeur.com/a-propos",
+      "sameAs": [
+        "https://www.linkedin.com/in/mariafrancheteau/",
+        "https://www.instagram.com/millionnairedecoeur/"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Millionnaire de Cœur",
+      "url": "https://www.millionnairedecoeur.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.millionnairedecoeur.com/logo.jpg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.millionnairedecoeur.com/solitude-decisionnelle-entrepreneur"
+    },
+    "keywords": "solitude décisionnelle entrepreneur, solitude du dirigeant, décider seul chef entreprise, isolement décisionnel, charge mentale entrepreneur décision, clarté décisionnelle",
+    "datePublished": "2026-07-14",
+    "dateModified": "2026-07-14",
+    "inLanguage": "fr-FR"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "La solitude décisionnelle est-elle inévitable pour un entrepreneur ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Elle est inhérente au rôle, mais ce n'est pas la même chose qu'inévitable dans ses effets négatifs. La solitude décisionnelle devient problématique lorsqu'elle est chronique et non soutenue. Avec les bons espaces de clarté, elle peut rester une force plutôt que devenir un fardeau."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment savoir si mes décisions sont affectées par la solitude décisionnelle ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le signe le plus clair est la durée et l'énergie que vous consacrez à des décisions qui ne le justifient pas. Si vous passez des heures — ou des nuits — sur une décision qui devrait prendre 20 minutes, la solitude décisionnelle est probablement à l'oeuvre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Est-ce que chercher du soutien décisionnel est un signe de faiblesse ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non. C'est un signe de maturité stratégique. Les dirigeants les plus performants ne décident pas dans l'isolement complet — ils ont des espaces de clarté, des mentors, des conseillers. La différence avec un dirigeant ordinaire : ils gardent la décision finale, mais ne portent pas seuls le processus qui y mène."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre solitude décisionnelle et isolement décisionnel ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La solitude décisionnelle souveraine est celle du leader qui assume la finalité de sa décision depuis un état de clarté et de puissance. L'isolement décisionnel toxique est celui du dirigeant qui décide seul sans ressources, sans miroir fiable, souvent depuis un état de pression ou d'épuisement. Le premier est une force, le second est un facteur de risque pour l'entreprise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "La solitude décisionnelle touche-t-elle aussi les dirigeants d'entreprises avec des équipes importantes ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui — et souvent davantage. Plus l'entreprise est grande, plus la charge décisionnelle est lourde, et plus les décisions réellement stratégiques sont solitaires. Le CEO d'une PME de 50 personnes est souvent plus seul décisionnellement que le fondateur d'une startup de 3 personnes."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<header class="header" role="banner">
+  <a href="https://www.millionnairedecoeur.com/" class="header-logo" aria-label="Millionnaire de Cœur - Accueil">
+    <img src="/logo.jpg" alt="Logo Millionnaire de Cœur" />
+  </a>
+
+  <ul class="header-nav" id="headerNav" role="navigation" aria-label="Navigation principale">
+    <li><a href="https://www.millionnairedecoeur.com/">Accueil</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/services">Services</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/a-propos">À Propos</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">KOSMOS</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/articles-decisions-entrepreneurs" class="active">Articles</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/temoignages-millionnaire-de-coeur">Témoignages</a></li>
+    <li><a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a></li>
+  </ul>
+
+  <div class="header-right">
+    <span class="header-lang">FR <span style="font-size:0.6rem;">▾</span></span>
+    <svg class="header-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-label="Panier">
+      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <path d="M16 10a4 4 0 01-8 0"/>
+    </svg>
+    <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="page-content">
+  <div class="article-wrapper">
+    <div class="article-inner">
+
+      <div class="article-title-block">
+        <h1 class="article-shimmer">LA SOLITUDE DÉCISIONNELLE DE L'ENTREPRENEUR : CE QUE PERSONNE NE DIT</h1>
+      </div>
+
+      <p class="article-intro">Il y a une phrase que les entrepreneurs ne disent jamais à voix haute : "Je décide seul et ça m'épuise." Ce silence a un coût. Un coût réel, mesurable, sur votre business et sur votre clarté.</p>
+
+      <h2 class="v-bar">Le Poids Invisible Que Personne N'Identifie</h2>
+
+      <p>Ce n'est pas la solitude du bureau vide un dimanche soir. C'est quelque chose de plus insidieux : la conscience aiguë que, quelle que soit la décision — embaucher ou licencier, pivoter ou tenir, investir ou renoncer — c'est vous qui la portez. C'est vous qui assumez les conséquences. C'est vous qui vivez avec ce qu'elle produit. Et le plus souvent, c'est vous seul.</p>
+
+      <p>On vous a appris à voir cette solitude comme un privilège. La liberté de décider. L'autonomie de l'entrepreneur. Personne au-dessus de vous. Personne pour vous dire non. C'est vrai — et c'est précisément pour ça que vous avez lancé votre entreprise. Mais derrière cette liberté se cache un phénomène que les formations entrepreneuriales n'abordent presque jamais : la <strong>solitude décisionnelle</strong>.</p>
+
+      <p>Ce que nous allons explorer ici n'est pas un appel à la vulnérabilité facile. C'est une analyse précise d'un phénomène réel, de son coût sur votre performance décisionnelle, et des leviers concrets pour transformer cette solitude en puissance souveraine plutôt qu'en fardeau chronique.</p>
+
+      <h2 class="v-bar">Qu'Est-ce que la Solitude Décisionnelle ?</h2>
+
+      <p>La solitude décisionnelle est l'état dans lequel se trouve un entrepreneur ou un dirigeant lorsque le poids des décisions importantes repose entièrement sur lui, sans interlocuteur légitime capable de comprendre réellement les enjeux.</p>
+
+      <p>Notez le mot <em>légitime</em>. Vous avez peut-être un associé, un conjoint, un ami entrepreneur que vous consultez régulièrement. Mais la solitude décisionnelle ne disparaît pas avec la simple présence d'autres personnes. Elle persiste lorsque :</p>
+
+      <ul class="sign-list">
+        <li data-num="→">Vos interlocuteurs ne maîtrisent pas le contexte réel de votre business et de ses enjeux</li>
+        <li data-num="→">Vous filtrez ce que vous partagez pour ne pas inquiéter, paraître vulnérable ou perdre de l'autorité</li>
+        <li data-num="→">Les conseils reçus viennent de logiques différentes de la vôtre et ne résonnent pas avec votre vision</li>
+        <li data-num="→">La décision finale reste la vôtre, et vous le savez — quelle que soit la réunion, quel que soit le consensus</li>
+      </ul>
+
+      <p>C'est cette nuance qui rend la solitude décisionnelle particulièrement silencieuse et dangereuse. On ne la voit pas de l'extérieur. On la ressent de l'intérieur, sous forme d'épuisement diffus, de doutes récurrents et d'une sensation que personne ne comprend vraiment ce que vous traversez.</p>
+
+      <h2 class="v-bar">Pourquoi les Entrepreneurs Décident-ils Seuls</h2>
+
+      <p>Trois mécanismes principaux expliquent pourquoi cette solitude s'installe et persiste — même chez les dirigeants entourés d'équipes importantes.</p>
+
+      <p><strong>La structure même de l'entrepreneuriat.</strong> L'entrepreneur est, par définition, celui qui assume le risque ultime. Cette position d'autorité n'est pas une option, c'est une caractéristique fondamentale du rôle. Les décisions les plus importantes — celles qui engagent vraiment l'avenir de l'entreprise — ne peuvent pas être pleinement déléguées. Elles doivent être portées par une conscience unique, intégrant des informations, des valeurs et une vision que personne d'autre ne possède intégralement.</p>
+
+      <p><strong>La difficulté à trouver un pair réel.</strong> La plupart des cercles professionnels ne sont pas des espaces de vraie vulnérabilité décisionnelle. Les réseaux d'entrepreneurs sont souvent des arènes de performance, où l'on partage ses succès bien plus facilement que ses doutes. Trouver un interlocuteur qui comprend à la fois les enjeux stratégiques ET les réalités psychologiques de la direction, sans jugement ni agenda personnel, est rare.</p>
+
+      <p><strong>La double vie du dirigeant.</strong> Les équipes attendent une direction claire. Les clients attendent la confiance. Les investisseurs attendent la certitude. Ce rôle constamment performé crée une dissociation profonde : en public, on décide avec assurance. En privé, on tourne en boucle. Cette distance entre la posture visible et la réalité interne amplifie la solitude et l'épuisement.</p>
+
+      <div class="article-box">
+        <p style="font-family:'Poppins',sans-serif; font-size:1.05rem; color:#ffffff; margin:0; font-weight:600; font-style:italic; line-height:1.65;">"La vraie question n'est pas de savoir si vous décidez seul — vous déciderez toujours seul in fine. La vraie question est : <span style="color:#D4AF37;">depuis quel état</span> vous décidez."</p>
+        <p style="margin-top:14px; font-size:0.85rem; color:rgba(255,255,255,0.55);">— Maria Francheteau, Fondatrice Millionnaire de Cœur</p>
+      </div>
+
+      <h2 class="v-bar">Les 5 Signes que la Solitude Décisionnelle Vous Coûte</h2>
+
+      <p>Ces cinq indicateurs ne sont pas des signes de faiblesse. Ce sont des signaux d'alerte d'un système décisionnel sous pression. Identifiez-les avec précision.</p>
+
+      <ul class="sign-list">
+        <li data-num="1"><strong>Vous reportez des décisions importantes sans raison technique</strong> — pas parce que vous manquez d'informations, mais parce que le simple fait de devoir décider seul vous pèse. Le report n'est pas une stratégie, c'est un soulagement temporaire.</li>
+        <li data-num="2"><strong>Vous cherchez des validations répétées</strong>, même sur des décisions déjà prises. Vous demandez l'avis de votre équipe, de votre conjoint, d'un mentor — non pas pour obtenir de nouvelles informations, mais pour diluer la responsabilité que vous ressentez.</li>
+        <li data-num="3"><strong>Vos décisions consomment disproportionnellement votre énergie</strong>. Des décisions qui devraient prendre 20 minutes en prennent 3 heures. Vous y revenez le soir, la nuit. L'espace mental qu'elles occupent est hors proportion avec leur importance réelle.</li>
+        <li data-num="4"><strong>Vous ressentez un vide après avoir tranché</strong> — pas de soulagement, pas de satisfaction, mais une fatigue sourde et un doute immédiat. "Et si j'avais mal décidé ?" commence à peine la décision prise.</li>
+        <li data-num="5"><strong>Vous ne savez plus distinguer vos décisions de vos peurs</strong>. Il devient difficile de savoir si vous choisissez en fonction de votre vision ou en fonction de ce qui vous fait le moins peur. La clarté décisionnelle s'est progressivement substituée à la prudence anxieuse.</li>
+      </ul>
+
+      <h2 class="v-bar">Le Vrai Coût de Décider Seul</h2>
+
+      <p>Les recherches en sciences cognitives et en neurosciences décisionnelles sont convergentes : la prise de décision dans un état d'épuisement ou d'isolement est structurellement moins précise que dans un état de clarté soutenu. Non pas parce que l'individu seul est moins intelligent — mais parce que le cerveau humain n'est pas conçu pour porter indéfiniment la totalité du risque décisionnel sans espace de résonance externe.</p>
+
+      <p>Ce coût se manifeste sur quatre plans simultanés :</p>
+
+      <div class="cost-grid">
+        <div class="cost-card">
+          <div class="cost-card-label">Cognitif</div>
+          <p>Surcharge mentale chronique, rumination nocturne, fatigue décisionnelle accumulée. Chaque décision non résolue occupe de l'espace dans votre mémoire de travail — réduisant votre capacité à traiter les décisions suivantes.</p>
+        </div>
+        <div class="cost-card">
+          <div class="cost-card-label">Stratégique</div>
+          <p>Décisions prises dans un état de stress ou d'épuisement, biais de confirmation amplifiés, sur-pondération des risques à court terme au détriment de la vision à long terme.</p>
+        </div>
+        <div class="cost-card">
+          <div class="cost-card-label">Financier</div>
+          <p>Décisions retardées = opportunités perdues. Décisions précipitées pour sortir de l'inconfort = erreurs coûteuses. Le <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" style="color:#D4AF37;">coût réel de l'indécision</a> est rarement calculé — mais il est bien réel.</p>
+        </div>
+        <div class="cost-card">
+          <div class="cost-card-label">Relationnel</div>
+          <p>Le dirigeant épuisé par ses décisions se ferme, communique moins clairement, délègue moins bien. La solitude décisionnelle finit par créer une distance avec l'équipe qu'il cherchait précisément à protéger.</p>
+        </div>
+      </div>
+
+      <p>C'est le paradoxe central de la solitude décisionnelle : en voulant tout porter seul — pour protéger, pour contrôler, pour ne pas montrer le doute — on finit par moins bien décider que si l'on avait créé les conditions d'une clarté soutenue.</p>
+
+      <h2 class="v-bar">Solitude Souveraine vs Isolement Toxique</h2>
+
+      <p>Tout ici repose sur une nuance essentielle que la plupart des discours entrepreneuriaux confondent.</p>
+
+      <p>La <strong>solitude souveraine</strong> est celle du leader qui assume pleinement la finalité de sa décision — qui sait que le dernier mot lui appartient et le revendique — mais qui a su créer les conditions internes et externes pour décider depuis un état de clarté et de puissance. Il décide seul, oui. Mais il décide depuis un endroit entier. Son système nerveux est régulé. Sa vision est claire. Il a un espace de résonance fiable, même s'il est externe et limité dans le temps.</p>
+
+      <p>L'<strong>isolement toxique</strong> est celui du dirigeant qui n'a personne pour penser avec lui, aucun miroir fiable, aucun cadre pour tester ses hypothèses et débusquer ses angles morts. Il décide seul dans le sens le plus littéral : sans ressources cognitives externes, sans espace de décompression, souvent depuis un état de pression ou d'épuisement qui altère structurellement la qualité de ses jugements.</p>
+
+      <p>Le premier type de solitude est une <em>force</em>. Le second est un facteur de risque systémique pour l'entreprise — et pour la santé du dirigeant.</p>
+
+      <div class="article-box">
+        <h3>Les Décisions les Plus Dangereuses</h3>
+        <p>Les décisions prises dans un état d'isolement toxique ont une signature reconnaissable : elles sont soit excessivement prudentes (attentisme paralysant), soit excessivement impulsives (réaction pour sortir de l'inconfort). Dans les deux cas, elles ne viennent pas de la vision — elles viennent de l'épuisement. Et c'est précisément là que le coût de la solitude décisionnelle se révèle le plus lourd.</p>
+        <p>Identifier l'état depuis lequel vous décidez n'est pas un exercice de développement personnel. C'est un outil stratégique de premier ordre.</p>
+      </div>
+
+      <h2 class="v-bar">Comment Transformer la Solitude Décisionnelle</h2>
+
+      <p>Trois leviers concrets, par ordre d'impact croissant.</p>
+
+      <p><strong>1. Mesurer avant de changer.</strong> Avant même de modifier la façon dont vous décidez, calculez ce que votre solitude décisionnelle actuelle vous coûte concrètement. Pas de façon abstraite — en termes réels : décisions repoussées depuis combien de semaines, opportunités non saisies, énergie consommée par des décisions qui n'auraient pas dû prendre ce temps. Le <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" style="color:#D4AF37;text-decoration:underline;font-weight:600;">Decision Cost Audit</a> est conçu précisément pour cette révélation. Elle est souvent le déclencheur d'un changement qui ne vient pas de la volonté mais de la lucidité.</p>
+
+      <p><strong>2. Créer un espace de clarté décisionnelle régulier.</strong> Pas un conseil d'administration. Pas un groupe de mastermind générique où l'on partage ses succès. Un espace spécifiquement conçu pour la clarté décisionnelle — où vous posez vos vraies questions, testez vos hypothèses les plus risquées et recevez un miroir précis de vos angles morts. La <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" style="color:#D4AF37;text-decoration:underline;font-weight:600;">Session Quantum Decision Catalyst</a> a été construite pour cette fonction exacte : pas du coaching générique, pas de la thérapie — un espace de décision souveraine.</p>
+
+      <p><strong>3. Distinguer les décisions qui vous appartiennent de celles que vous portez par excès de contrôle.</strong> Une part significative de la solitude décisionnelle vient de décisions que vous n'avez pas à prendre seul — mais que vous gardez parce que déléguer vous expose à la vulnérabilité du contrôle. Identifier ces décisions et les sortir de votre charge mentale libère une quantité considérable d'espace cognitif — espace que vous pouvez ensuite consacrer aux décisions qui vous appartiennent vraiment.</p>
+
+      <h2 class="v-bar">Ce Que Change la Clarté Décisionnelle</h2>
+
+      <p>Un entrepreneur qui décide depuis la clarté souveraine ne décide pas plus vite pour le seul plaisir de la vitesse. Il décide depuis un endroit où la vision est nette, où les peurs sont identifiées et nommées, où les angles morts ont été éclairés par un regard externe de qualité. Le résultat observable est double :</p>
+
+      <p>D'abord, la <strong>qualité des décisions</strong> augmente — non pas parce que vous avez plus d'informations, mais parce que vous traitez les informations disponibles depuis un état optimal. Les biais cognitifs se réduisent. Les décisions stratégiques s'alignent avec la vision long terme plutôt qu'avec la gestion de l'anxiété court terme.</p>
+
+      <p>Ensuite, le <strong>coût énergétique</strong> de la décision diminue drastiquement. Ce qui prenait trois heures en prend vingt minutes. Ce qui vous réveillait à 3h du matin ne vous réveille plus. L'espace mental libéré est considérable — et vous pouvez le réinvestir dans ce qui crée réellement de la valeur.</p>
+
+      <p>La solitude décisionnelle n'est pas une fatalité entrepreneuriale. C'est un signal. Il vous indique que votre processus décisionnel a besoin d'un upgrade — pas dans les outils ou les données, mais dans les conditions depuis lesquelles vous décidez.</p>
+
+      <!-- FAQ -->
+      <div class="faq-block">
+        <p class="faq-title">Questions fréquentes</p>
+
+        <div class="faq-item">
+          <p class="faq-q">La solitude décisionnelle est-elle inévitable pour un entrepreneur ?</p>
+          <p class="faq-a">Elle est inhérente au rôle — mais ce n'est pas la même chose qu'inévitable dans ses effets négatifs. La solitude décisionnelle devient problématique lorsqu'elle est chronique et non soutenue. Avec les bons espaces de clarté et les bonnes conditions internes, elle peut rester une force plutôt que de devenir un fardeau qui altère la qualité de vos décisions.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Comment savoir si mes décisions sont affectées par la solitude décisionnelle ?</p>
+          <p class="faq-a">Le signe le plus clair est la durée et l'énergie que vous consacrez à des décisions qui ne le justifient pas objectivement. Si vous passez des heures — ou des nuits — sur une décision qui devrait prendre 20 minutes, si vous revenez constamment sur des décisions déjà prises, si vous ressentez un vide plutôt qu'un soulagement après avoir tranché : la solitude décisionnelle est probablement à l'œuvre.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Est-ce que chercher du soutien décisionnel est un signe de faiblesse ?</p>
+          <p class="faq-a">Non. C'est un signe de maturité stratégique. Les dirigeants les plus performants — ceux qui bâtissent des entreprises à forte croissance sur la durée — ne décident pas dans l'isolement complet. Ils ont des espaces de clarté dédiés, des mentors, des conseillers de confiance. La différence avec un dirigeant ordinaire n'est pas qu'ils décident moins seuls : c'est qu'ils gardent toujours la décision finale, mais ne portent pas seuls le processus qui y mène.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Quelle est la différence entre solitude souveraine et isolement décisionnel toxique ?</p>
+          <p class="faq-a">La solitude souveraine est celle du leader qui assume pleinement la responsabilité de ses décisions depuis un état de clarté, de puissance et de régulation interne. L'isolement toxique est celui du dirigeant qui décide seul sans ressources, sans miroir fiable, souvent depuis un état de pression ou d'épuisement qui altère structurellement la qualité de ses jugements. Le premier est une force compétitive. Le second est un facteur de risque pour l'entreprise — et pour sa propre santé.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">La solitude décisionnelle touche-t-elle aussi les dirigeants d'entreprises avec des équipes importantes ?</p>
+          <p class="faq-a">Oui — et souvent davantage. Plus l'entreprise est grande, plus la charge décisionnelle est lourde, et plus les décisions réellement stratégiques sont solitaires. Un CEO d'une PME de 50 personnes est souvent plus seul décisionnellement qu'un fondateur d'une startup de 3 personnes, parce que les enjeux sont plus importants et que le rôle lui impose une posture de certitude permanente qu'il ne peut pas baisser en interne.</p>
+        </div>
+      </div>
+
+      <!-- Articles liés -->
+      <div class="articles-lies">
+        <p class="articles-lies-label">Lire aussi</p>
+        <div class="articles-lies-grid">
+          <a href="https://www.millionnairedecoeur.com/vaincre-la-suranalyse" class="article-lie">Vaincre la suranalyse : sortir du labyrinthe de la paralysie décisionnelle →</a>
+          <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" class="article-lie">Session Quantum Decision Catalyst — Décidez depuis la clarté souveraine →</a>
+          <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="article-lie">Decision Cost Audit AI — Calculez le vrai coût de votre indécision →</a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="article-footer-cta">
+        <h3>Vous décidez seul depuis trop longtemps.</h3>
+        <p>La Session Quantum Decision Catalyst est un espace de clarté décisionnelle conçu pour les entrepreneurs qui veulent décider depuis la puissance — pas depuis l'épuisement.</p>
+        <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" class="quantum-button">DÉCOUVRIR LA SESSION →</a>
+        <br>
+        <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="cta-secondary">Ou calculez d'abord le coût réel de votre indécision →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+
+      <!-- Gauche -->
+      <div class="footer-left footer-order-1">
+        <p class="footer-label">CONTACT</p>
+        <a href="mailto:millionnairedecoeur@gmail.com" class="footer-email">millionnairedecoeur@gmail.com</a>
+
+        <p class="footer-social-label">SUIVEZ MOI<br>SUR LES RESEAUX SOCIAUX</p>
+        <div class="footer-social-icons">
+          <a href="https://www.youtube.com/@lechoixducoeur888" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100010965070076" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.27h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/millionnairedecoeur/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/mariafrancheteau/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Centre -->
+      <div class="footer-center footer-order-3">
+        <img src="data:image/jpeg;base64,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" alt="Logo Millionnaire de Cœur" class="footer-logo-img" style="mix-blend-mode:screen;" />
+        <p class="footer-legal-text">
+          ©2026. Tous droits réservés à Maria Francheteau<br>
+          ("Millionnaire de Coeur" et "Kosmos Coeur d'Enfant") – SIRET n° : 84927049100020.<br><br>
+          L'intégralité des éléments constituant ce site, notamment et sans limitation : textes, contenus rédactionnels, concepts, idées, noms, titres, projets, programmes, images, photographies, visuels, éléments graphiques, logos, charte graphique, structures, bases de données, noms de domaine ainsi que tout autre contenu original, sont protégés par les dispositions du Code de la propriété intellectuelle et par toute législation internationale applicable. Toute reproduction, représentation, diffusion, transmission, exploitation, adaptation, modification, extraction ou réutilisation, totale ou partielle, par quelque procédé que ce soit, sur tout support, sans autorisation écrite préalable de l'éditeur, est strictement interdite.<br><br>
+          <a href="https://www.millionnairedecoeur.com/mentions-legales-millionnaire-de-coeur">Mentions légales</a>
+          –
+          <a href="https://www.millionnairedecoeur.com/conditions-generales-millionnaire-de-coeur">Conditions générales de vente, d'annulation et de remboursement.</a>
+        –
+        <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite">Politique de confidentialité.</a>
+        </p>
+        <p class="footer-disclaimer">
+          ⓘ Les accompagnements proposés ne se substituent pas à un suivi ou à un traitement médical ou psychologique. Pour toute question relevant de la santé, consultez un professionnel de santé.
+        </p>
+      </div>
+
+      <!-- Droite -->
+      <nav class="footer-right footer-order-2" aria-label="Navigation pied de page">
+        <div class="footer-nav-links">
+          <a href="https://www.millionnairedecoeur.com/">Accueil</a>
+          <a href="https://www.millionnairedecoeur.com/services">Services</a>
+          <a href="https://www.millionnairedecoeur.com/a-propos">À Propos</a>
+          <a href="https://www.millionnairedecoeur.com/projet-kosmos-millionnaire-de-coeur">Kosmos</a>
+          <a href="https://www.millionnairedecoeur.com/temoignages-millionnaire-de-coeur">Témoignages</a>
+          <a href="https://www.millionnairedecoeur.com/contact-entrepreneurs-millionnaire-de-coeur">Contact</a>
+        </div></nav>
+    </div>
+  </footer>
+
+<script>
+    const burger = document.getElementById('burgerBtn');
+    const nav    = document.getElementById('headerNav');
+
+    // Toggle menu mobile
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    // Fermer menu au clic extérieur
+    document.addEventListener('click', (e) => {
+      if (!burger.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
+
+<!-- BANDEAU COOKIES MDC -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111c26;border-top:1px solid rgba(212,175,55,0.25);padding:20px 28px;font-family:'Poppins',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:260px;">
+        <p style="font-size:0.82rem;font-weight:700;color:#D4AF37;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;">Gestion des cookies</p>
+        <p style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.6;margin:0;">Nous utilisons des cookies techniques nécessaires au fonctionnement du site et, avec votre accord, des cookies fonctionnels et marketing. Votre choix est mémorisé 13 mois. <a href="https://www.millionnairedecoeur.com/politique-de-confidentialite" style="color:#D4AF37;text-decoration:underline;">En savoir plus</a></p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex-shrink:0;">
+        <button onclick="cookieRefuse()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);font-family:'Poppins',sans-serif;">Refuser</button>
+        <button onclick="cookieTogglePanel()" id="cookie-btn-custom" style="font-size:0.72rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:transparent;color:#D4AF37;border:1px solid rgba(212,175,55,0.4);font-family:'Poppins',sans-serif;">Personnaliser ▼</button>
+        <button onclick="cookieAcceptAll()" style="font-size:0.74rem;font-weight:600;letter-spacing:0.06em;padding:9px 18px;border-radius:4px;cursor:pointer;background:#D4AF37;color:#0d141a;border:none;font-family:'Poppins',sans-serif;">Tout accepter</button>
+      </div>
+    </div>
+
+    <div id="cookie-panel" style="display:none;border-top:1px solid rgba(212,175,55,0.12);margin-top:16px;padding-top:16px;">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px;">
+
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;">
+            <p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies techniques <span style="font-size:0.62rem;font-weight:600;color:#D4AF37;background:rgba(212,175,55,0.12);padding:2px 7px;border-radius:2px;margin-left:8px;letter-spacing:0.06em;">TOUJOURS ACTIFS</span></p>
+            <p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Indispensables au fonctionnement du site. Sécurité anti-spam du formulaire de contact (Web3Forms), mémorisation de vos préférences cookies. Ne peuvent pas être désactivés.</p>
+          </div>
+          <div style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;">
+            <input type="checkbox" checked disabled style="opacity:0;width:0;height:0;position:absolute;">
+            <span style="position:absolute;inset:0;background:#D4AF37;border-radius:22px;opacity:0.5;"></span>
+            <span style="position:absolute;width:16px;height:16px;left:19px;top:3px;background:#fff;border-radius:50%;"></span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;">
+            <p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies fonctionnels</p>
+            <p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Améliorent votre expérience : mémorisation de formulaires, préférences d'affichage, inscriptions à des événements ou webinars.</p>
+          </div>
+          <label style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;cursor:pointer;">
+            <input type="checkbox" id="tog-func" style="opacity:0;width:0;height:0;position:absolute;" onchange="cookieUpdateToggle('func',this.checked)">
+            <span id="tog-func-bg" style="position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:22px;transition:background 0.25s;"></span>
+            <span id="tog-func-dot" style="position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.25s;"></span>
+          </label>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:12px 16px;background:rgba(255,255,255,0.03);border-radius:4px;border:1px solid rgba(212,175,55,0.08);">
+          <div style="flex:1;">
+            <p style="font-size:0.78rem;font-weight:600;color:#ffffff;margin:0 0 3px;">Cookies marketing & analytics</p>
+            <p style="font-size:0.70rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;margin:0;">Mesure d'audience et contenu personnalisé. Utilisés si des outils d'analyse ou pixels de conversion sont installés (ex. Meta Pixel, Google Analytics).</p>
+          </div>
+          <label style="position:relative;width:38px;height:22px;flex-shrink:0;margin-top:2px;cursor:pointer;">
+            <input type="checkbox" id="tog-mkt" style="opacity:0;width:0;height:0;position:absolute;" onchange="cookieUpdateToggle('mkt',this.checked)">
+            <span id="tog-mkt-bg" style="position:absolute;inset:0;background:rgba(255,255,255,0.12);border-radius:22px;transition:background 0.25s;"></span>
+            <span id="tog-mkt-dot" style="position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:transform 0.25s;"></span>
+          </label>
+        </div>
+
+      </div>
+      <div style="display:flex;justify-content:flex-end;">
+        <button onclick="cookieSaveChoices()" style="background:#D4AF37;color:#0d141a;font-size:0.74rem;font-weight:700;letter-spacing:0.06em;padding:9px 22px;border-radius:4px;cursor:pointer;border:none;font-family:'Poppins',sans-serif;">Enregistrer mes choix</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var COOKIE_KEY='mdc_cookie_consent';
+  var EXPIRY_DAYS=396;
+
+  function getCookie(){try{var v=localStorage.getItem(COOKIE_KEY);if(!v)return null;var d=JSON.parse(v);if(Date.now()>d.expires){localStorage.removeItem(COOKIE_KEY);return null;}return d;}catch(e){return null;}}
+  function setCookie(prefs){var d={prefs:prefs,expires:Date.now()+EXPIRY_DAYS*24*60*60*1000};localStorage.setItem(COOKIE_KEY,JSON.stringify(d));}
+  function hideBanner(){document.getElementById('cookie-banner').style.display='none';}
+  function showBanner(){document.getElementById('cookie-banner').style.display='block';}
+
+  window.cookieAcceptAll=function(){setCookie({technical:true,functional:true,marketing:true});hideBanner();}
+  window.cookieRefuse=function(){setCookie({technical:true,functional:false,marketing:false});hideBanner();}
+  window.cookieTogglePanel=function(){
+    var p=document.getElementById('cookie-panel');
+    var btn=document.getElementById('cookie-btn-custom');
+    var open=p.style.display==='block';
+    p.style.display=open?'none':'block';
+    btn.textContent=open?'Personnaliser ▼':'Fermer ▲';
+  }
+  window.cookieUpdateToggle=function(id,checked){
+    var bg=document.getElementById('tog-'+id+'-bg');
+    var dot=document.getElementById('tog-'+id+'-dot');
+    bg.style.background=checked?'#D4AF37':'rgba(255,255,255,0.12)';
+    dot.style.transform=checked?'translateX(16px)':'translateX(0)';
+  }
+  window.cookieSaveChoices=function(){
+    var func=document.getElementById('tog-func').checked;
+    var mkt=document.getElementById('tog-mkt').checked;
+    setCookie({technical:true,functional:func,marketing:mkt});
+    hideBanner();
+  }
+  window.cookieReopenBanner=function(){
+    document.getElementById('cookie-panel').style.display='none';
+    document.getElementById('cookie-btn-custom').textContent='Personnaliser ▼';
+    showBanner();
+  }
+
+  var existing=getCookie();
+  if(!existing){showBanner();}
+})();
+</script>
+<!-- FIN BANDEAU COOKIES -->
+
+</body>
+</html>
