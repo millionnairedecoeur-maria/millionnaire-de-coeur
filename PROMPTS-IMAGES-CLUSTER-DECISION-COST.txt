@@ -1,0 +1,122 @@
+=== CLUSTER DECISION COST — 20/07/2026 ===
+10 articles rediges, en attente des images. Generer chaque prompt dans Gemini, deposer les 10 images dans MDV, puis dire "images cluster deposees" pour lancer le push complet (deplacement vers /images/ + push GitHub + mise a jour Sheets).
+
+------------------------------------------------------------
+1) TITRE : Qu'est-ce que le Decision Cost ?
+NOM IMAGE : decisioncost.jpg
+URL : /decision-cost
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Dark deep background (midnight blue / deep violet / near-black).
+Central 3D gold metallic suspended scale, one side glowing with drifting golden time-particles, the other side empty and fading into shadow — representing the invisible cost of time.
+Dramatic directional golden light from upper left. Volumetric god rays in deep blue/purple tones.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, luxury and authority feel.
+
+------------------------------------------------------------
+2) TITRE : Comment un Audit Decisionnel Peut Transformer votre Entreprise
+NOM IMAGE : auditdecisionnelentrepreneur.jpg
+URL : /audit-decisionnel-entrepreneur
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Dark deep background (midnight blue / deep violet / near-black).
+Central 3D gold metallic magnifying lens hovering over a dark geometric crystal structure, revealing a brilliant glowing golden core inside it.
+Dramatic directional golden light from upper left. Volumetric god rays in deep blue/purple tones.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, luxury and authority feel.
+
+------------------------------------------------------------
+3) TITRE : Comment Retrouver une Vraie Clarte Decisionnelle
+NOM IMAGE : clartedecisionnelleentrepreneur.jpg
+URL : /clarte-decisionnelle-entrepreneur
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Dark deep background, near-black with a warm charcoal-brown undertone (not blue this time).
+Central cracked obsidian sphere splitting open to reveal a brilliant warm amber-copper light at its core, fragments suspended mid-air, catching warm highlights.
+Dramatic directional warm amber light from upper right. Soft volumetric haze in smoky bronze tones.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, luxury and authority feel.
+
+------------------------------------------------------------
+4) TITRE : 7 Signes qu'une Decision Vous Coute Deja de l'Argent
+NOM IMAGE : signesdecisioncouteargent.jpg
+URL : /signes-decision-coute-argent
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep slate-grey near-black background, cool and minimal atmosphere.
+A single neat stack of polished rose-gold coins, the top coin cracking apart and dissolving into fine warm golden light particles drifting upward, as if money is quietly leaking away unnoticed.
+Dramatic soft directional light from upper left, gentle reflections on the metal, particles catching the light as they rise. Clean, uncluttered composition — one clear subject, not a scattered cluster of objects.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, quietly unsettling mood.
+
+------------------------------------------------------------
+5) TITRE : Pourquoi Attendre Est Souvent la Decision la Plus Chere
+NOM IMAGE : pourquoiattendrecoutepluscher.jpg
+URL : /pourquoi-attendre-coute-plus-cher
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep teal-black background with a cool petrol-green atmosphere.
+Central 3D bronze-copper metallic hourglass, sand inside transforming into falling molten-copper droplets as it pours.
+Dramatic directional warm copper light from below, contrasting with the cool teal ambient haze. Volumetric particles drifting upward.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, luxury and authority feel.
+
+------------------------------------------------------------
+6) TITRE : Le Cout d'Opportunite de l'Indecision
+NOM IMAGE : coutopportuniteindecision.jpg
+URL : /cout-opportunite-indecision
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep indigo-black background with a cool cyan-silver atmosphere.
+A row of sleek platinum-silver doors receding into the distance, most already closed and dissolving into shadow, one last door still open with brilliant cyan-white light escaping through it.
+Dramatic directional cool cyan light from the open door. Fine silver light particles drifting in the air.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, luxury and authority feel.
+
+------------------------------------------------------------
+7) TITRE : Pourquoi les Entrepreneurs Suranalysent avant d'Agir
+NOM IMAGE : suranalyseentrepreneur.jpg
+URL : /suranalyse-entrepreneur
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep forest-green near-black background with a muted olive-bronze atmosphere.
+An intricate 3D rust-bronze metallic labyrinth structure slowly collapsing inward into a single brilliant warm white point of light at its center.
+Dramatic directional warm side light raking across the labyrinth walls, deep shadows between the corridors. Faint dust particles in the air.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, contemplative mood.
+
+------------------------------------------------------------
+8) TITRE : Comment Sortir d'une Boucle d'Indecision
+NOM IMAGE : sortirboucleindecision.jpg
+URL : /sortir-boucle-indecision
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep burgundy-black background with a rich wine-red atmosphere.
+A 3D polished chrome-silver infinity-loop shape breaking open at one point, brilliant warm white light bursting through the fracture, chrome fragments scattering outward.
+Dramatic directional light bursting from the fracture point, contrasting with the deep burgundy ambient tone. Motion-blur light trails.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, release and momentum feel.
+
+------------------------------------------------------------
+9) TITRE : Comment Calculer le Cout d'une Decision Repoussee
+NOM IMAGE : calculcoutdecisionrepoussee.jpg
+URL : /calcul-cout-decision-repoussee
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep near-black background with a cool emerald-green digital atmosphere, evoking precision and ledger-like calculation.
+A floating 3D geometric interface made of thin emerald-green light lines and nodes, abstract glowing fragments orbiting around a bright central figure-like core, like a constellation of data.
+Dramatic directional cool green light emanating from the core. Sharp fine particles, precise and structured composition.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, precise and analytical mood.
+
+------------------------------------------------------------
+10) TITRE : Le Decision Cost Explique aux Entrepreneurs
+NOM IMAGE : decisioncostentrepreneurs.jpg
+URL : /decision-cost-entrepreneurs
+
+PROMPT GEMINI (16:9) :
+Cinematic dark quantum-style photograph, 16:9 ratio, no face, no text, no person.
+Deep near-black background with an electric-blue and cyan atmosphere, futuristic AI feel.
+Central 3D metallic neural-node sphere in brushed titanium, glowing electric-blue pathways branching outward like a network, one path highlighted brighter in warm copper — representing an AI revealing a decision pattern.
+Dramatic directional cool blue light from upper left, sharp rim lighting on the sphere. Fine circuitry-like light traces.
+Ultra-realistic, ultra-detailed, 8K resolution, cinematic composition, negative space left and right, professional product photography aesthetic, futuristic and intelligent mood.
