@@ -2228,14 +2228,15 @@
     <script>
     (function() {
       var messages = [
-        { role:'user', text:"J'ai une décision à prendre depuis des mois. Je n'arrive pas à trancher." },
-        { role:'ai',   text:"Je vous entends. Ce n'est pas un manque d'information qui vous retient." },
-        { role:'ai',   text:"Il y a quelque chose de plus ancien qui opère ici." },
-        { role:'user', text:"Comment vous savez ça ?" },
-        { role:'ai',   text:"Parce que vous avez déjà toutes les données. Et pourtant, la décision reste suspendue." },
-        { role:'ai',   text:"Voulez-vous voir ce qui se passe vraiment ?" },
-        { role:'user', text:"Oui." },
-        { role:'ai',   text:"Alors commençons." },
+        { role:'ai',   text:"Dans quelle sphère se situe votre décision ?" },
+        { role:'user', text:"Professionnelle." },
+        { role:'ai',   text:"Décrivez-la en une phrase." },
+        { role:'user', text:"Je ne sais pas si je dois avancer sur quelque chose d'important." },
+        { role:'ai',   text:"Quels domaines de votre vie cela impacte-t-il ?" },
+        { role:'user', text:"Finances, croissance, famille." },
+        { role:'ai',   text:"Depuis combien de temps cette décision est-elle en suspens ?" },
+        { role:'user', text:"Plusieurs mois." },
+        { role:'ai',   text:"Quelle est votre plus grande peur si vous agissez — et si vous n'agissez pas ?" },
       ];
 
       var card = document.getElementById('dca-card');
