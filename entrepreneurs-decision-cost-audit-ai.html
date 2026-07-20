@@ -2128,7 +2128,8 @@
   <section aria-label="Comment fonctionne le scanner IA">
     <div class="luxe-open-section" style="padding-top:50px;">
       <div class="luxe-content-wrapper">
-        <h2 class="scanner-title-seo">Comment fonctionne le Scanner IA des schémas décisionnels ?</h2>
+        <h2 class="scanner-title-seo">Comment fonctionne Decision Cost Audit AI® ?</h2>
+        <p style="font-family:'Poppins',sans-serif;font-size:clamp(12px,1.5vw,14px);font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#e8b030;margin:6px 0 24px 0;">Scanner IA des schémas décisionnels</p>
         <p class="scanner-intro-text">
           Cet outil exclusif, créé par <strong>Maria Francheteau</strong>, offre <strong>un premier niveau de clarté en trois étapes stratégiques :</strong>
         </p>
@@ -2222,6 +2223,12 @@
             </div>
           </div>
         </div>
+
+        <!-- Capture d'écran : interface de connexion Decision Cost Audit AI -->
+        <div style="max-width:260px;margin:40px auto 0;text-align:center;">
+          <p style="font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 14px 0;">Interface d'accès</p>
+          <img src="dca.png" alt="Écran de connexion Decision Cost Audit AI — interface sécurisée" style="width:100%;border-radius:16px;border:1px solid rgba(232,176,48,0.22);box-shadow:0 24px 64px rgba(0,0,0,0.65),0 0 32px rgba(232,176,48,0.05);" loading="lazy">
+        </div>
       </div>
     </div>
 
@@ -2231,12 +2238,16 @@
         { role:'ai',   text:"Dans quelle sphère se situe votre décision ?" },
         { role:'user', text:"Professionnelle." },
         { role:'ai',   text:"Décrivez-la en une phrase." },
-        { role:'user', text:"Je ne sais pas si je dois avancer sur quelque chose d'important." },
+        { role:'user', text:"Je ne sais pas si je dois embaucher ou pas." },
         { role:'ai',   text:"Quels domaines de votre vie cela impacte-t-il ?" },
         { role:'user', text:"Finances, croissance, famille." },
         { role:'ai',   text:"Depuis combien de temps cette décision est-elle en suspens ?" },
         { role:'user', text:"Plusieurs mois." },
-        { role:'ai',   text:"Quelle est votre plus grande peur si vous agissez — et si vous n'agissez pas ?" },
+        { role:'ai',   text:"Quelle est votre plus grande peur si vous embauchez ?" },
+        { role:'user', text:"De ne pas trouver une personne suffisamment efficace." },
+        { role:'ai',   text:"Quelle est votre plus grande peur si vous n'embauchez pas ?" },
+        { role:'user', text:"De continuer à me fatiguer." },
+        { role:'dots', text:"" },
       ];
 
       var card = document.getElementById('dca-card');
@@ -2270,6 +2281,24 @@
       function addMsg() {
         if (idx >= messages.length) return;
         var m = messages[idx++];
+
+        /* indicateur "DCA continue d'écrire…" en fin de conversation */
+        if (m.role === 'dots') {
+          setTimeout(function() {
+            var pd = document.createElement('div');
+            pd.style.cssText = 'align-self:flex-start;background:rgba(255,255,255,0.07);border-radius:14px;padding:9px 16px;display:flex;gap:4px;opacity:0;transition:opacity 0.4s;';
+            ['','',''].forEach(function(_,i){
+              var d = document.createElement('span');
+              d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#D4AF37;animation:dtBounce 0.9s '+(i*0.18)+'s ease-in-out infinite alternate;';
+              pd.appendChild(d);
+            });
+            chat.appendChild(pd);
+            requestAnimationFrame(function() { pd.style.opacity = '1'; });
+            chat.scrollTop = chat.scrollHeight;
+          }, 900);
+          return;
+        }
+
         var bubble = document.createElement('div');
         var isUser = m.role === 'user';
         var isCost = m.role === 'cost';
@@ -2574,7 +2603,7 @@
 
     <div style="padding:20px 0 0 0;">
       <p style="font-size:clamp(15px,2vw,17px);font-weight:700;color:#e8b030;margin:0 0 8px 0;">Quelle est la différence avec ChatGPT ou d'autres IA générales ?</p>
-      <p style="font-size:clamp(14px,1.8vw,15px);color:rgba(255,255,255,0.8);line-height:1.75;margin:0;">ChatGPT donne des réponses générales. Decision Cost Audit AI® est construit sur la méthode propriétaire de Maria Francheteau : il est calibré pour lire vos schémas décisionnels spécifiques, estimer leur coût réel, et identifier ce qui vous retient — pas pour vous donner des conseils génériques.</p>
+      <p style="font-size:clamp(14px,1.8vw,15px);color:rgba(255,255,255,0.8);line-height:1.75;margin:0;">Les IA généralistes répondent à une grande variété de sujets. Decision Cost Audit AI® est spécialisé dans l'analyse des dynamiques décisionnelles selon la méthode de Maria Francheteau. Il ne vous donne pas de conseils génériques — il lit vos schémas décisionnels spécifiques, estime le coût réel de ce qui reste en suspens, et identifie ce qui vous retient réellement.</p>
     </div>
   </div>
 
