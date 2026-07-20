@@ -2228,13 +2228,14 @@
     <script>
     (function() {
       var messages = [
-        { role:'ai',  text:"Bonjour. Quelle est la décision que vous n'arrivez pas à prendre ?" },
-        { role:'user', text:"Je dois décider si j'embauche quelqu'un ou pas pour mon activité." },
-        { role:'ai',  text:"Depuis combien de temps cette décision est-elle en attente ?" },
-        { role:'user', text:"Environ 3 mois… j'analyse encore." },
-        { role:'ai',  text:"En 3 mois, voici ce que cette hésitation vous a probablement coûté :" },
-        { role:'cost', text:"⏱ Temps : ~36h de réflexion circulaire\n💶 Argent : délais manqués estimés à 4 200 €\n⚡ Énergie : charge mentale constante\n☮ Paix : décision toujours suspendue" },
-        { role:'ai',  text:"Voulez-vous identifier le schéma conscient ou inconscient qui vous retient ?" },
+        { role:'ai',  text:"Bonjour. Avant de commencer, un rappel important." },
+        { role:'ai',  text:"Je ne décide jamais à votre place. Vous restez responsable à 100 % de vos choix et de vos actions." },
+        { role:'user', text:"Je comprends." },
+        { role:'ai',  text:"Bien. Prenez le temps qu'il vous faut. Il n'y a aucune bonne ou mauvaise réponse ici." },
+        { role:'ai',  text:"…" },
+        { role:'ai',  text:"Ce que vous partagez avec moi reste dans cette session." },
+        { role:'user', text:"Je suis prêt(e)." },
+        { role:'ai',  text:"Alors commençons." },
       ];
 
       var card = document.getElementById('dca-card');
