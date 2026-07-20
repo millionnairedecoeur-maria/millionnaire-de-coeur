@@ -2002,6 +2002,198 @@
     </div>
   </section>
 
+  <!-- SECTION DEMO — DÉCOUVREZ L'INTERFACE -->
+  <section aria-label="Découvrez Decision Cost Audit AI en action">
+    <div style="background:#0d141a;padding:64px 20px 72px;text-align:center;overflow:hidden;">
+      <div style="max-width:720px;margin:0 auto;">
+        <p style="font-family:'Poppins',sans-serif;font-size:clamp(10px,1.2vw,12px);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#e8b030;margin:0 0 14px 0;">Aperçu en direct</p>
+        <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(21px,3.5vw,30px);font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 16px 0;">
+          Découvrez Decision Cost Audit AI® en images
+        </h2>
+        <p style="font-family:'Outfit',sans-serif;font-size:clamp(14px,1.8vw,17px);color:rgba(255,255,255,0.6);margin:0 auto 48px auto;line-height:1.75;max-width:620px;">
+          Une IA conversationnelle conçue pour révéler le coût caché de vos indécisions et mettre en lumière les schémas qui ralentissent votre trajectoire d'entrepreneur.
+        </p>
+
+        <!-- Scène 3D -->
+        <div id="dca-scene" style="perspective:1200px;display:flex;justify-content:center;align-items:center;min-height:500px;">
+          <div id="dca-card" style="
+            width:min(420px,90vw);
+            background:linear-gradient(160deg,#111a24 0%,#0d141a 100%);
+            border:1px solid rgba(232,176,48,0.35);
+            border-radius:18px;
+            box-shadow:0 30px 80px rgba(0,0,0,0.7),0 0 60px rgba(232,176,48,0.07);
+            transform:rotateY(-12deg) rotateX(4deg) scale(1);
+            transform-style:preserve-3d;
+            transition:transform 0.8s cubic-bezier(0.23,1,0.32,1);
+            overflow:hidden;
+            position:relative;
+          ">
+            <div style="background:linear-gradient(135deg,#1a2533,#0f1920);padding:18px 20px 14px;border-bottom:1px solid rgba(232,176,48,0.15);display:flex;align-items:center;gap:10px;">
+              <div style="width:32px;height:32px;background:#D4AF37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:#0d141a;flex-shrink:0;">M</div>
+              <div style="text-align:left;">
+                <div style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;color:#D4AF37;text-transform:uppercase;">Decision Cost Audit AI®</div>
+                <div style="font-family:'Outfit',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:1px;">par Maria Francheteau</div>
+              </div>
+              <div style="margin-left:auto;display:flex;gap:5px;">
+                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
+              </div>
+            </div>
+            <div id="dca-chat" style="padding:20px 16px;min-height:300px;display:flex;flex-direction:column;gap:12px;font-family:'Outfit',sans-serif;font-size:13px;line-height:1.55;">
+            </div>
+            <div style="padding:12px 16px;border-top:1px solid rgba(232,176,48,0.12);display:flex;align-items:center;gap:8px;">
+              <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(232,176,48,0.2);border-radius:20px;padding:8px 14px;font-family:'Outfit',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);" id="dca-input-hint">Décrivez votre situation…</div>
+              <div style="width:30px;height:30px;background:#D4AF37;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0d141a" stroke-width="3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capture d'écran : interface de connexion Decision Cost Audit AI -->
+        <div style="max-width:380px;margin:48px auto 0;text-align:center;">
+          <p style="font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 14px 0;">Interface d'accès</p>
+          <img src="dca.png" alt="Écran de connexion Decision Cost Audit AI — interface sécurisée" style="width:100%;border-radius:16px;border:1px solid rgba(232,176,48,0.22);box-shadow:0 24px 64px rgba(0,0,0,0.65),0 0 32px rgba(232,176,48,0.05);" loading="lazy">
+        </div>
+
+        <!-- Phrase de réassurance -->
+        <p style="font-family:'Outfit',sans-serif;font-size:clamp(14px,1.8vw,16px);color:rgba(255,255,255,0.6);line-height:1.8;margin:36px auto 0;max-width:580px;">
+          Aucune inscription compliquée. Après votre achat, vous recevez immédiatement votre code d'accès personnel et commencez votre premier audit en moins de deux minutes.
+        </p>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var messages = [
+        { role:'ai',   text:"Dans quelle sphère se situe votre décision ?" },
+        { role:'user', text:"Professionnelle." },
+        { role:'ai',   text:"Décrivez-la en une phrase." },
+        { role:'user', text:"Je ne sais pas si je dois embaucher ou pas." },
+        { role:'ai',   text:"Quels domaines de votre vie cela impacte-t-il ?" },
+        { role:'user', text:"Finances, croissance, famille." },
+        { role:'ai',   text:"Depuis combien de temps cette décision est-elle en suspens ?" },
+        { role:'user', text:"Plusieurs mois." },
+        { role:'ai',   text:"Quelle est votre plus grande peur si vous embauchez ?" },
+        { role:'user', text:"De ne pas trouver une personne suffisamment efficace." },
+        { role:'ai',   text:"Quelle est votre plus grande peur si vous n'embauchez pas ?" },
+        { role:'user', text:"De continuer à me fatiguer." },
+        { role:'dots', text:"" },
+      ];
+
+      var card = document.getElementById('dca-card');
+      var chat = document.getElementById('dca-chat');
+      var idx  = 0;
+
+      document.getElementById('dca-scene').addEventListener('mousemove', function(e) {
+        var rect = this.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top  + rect.height / 2;
+        var rx = (e.clientY - cy) / rect.height * 10;
+        var ry = (e.clientX - cx) / rect.width * 16;
+        card.style.transform = 'rotateX(' + (-rx) + 'deg) rotateY(' + ry + 'deg) scale(1.03)';
+      });
+      document.getElementById('dca-scene').addEventListener('mouseleave', function() {
+        card.style.transform = 'rotateY(-12deg) rotateX(4deg) scale(1)';
+      });
+
+      var t = 0;
+      (function float() {
+        t += 0.015;
+        if (!card.matches(':hover')) {
+          card.style.transform = 'rotateY(' + (-12 + Math.sin(t)*3) + 'deg) rotateX(' + (4 + Math.cos(t*0.7)*2) + 'deg) scale(1)';
+        }
+        requestAnimationFrame(float);
+      })();
+
+      function addMsg() {
+        if (idx >= messages.length) return;
+        var m = messages[idx++];
+
+        if (m.role === 'dots') {
+          setTimeout(function() {
+            var pd = document.createElement('div');
+            pd.style.cssText = 'align-self:flex-start;background:rgba(255,255,255,0.07);border-radius:14px;padding:9px 16px;display:flex;gap:4px;opacity:0;transition:opacity 0.4s;';
+            ['','',''].forEach(function(_,i){
+              var d = document.createElement('span');
+              d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#D4AF37;animation:dtBounce 0.9s '+(i*0.18)+'s ease-in-out infinite alternate;';
+              pd.appendChild(d);
+            });
+            chat.appendChild(pd);
+            requestAnimationFrame(function() { pd.style.opacity = '1'; });
+            chat.scrollTop = chat.scrollHeight;
+          }, 900);
+          return;
+        }
+
+        var bubble = document.createElement('div');
+        var isUser = m.role === 'user';
+        var isCost = m.role === 'cost';
+
+        if (isCost) {
+          bubble.style.cssText = 'background:rgba(232,176,48,0.1);border:1px solid rgba(232,176,48,0.3);border-radius:10px;padding:12px 14px;color:#e8b030;font-size:12px;line-height:1.7;white-space:pre-line;text-align:left;';
+        } else {
+          bubble.style.cssText = isUser
+            ? 'align-self:flex-end;background:#D4AF37;color:#0d141a;border-radius:14px 14px 4px 14px;padding:9px 13px;max-width:80%;text-align:left;font-weight:600;'
+            : 'align-self:flex-start;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.88);border-radius:14px 14px 14px 4px;padding:9px 13px;max-width:85%;text-align:left;';
+        }
+        bubble.style.opacity = '0';
+        bubble.style.transform = 'translateY(8px)';
+        bubble.style.transition = 'opacity 0.4s,transform 0.4s';
+
+        if (!isUser) {
+          var dots = document.createElement('div');
+          dots.style.cssText = 'align-self:flex-start;background:rgba(255,255,255,0.07);border-radius:14px;padding:9px 16px;display:flex;gap:4px;';
+          ['','',''].forEach(function(_,i){
+            var d = document.createElement('span');
+            d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#D4AF37;animation:dtBounce 0.9s '+(i*0.18)+'s ease-in-out infinite alternate;';
+            dots.appendChild(d);
+          });
+          if (!document.getElementById('dtStyle')) {
+            var s = document.createElement('style');
+            s.id = 'dtStyle';
+            s.textContent = '@keyframes dtBounce{from{opacity:.3;transform:translateY(0)}to{opacity:1;transform:translateY(-4px)}}';
+            document.head.appendChild(s);
+          }
+          chat.appendChild(dots);
+          chat.scrollTop = chat.scrollHeight;
+
+          setTimeout(function() {
+            chat.removeChild(dots);
+            bubble.textContent = m.text;
+            chat.appendChild(bubble);
+            requestAnimationFrame(function() {
+              bubble.style.opacity = '1';
+              bubble.style.transform = 'translateY(0)';
+            });
+            chat.scrollTop = chat.scrollHeight;
+            setTimeout(addMsg, isUser ? 800 : 1600);
+          }, 1200);
+        } else {
+          bubble.textContent = m.text;
+          chat.appendChild(bubble);
+          requestAnimationFrame(function() {
+            bubble.style.opacity = '1';
+            bubble.style.transform = 'translateY(0)';
+          });
+          chat.scrollTop = chat.scrollHeight;
+          setTimeout(addMsg, 900);
+        }
+      }
+
+      var started = false;
+      var obs = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          setTimeout(addMsg, 600);
+        }
+      }, { threshold: 0.3 });
+      obs.observe(document.getElementById('dca-scene'));
+    })();
+    </script>
+  </section>
+
   <!-- SECTION 1B — PROBLÈME OUVERT -->
   <section aria-label="Le coût réel des décisions différées">
     <div class="luxe-conclusion-wrapper" style="padding:48px 20px;">
@@ -2169,203 +2361,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- SECTION 6B — APERÇU ANIMÉ DE L'INTERFACE -->
-  <section aria-label="Aperçu de l'interface Decision Cost Audit AI">
-    <div style="background:#0d141a;padding:56px 20px 64px;text-align:center;overflow:hidden;">
-      <div style="max-width:720px;margin:0 auto;">
-        <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(20px,3.5vw,30px);font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px;">
-          Decision Cost Audit AI® en action
-        </h2>
-        <p style="font-family:'Outfit',sans-serif;font-size:clamp(14px,1.8vw,16px);color:rgba(255,255,255,0.55);margin-bottom:40px;line-height:1.7;">
-          Une conversation IA qui s'adapte à votre situation en temps réel.
-        </p>
-
-        <!-- Scène 3D -->
-        <div id="dca-scene" style="perspective:1200px;display:flex;justify-content:center;align-items:center;min-height:500px;">
-          <div id="dca-card" style="
-            width:min(420px,90vw);
-            background:linear-gradient(160deg,#111a24 0%,#0d141a 100%);
-            border:1px solid rgba(232,176,48,0.35);
-            border-radius:18px;
-            box-shadow:0 30px 80px rgba(0,0,0,0.7),0 0 60px rgba(232,176,48,0.07);
-            transform:rotateY(-12deg) rotateX(4deg) scale(1);
-            transform-style:preserve-3d;
-            transition:transform 0.8s cubic-bezier(0.23,1,0.32,1);
-            overflow:hidden;
-            position:relative;
-          ">
-            <!-- Header card -->
-            <div style="background:linear-gradient(135deg,#1a2533,#0f1920);padding:18px 20px 14px;border-bottom:1px solid rgba(232,176,48,0.15);display:flex;align-items:center;gap:10px;">
-              <div style="width:32px;height:32px;background:#D4AF37;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:#0d141a;flex-shrink:0;">M</div>
-              <div style="text-align:left;">
-                <div style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.12em;color:#D4AF37;text-transform:uppercase;">Decision Cost Audit AI®</div>
-                <div style="font-family:'Outfit',sans-serif;font-size:11px;color:rgba(255,255,255,0.45);margin-top:1px;">par Maria Francheteau</div>
-              </div>
-              <div style="margin-left:auto;display:flex;gap:5px;">
-                <div style="width:8px;height:8px;border-radius:50%;background:#ff5f57;"></div>
-                <div style="width:8px;height:8px;border-radius:50%;background:#febc2e;"></div>
-                <div style="width:8px;height:8px;border-radius:50%;background:#28c840;"></div>
-              </div>
-            </div>
-
-            <!-- Zone de chat -->
-            <div id="dca-chat" style="padding:20px 16px;min-height:300px;display:flex;flex-direction:column;gap:12px;font-family:'Outfit',sans-serif;font-size:13px;line-height:1.55;">
-            </div>
-
-            <!-- Barre de saisie -->
-            <div style="padding:12px 16px;border-top:1px solid rgba(232,176,48,0.12);display:flex;align-items:center;gap:8px;">
-              <div style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(232,176,48,0.2);border-radius:20px;padding:8px 14px;font-family:'Outfit',sans-serif;font-size:12px;color:rgba(255,255,255,0.3);" id="dca-input-hint">Décrivez votre situation…</div>
-              <div style="width:30px;height:30px;background:#D4AF37;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0d141a" stroke-width="3"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Capture d'écran : interface de connexion Decision Cost Audit AI -->
-        <div style="max-width:260px;margin:40px auto 0;text-align:center;">
-          <p style="font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 14px 0;">Interface d'accès</p>
-          <img src="dca.png" alt="Écran de connexion Decision Cost Audit AI — interface sécurisée" style="width:100%;border-radius:16px;border:1px solid rgba(232,176,48,0.22);box-shadow:0 24px 64px rgba(0,0,0,0.65),0 0 32px rgba(232,176,48,0.05);" loading="lazy">
-        </div>
-      </div>
-    </div>
-
-    <script>
-    (function() {
-      var messages = [
-        { role:'ai',   text:"Dans quelle sphère se situe votre décision ?" },
-        { role:'user', text:"Professionnelle." },
-        { role:'ai',   text:"Décrivez-la en une phrase." },
-        { role:'user', text:"Je ne sais pas si je dois embaucher ou pas." },
-        { role:'ai',   text:"Quels domaines de votre vie cela impacte-t-il ?" },
-        { role:'user', text:"Finances, croissance, famille." },
-        { role:'ai',   text:"Depuis combien de temps cette décision est-elle en suspens ?" },
-        { role:'user', text:"Plusieurs mois." },
-        { role:'ai',   text:"Quelle est votre plus grande peur si vous embauchez ?" },
-        { role:'user', text:"De ne pas trouver une personne suffisamment efficace." },
-        { role:'ai',   text:"Quelle est votre plus grande peur si vous n'embauchez pas ?" },
-        { role:'user', text:"De continuer à me fatiguer." },
-        { role:'dots', text:"" },
-      ];
-
-      var card = document.getElementById('dca-card');
-      var chat = document.getElementById('dca-chat');
-      var idx  = 0;
-
-      /* 3D mouse parallax */
-      document.getElementById('dca-scene').addEventListener('mousemove', function(e) {
-        var rect = this.getBoundingClientRect();
-        var cx = rect.left + rect.width / 2;
-        var cy = rect.top  + rect.height / 2;
-        var rx = (e.clientY - cy) / rect.height * 10;
-        var ry = (e.clientX - cx) / rect.width * 16;
-        card.style.transform = 'rotateX(' + (-rx) + 'deg) rotateY(' + ry + 'deg) scale(1.03)';
-      });
-      document.getElementById('dca-scene').addEventListener('mouseleave', function() {
-        card.style.transform = 'rotateY(-12deg) rotateX(4deg) scale(1)';
-      });
-
-      /* float animation */
-      var t = 0;
-      (function float() {
-        t += 0.015;
-        if (!card.matches(':hover')) {
-          card.style.transform = 'rotateY(' + (-12 + Math.sin(t)*3) + 'deg) rotateX(' + (4 + Math.cos(t*0.7)*2) + 'deg) scale(1)';
-        }
-        requestAnimationFrame(float);
-      })();
-
-      /* add message bubble */
-      function addMsg() {
-        if (idx >= messages.length) return;
-        var m = messages[idx++];
-
-        /* indicateur "DCA continue d'écrire…" en fin de conversation */
-        if (m.role === 'dots') {
-          setTimeout(function() {
-            var pd = document.createElement('div');
-            pd.style.cssText = 'align-self:flex-start;background:rgba(255,255,255,0.07);border-radius:14px;padding:9px 16px;display:flex;gap:4px;opacity:0;transition:opacity 0.4s;';
-            ['','',''].forEach(function(_,i){
-              var d = document.createElement('span');
-              d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#D4AF37;animation:dtBounce 0.9s '+(i*0.18)+'s ease-in-out infinite alternate;';
-              pd.appendChild(d);
-            });
-            chat.appendChild(pd);
-            requestAnimationFrame(function() { pd.style.opacity = '1'; });
-            chat.scrollTop = chat.scrollHeight;
-          }, 900);
-          return;
-        }
-
-        var bubble = document.createElement('div');
-        var isUser = m.role === 'user';
-        var isCost = m.role === 'cost';
-
-        if (isCost) {
-          bubble.style.cssText = 'background:rgba(232,176,48,0.1);border:1px solid rgba(232,176,48,0.3);border-radius:10px;padding:12px 14px;color:#e8b030;font-size:12px;line-height:1.7;white-space:pre-line;text-align:left;';
-        } else {
-          bubble.style.cssText = isUser
-            ? 'align-self:flex-end;background:#D4AF37;color:#0d141a;border-radius:14px 14px 4px 14px;padding:9px 13px;max-width:80%;text-align:left;font-weight:600;'
-            : 'align-self:flex-start;background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.88);border-radius:14px 14px 14px 4px;padding:9px 13px;max-width:85%;text-align:left;';
-        }
-        bubble.style.opacity = '0';
-        bubble.style.transform = 'translateY(8px)';
-        bubble.style.transition = 'opacity 0.4s,transform 0.4s';
-
-        /* typing dots for AI */
-        if (!isUser) {
-          var dots = document.createElement('div');
-          dots.style.cssText = 'align-self:flex-start;background:rgba(255,255,255,0.07);border-radius:14px;padding:9px 16px;display:flex;gap:4px;';
-          ['','',''].forEach(function(_,i){
-            var d = document.createElement('span');
-            d.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#D4AF37;animation:dtBounce 0.9s '+(i*0.18)+'s ease-in-out infinite alternate;';
-            dots.appendChild(d);
-          });
-          if (!document.getElementById('dtStyle')) {
-            var s = document.createElement('style');
-            s.id = 'dtStyle';
-            s.textContent = '@keyframes dtBounce{from{opacity:.3;transform:translateY(0)}to{opacity:1;transform:translateY(-4px)}}';
-            document.head.appendChild(s);
-          }
-          chat.appendChild(dots);
-          chat.scrollTop = chat.scrollHeight;
-
-          setTimeout(function() {
-            chat.removeChild(dots);
-            bubble.textContent = m.text;
-            chat.appendChild(bubble);
-            requestAnimationFrame(function() {
-              bubble.style.opacity = '1';
-              bubble.style.transform = 'translateY(0)';
-            });
-            chat.scrollTop = chat.scrollHeight;
-            setTimeout(addMsg, isUser ? 800 : 1600);
-          }, 1200);
-        } else {
-          bubble.textContent = m.text;
-          chat.appendChild(bubble);
-          requestAnimationFrame(function() {
-            bubble.style.opacity = '1';
-            bubble.style.transform = 'translateY(0)';
-          });
-          chat.scrollTop = chat.scrollHeight;
-          setTimeout(addMsg, 900);
-        }
-      }
-
-      /* démarrer quand la section est visible */
-      var started = false;
-      var obs = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting && !started) {
-          started = true;
-          setTimeout(addMsg, 600);
-        }
-      }, { threshold: 0.3 });
-      obs.observe(document.getElementById('dca-scene'));
-    })();
-    </script>
   </section>
 
   <!-- SECTION 7 — CRÉÉ PAR MARIA -->
