@@ -2002,9 +2002,23 @@
     </div>
   </section>
 
+  <style>
+  @media (max-width: 600px) {
+    /* Démo : réduire hauteur de la scène 3D et les espaces autour */
+    #dca-scene { min-height: 340px !important; }
+    .dca-outer-demo { padding: 24px 14px 28px !important; }
+    .dca-screenshot-wrap { margin: 18px auto 0 !important; max-width: 90% !important; }
+    .dca-reassurance { margin: 14px auto 0 !important; }
+    /* CTA après démo */
+    .dca-cta-wrap { padding: 20px 14px 24px !important; }
+    /* Encadré conçu pour */
+    .dca-concu-wrap { padding: 24px 14px 28px !important; }
+  }
+  </style>
+
   <!-- SECTION DEMO — DÉCOUVREZ L'INTERFACE -->
   <section aria-label="Découvrez Decision Cost Audit AI en action">
-    <div style="background:#0d141a;padding:64px 20px 72px;text-align:center;overflow:hidden;">
+    <div class="dca-outer-demo" style="background:#0d141a;padding:44px 20px 48px;text-align:center;overflow:hidden;">
       <div style="max-width:720px;margin:0 auto;">
         <p style="font-family:'Poppins',sans-serif;font-size:clamp(10px,1.2vw,12px);font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#e8b030;margin:0 0 14px 0;">Aperçu en direct</p>
         <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(21px,3.5vw,30px);font-weight:900;color:#ffffff;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 16px 0;">
@@ -2052,13 +2066,13 @@
         </div>
 
         <!-- Capture d'écran : interface de connexion Decision Cost Audit AI -->
-        <div style="max-width:380px;margin:48px auto 0;text-align:center;">
+        <div class="dca-screenshot-wrap" style="max-width:380px;margin:28px auto 0;text-align:center;">
           <p style="font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 14px 0;">Interface d'accès</p>
           <img src="dca.png" alt="Écran de connexion Decision Cost Audit AI — interface sécurisée" style="width:100%;border-radius:16px;border:1px solid rgba(232,176,48,0.22);box-shadow:0 24px 64px rgba(0,0,0,0.65),0 0 32px rgba(232,176,48,0.05);" loading="lazy">
         </div>
 
         <!-- Phrase de réassurance -->
-        <p style="font-family:'Outfit',sans-serif;font-size:clamp(14px,1.8vw,16px);color:rgba(255,255,255,0.6);line-height:1.8;margin:36px auto 0;max-width:580px;">
+        <p class="dca-reassurance" style="font-family:'Outfit',sans-serif;font-size:clamp(14px,1.8vw,16px);color:rgba(255,255,255,0.6);line-height:1.8;margin:18px auto 0;max-width:580px;">
           Aucune inscription compliquée. Après votre achat, vous recevez immédiatement votre code d'accès personnel et commencez votre premier audit en moins de deux minutes.
         </p>
       </div>
@@ -2196,20 +2210,20 @@
 
   <!-- CTA APRÈS DÉMO -->
   <section aria-label="Commencer votre audit décisionnel">
-    <div style="background:#0a1017;padding:52px 20px 56px;text-align:center;border-top:1px solid rgba(232,176,48,0.1);">
-      <span style="display:inline-block;background:rgba(232,176,48,0.12);border:1px solid rgba(232,176,48,0.3);border-radius:20px;padding:6px 18px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#e8b030;margin-bottom:22px;">À partir de 7 €</span>
+    <div class="dca-cta-wrap" style="background:#0a1017;padding:36px 20px 40px;text-align:center;border-top:1px solid rgba(232,176,48,0.1);">
+      <span style="display:inline-block;background:rgba(232,176,48,0.12);border:1px solid rgba(232,176,48,0.3);border-radius:20px;padding:6px 18px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#e8b030;margin-bottom:14px;">À partir de 7 €</span>
       <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(20px,3.5vw,28px);font-weight:900;color:#ffffff;margin:0 0 14px 0;">Prêt à analyser votre décision ?</h2>
-      <p style="font-family:'Outfit',sans-serif;font-size:clamp(15px,2vw,17px);color:rgba(255,255,255,0.6);margin:0 auto 30px auto;max-width:460px;line-height:1.75;">Commencez votre premier audit en moins de deux minutes.</p>
+      <p style="font-family:'Outfit',sans-serif;font-size:clamp(15px,2vw,17px);color:rgba(255,255,255,0.6);margin:0 auto 22px auto;max-width:460px;line-height:1.75;">Commencez votre premier audit en moins de deux minutes.</p>
       <a href="https://buy.stripe.com/bJedRaa2v4JG2nR9xGcs800" style="display:inline-block;background:#D4AF37;color:#0d141a;font-family:'Poppins',sans-serif;font-size:clamp(13px,1.8vw,15px);font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:16px 44px;border-radius:50px;text-decoration:none;box-shadow:0 8px 32px rgba(212,175,55,0.28);">Commencer maintenant →</a>
     </div>
   </section>
 
   <!-- SECTION CONÇU POUR -->
   <section aria-label="Décisions pour lesquelles Decision Cost Audit AI est conçu">
-    <div style="background:#0d141a;padding:60px 20px 68px;border-top:1px solid rgba(255,255,255,0.04);">
+    <div class="dca-concu-wrap" style="background:#0d141a;padding:40px 20px 46px;border-top:1px solid rgba(255,255,255,0.04);">
       <div style="max-width:800px;margin:0 auto;">
         <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(18px,2.8vw,24px);font-weight:900;color:#ffffff;margin:0 0 10px 0;text-align:center;line-height:1.4;">Decision Cost Audit AI® est conçu pour les entrepreneurs qui doivent décider&nbsp;de&nbsp;:</h2>
-        <p style="font-family:'Outfit',sans-serif;font-size:clamp(13px,1.5vw,15px);color:rgba(255,255,255,0.4);text-align:center;margin:0 0 36px 0;letter-spacing:0.04em;">Décisions professionnelles, personnelles ou mixtes</p>
+        <p style="font-family:'Outfit',sans-serif;font-size:clamp(13px,1.5vw,15px);color:rgba(255,255,255,0.4);text-align:center;margin:0 0 18px 0;letter-spacing:0.04em;">Décisions professionnelles, personnelles ou mixtes</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;">
           <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(232,176,48,0.14);border-radius:10px;padding:14px 18px;font-family:'Outfit',sans-serif;font-size:clamp(14px,1.7vw,15px);color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:10px;"><span style="color:#e8b030;font-weight:700;flex-shrink:0;">→</span>Recruter — ou continuer seul</div>
           <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(232,176,48,0.14);border-radius:10px;padding:14px 18px;font-family:'Outfit',sans-serif;font-size:clamp(14px,1.7vw,15px);color:rgba(255,255,255,0.8);display:flex;align-items:center;gap:10px;"><span style="color:#e8b030;font-weight:700;flex-shrink:0;">→</span>Augmenter leurs prix</div>
