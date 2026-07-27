@@ -746,7 +746,7 @@
     .services-intro p {
       font-size: clamp(0.95rem, 2.5vw, 1.15rem);
       color: #ffffff;
-      max-width: 680px;
+      max-width: 760px;
       margin: 0 auto;
       line-height: 1.7;
       font-weight: 300;
@@ -756,7 +756,7 @@
     .pillar-content {
       background: #0d141a;
       padding: 10px 24px 50px;
-      max-width: 780px;
+      max-width: 900px;
       margin: 0 auto;
       font-family: 'Poppins', sans-serif;
     }
@@ -766,10 +766,11 @@
       color: #D4AF37;
       text-transform: uppercase;
       letter-spacing: 0.03em;
-      margin: 44px 0 16px;
+      margin: 58px 0 18px;
       line-height: 1.3;
     }
     .pillar-content h2:first-child { margin-top: 0; }
+    .pillar-content h2 .h2-icon { margin-right: 8px; filter: grayscale(0.15); }
     .pillar-content p {
       font-size: clamp(0.92rem, 2.2vw, 1.02rem);
       color: #ffffff;
@@ -804,20 +805,331 @@
       font-size: 0.78rem;
       margin: 0 0 10px;
     }
-    .pillar-links-box ul { margin: 0; padding-left: 18px; }
-    .pillar-links-box li { margin-bottom: 6px; }
+    .pillar-links-box ul { margin: 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .pillar-links-box li { margin-bottom: 0; }
+    .pillar-links-box li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border: 1px solid rgba(212,175,55,0.22) !important;
+      border-radius: 6px;
+      background: rgba(13,20,26,0.5);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .pillar-links-box li a::before {
+      content: '→';
+      color: #D4AF37;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pillar-links-box li a:hover {
+      border-color: rgba(212,175,55,0.65) !important;
+      background: rgba(212,175,55,0.08);
+      transform: translateX(3px);
+    }
+
+    /* ── CARTES EXEMPLES (vignettes de décisions) ── */
+    .pillar-example-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0 30px;
+    }
+    .pillar-example-card {
+      border: 1px solid rgba(212,175,55,0.22);
+      background: linear-gradient(135deg, rgba(212,175,55,0.045) 0%, rgba(13,20,26,0.9) 100%);
+      border-radius: 6px;
+      padding: 20px 22px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pillar-example-card:hover { border-color: rgba(212,175,55,0.5); transform: translateY(-2px); }
+    .pillar-example-card .example-label {
+      color: #D4AF37;
+      font-weight: 800;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin: 0 0 8px;
+    }
+    .pillar-example-card p {
+      margin: 0;
+      font-size: 0.87rem;
+      line-height: 1.6;
+      color: #ffffff;
+      font-weight: 300;
+    }
+    @media (max-width: 700px) {
+      .pillar-example-grid { grid-template-columns: 1fr; }
+    }
     .pillar-quote {
+      border: 1px solid rgba(212,175,55,0.28);
       border-left: 3px solid #D4AF37;
-      margin: 36px 0;
-      padding: 4px 0 4px 24px;
+      background: linear-gradient(135deg, rgba(212,175,55,0.07) 0%, rgba(13,20,26,0.3) 100%);
+      border-radius: 0 6px 6px 0;
+      margin: 40px 0;
+      padding: 26px 30px 26px 54px;
+      position: relative;
       font-size: clamp(1.05rem, 2.6vw, 1.3rem);
       font-style: italic;
       font-weight: 300;
       line-height: 1.6;
       color: #f2e8cf;
     }
+    .pillar-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: 2px; left: 16px;
+      font-size: 3.2rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      color: rgba(212,175,55,0.4);
+      line-height: 1;
+      font-style: normal;
+    }
+
+    /* ── SOMMAIRE (TOC) ── */
+    .pillar-toc {
+      border: 1px solid rgba(212,175,55,0.25);
+      background: rgba(212,175,55,0.035);
+      border-radius: 6px;
+      padding: 24px 28px;
+      margin: 8px 0 40px;
+    }
+    .pillar-toc .toc-label {
+      color: #D4AF37;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+      margin: 0 0 14px;
+    }
+    .pillar-toc ol {
+      margin: 0;
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 30px;
+    }
+    .pillar-toc li { margin-bottom: 9px; font-size: 0.88rem; break-inside: avoid; }
+    .pillar-toc a { color: #ffffff; border-bottom: 1px solid rgba(212,175,55,0.25); }
+    .pillar-toc a:hover { color: #D4AF37; border-color: rgba(212,175,55,0.7); }
+    @media (max-width: 600px) {
+      .pillar-toc ol { columns: 1; }
+    }
+
+    /* ── SÉPARATEUR VISUEL ── */
+    .pillar-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 46px 0;
+    }
+    .pillar-divider::before, .pillar-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4));
+    }
+    .pillar-divider::after { background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent); }
+    .pillar-divider span {
+      width: 7px; height: 7px;
+      border: 1px solid rgba(212,175,55,0.7);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── ENCADRÉ "À RETENIR" ── */
+    .pillar-retain {
+      border: 1px solid rgba(212,175,55,0.3);
+      border-left: 4px solid #D4AF37;
+      background: rgba(212,175,55,0.05);
+      border-radius: 0 6px 6px 0;
+      padding: 20px 26px;
+      margin: 30px 0;
+    }
+    .pillar-retain .retain-label {
+      display: block;
+      color: #D4AF37;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.7rem;
+      margin-bottom: 8px;
+    }
+    .pillar-retain p {
+      margin: 0;
+      font-size: clamp(0.95rem, 2.2vw, 1.08rem);
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* ── LISTES AVEC ICÔNES DISCRÈTES ── */
+    .pillar-content ul.icon-list { list-style: none; padding-left: 0; }
+    .pillar-content ul.icon-list li {
+      padding-left: 26px;
+      position: relative;
+    }
+    .pillar-content ul.icon-list li::before {
+      content: '◆';
+      position: absolute;
+      left: 0; top: 1px;
+      color: #D4AF37;
+      font-size: 0.6rem;
+      top: 7px;
+    }
+
+    /* ── DIAGRAMME DE FLUX (processus de décision) ── */
+    .pillar-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin: 30px 0 36px;
+      padding: 30px 20px;
+      border: 1px solid rgba(212,175,55,0.22);
+      border-radius: 6px;
+      background: rgba(212,175,55,0.03);
+    }
+    .pillar-flow-step {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      text-align: center;
+      padding: 9px 20px;
+    }
+    .pillar-flow-step.is-highlight { color: #D4AF37; }
+    .pillar-flow-arrow {
+      color: rgba(212,175,55,0.6);
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* ── PARCOURS DES 5 NIVEAUX (rappel visuel avant la liste) ── */
+    .pillar-path {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 26px 0 20px;
+      position: relative;
+      gap: 8px;
+    }
+    .pillar-path::before {
+      content: '';
+      position: absolute;
+      top: 23px; left: 8%; right: 8%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.55) 15%, rgba(212,175,55,0.55) 85%, transparent);
+    }
+    .pillar-path-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding: 0 4px;
+    }
+    .pillar-path-num {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,55,0.6);
+      background: #0d141a;
+      color: #D4AF37;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 12px rgba(212,175,55,0.15);
+    }
+    .pillar-path-step a {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #ffffff;
+      border-bottom: none;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+    .pillar-path-step a:hover { color: #D4AF37; }
+    @media (max-width: 700px) {
+      .pillar-path { flex-direction: column; gap: 22px; }
+      .pillar-path::before { display: none; }
+      .pillar-path-step { text-align: left; display: flex; align-items: center; gap: 14px; padding: 0; }
+      .pillar-path-num { margin: 0; flex-shrink: 0; }
+    }
+
+    /* ── CONCLUSION / TRANSITION VERS LES OFFRES ── */
+    .pillar-final-cta {
+      text-align: center;
+      max-width: 640px;
+      margin: 40px auto 10px;
+      padding: 0 10px;
+    }
+    .pillar-final-cta h2 {
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      color: #D4AF37;
+      text-transform: none;
+      letter-spacing: 0.01em;
+      margin: 0 0 16px;
+    }
+    .pillar-final-cta p {
+      font-size: clamp(0.95rem, 2.3vw, 1.08rem);
+      line-height: 1.7;
+      color: #ffffff;
+      font-weight: 300;
+      margin: 0;
+    }
+    .pillar-final-cta-btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 34px;
+      border: 1px solid #D4AF37;
+      border-radius: 4px;
+      color: #D4AF37 !important;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: background 0.25s, color 0.25s;
+    }
+    .pillar-final-cta-btn:hover {
+      background: #D4AF37;
+      color: #0d141a !important;
+    }
+
+    /* ── GRILLE DE LIENS "POUR ALLER PLUS LOIN" ── */
+    .pillar-links-box.as-grid ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .pillar-links-box.as-grid li a {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 16px 18px;
+      height: 100%;
+    }
+    .pillar-links-box.as-grid li a::before {
+      content: '📄';
+      font-size: 1.1rem;
+    }
+    @media (max-width: 600px) {
+      .pillar-links-box.as-grid ul { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
       .pillar-content { padding: 10px 16px 36px; }
+      .pillar-content h2 { margin: 42px 0 14px; }
+      .pillar-retain { padding: 16px 18px; }
+      .pillar-toc { padding: 18px 20px; }
+      .pillar-example-card { padding: 16px 18px; }
+      .pillar-links-box li a { padding: 10px 12px; }
+      .pillar-flow { padding: 20px 12px; }
+      .pillar-final-cta { margin: 28px auto 0; }
     }
 
     /* ── GRILLE ── */
@@ -1072,7 +1384,7 @@
   <div class="pillar-content">
 
     <p>
-      Beaucoup d'entrepreneurs et de dirigeants recherchent un accompagnement lorsqu'ils sont confrontés à une décision importante. Certains utilisent sur Google des expressions comme « coach décision entrepreneur », d'autres parlent d'aide à la décision ou de clarté décisionnelle. Cette page est consacrée à la décision entrepreneuriale : pourquoi elle est difficile, ce qu'elle coûte quand elle est repoussée, et comment retrouver le discernement nécessaire pour décider avec justesse.
+      Beaucoup d'entrepreneurs et de dirigeants recherchent un accompagnement lorsqu'ils sont confrontés à une décision importante. Certains tapent sur Google des expressions comme « coach décision entrepreneur », d'autres parlent simplement d'aide à la décision ou de clarté décisionnelle. Cette page est consacrée à la décision entrepreneuriale : pourquoi elle est difficile, ce qu'elle coûte quand elle est repoussée, et comment retrouver le discernement nécessaire pour décider avec justesse.
     </p>
     <p>
       Chaque entrepreneur, chaque dirigeant, décide en continu — certaines décisions sont simples, d'autres engagent des milliers, parfois des millions d'euros, une équipe entière, une entreprise, une famille ou une vision de plusieurs années.
@@ -1084,7 +1396,23 @@
       Ce n'est pas toujours un manque d'informations. Très souvent, c'est le discernement du dirigeant — sa capacité à voir clairement, au-delà des faits déjà connus — qui se trouve brouillé par ce qui agit sous la surface. J'accompagne exclusivement les entrepreneurs, dirigeants et décideurs confrontés à des décisions stratégiques, complexes ou à fort impact, précisément à cet endroit-là.
     </p>
 
-    <h2>Pourquoi les entrepreneurs ont-ils du mal à prendre des décisions ?</h2>
+    <div class="pillar-toc">
+      <p class="toc-label">Sommaire</p>
+      <ol>
+        <li><a href="#pourquoi-difficile">Pourquoi les décisions sont difficiles pour un entrepreneur</a></li>
+        <li><a href="#solitude-dirigeant">La solitude décisionnelle du dirigeant</a></li>
+        <li><a href="#fatigue-decisionnelle">La fatigue décisionnelle</a></li>
+        <li><a href="#cout-indecision">Le coût réel de l'indécision</a></li>
+        <li><a href="#suranalyse">Suranalyse et clarté décisionnelle</a></li>
+        <li><a href="#clarte-decisionnelle">Qu'est-ce que la clarté décisionnelle ?</a></li>
+        <li><a href="#retrouver-discernement">Retrouver son discernement</a></li>
+        <li><a href="#coach-decision">Une approche différente du coaching</a></li>
+        <li><a href="#niveaux-accompagnement">Les 5 espaces d'accompagnement</a></li>
+        <li><a href="#faq">Questions fréquentes</a></li>
+      </ol>
+    </div>
+
+    <h2 id="pourquoi-difficile"><span class="h2-icon" aria-hidden="true">🤔</span>Pourquoi les entrepreneurs ont-ils du mal à prendre des décisions ?</h2>
     <p>
       Dans une entreprise, une décision ne concerne jamais uniquement un choix technique. Elle touche aussi votre identité de dirigeant, votre rapport à l'argent, votre rapport au risque, votre histoire personnelle, et votre capacité à assumer les conséquences de ce que vous allez décider. C'est ce qui rend cette décision si différente d'un simple arbitrage professionnel.
     </p>
@@ -1092,36 +1420,49 @@
       Contrairement à un salarié, un entrepreneur ou un dirigeant n'a généralement personne à qui déléguer la décision finale, ni personne pour la valider avant qu'elle ne devienne réalité. Cette solitude décisionnelle explique en grande partie pourquoi certaines décisions, en apparence simples, deviennent des sources d'angoisse disproportionnées par rapport à leur enjeu réel.
     </p>
     <p>
-      Voici quelques exemples de décisions qui, sur le papier, semblent purement stratégiques — et qui pourtant activent des mécanismes bien plus profonds. Ces exemples illustrent des situations fréquemment rencontrées : ils ne signifient en aucun cas que je recommande une décision plutôt qu'une autre.
+      Voici quelques exemples de décisions qui, sur le papier, semblent purement stratégiques — et qui activent, en réalité, des mécanismes bien plus profonds. Ces exemples illustrent des situations fréquemment rencontrées : ils ne signifient en aucun cas que je recommande une décision plutôt qu'une autre.
     </p>
-    <p>
-      <strong>Recruter ou attendre.</strong> Vous savez que votre équipe est sous tension depuis des mois. Le poste est budgété, le profil identifié. Et pourtant, vous repoussez l'entretien final, semaine après semaine — parfois par peur de vous tromper, parfois par peur de ce que ce recrutement révélerait sur votre propre capacité à déléguer et à ne plus tout contrôler.
-    </p>
-    <p>
-      <strong>Changer d'associé.</strong> La mésentente s'installe depuis longtemps, mais sortir d'une association engage bien plus que des parts sociales : c'est une histoire commune, une loyauté, parfois une amitié, qu'il faut dénouer sans certitude sur ce qui se reconstruira derrière. Nombreux sont les dirigeants qui restent dans une association qui ne fonctionne plus, simplement parce que la décision de la quitter leur semble plus risquée que d'y rester.
-    </p>
-    <p>
-      <strong>Augmenter ses prix.</strong> Les indicateurs financiers semblent montrer qu'une augmentation de prix est envisageable, parfois depuis longtemps. Mais la peur de perdre des clients fidèles, ou la culpabilité de "trop demander", suffit à repousser une décision qui, pourtant, conditionne la rentabilité de toute l'activité. Cette décision, en apparence purement commerciale, touche souvent à un rapport à la valeur de son propre travail.
-    </p>
-    <p>
-      <strong>Investir ou non.</strong> Vous êtes face à une opportunité d'investissement qui vous paraît sérieuse, avec des projections qui semblent favorables. Mais le rapport personnel au risque — hérité parfois d'une histoire familiale avec l'argent, ou d'un précédent échec — pèse davantage dans la décision finale que le business plan lui-même.
-    </p>
-    <p>
-      <strong>Licencier.</strong> Vous estimez que cette décision est nécessaire sur le plan économique ou organisationnel. Elle reste pourtant l'une des plus difficiles à assumer humainement, en particulier lorsque le dirigeant a lui-même recruté et formé la personne concernée. Ce type de décision est souvent repoussé bien au-delà du moment où il aurait dû être pris.
-    </p>
+    <div class="pillar-example-grid">
+      <div class="pillar-example-card">
+        <p class="example-label">Recruter ou attendre</p>
+        <p>Vous savez que votre équipe est sous tension depuis des mois. Le poste est budgété, le profil identifié. Et pourtant, vous repoussez l'entretien final, semaine après semaine — parfois par peur de vous tromper, parfois par peur de ce que ce recrutement révélerait sur votre propre capacité à déléguer et à ne plus tout contrôler.</p>
+      </div>
+      <div class="pillar-example-card">
+        <p class="example-label">Changer d'associé</p>
+        <p>La mésentente s'installe depuis longtemps, mais sortir d'une association engage bien plus que des parts sociales : c'est une histoire commune, une loyauté, parfois une amitié, qu'il faut dénouer sans certitude sur ce qui se reconstruira derrière. Nombreux sont les dirigeants qui restent dans une association qui ne fonctionne plus, simplement parce que la décision de la quitter leur semble plus risquée que d'y rester.</p>
+      </div>
+      <div class="pillar-example-card">
+        <p class="example-label">Augmenter ses prix</p>
+        <p>Les indicateurs financiers semblent montrer qu'une augmentation de prix est envisageable, parfois depuis longtemps. Mais la peur de perdre des clients fidèles, ou la culpabilité de "trop demander", suffit à repousser une décision qui conditionne, elle, la rentabilité de toute l'activité. Cette décision, en apparence purement commerciale, touche souvent à un rapport à la valeur de son propre travail.</p>
+      </div>
+      <div class="pillar-example-card">
+        <p class="example-label">Investir ou non</p>
+        <p>Vous êtes face à une opportunité d'investissement qui vous paraît sérieuse, avec des projections qui semblent favorables. Mais le rapport personnel au risque — hérité parfois d'une histoire familiale avec l'argent, ou d'un précédent échec — pèse davantage dans la décision finale que le business plan lui-même.</p>
+      </div>
+      <div class="pillar-example-card">
+        <p class="example-label">Licencier</p>
+        <p>Vous estimez que cette décision est nécessaire sur le plan économique ou organisationnel. Elle reste pourtant l'une des plus difficiles à assumer humainement, en particulier lorsque le dirigeant a lui-même recruté et formé la personne concernée. Ce type de décision est souvent repoussé bien au-delà du moment où il aurait dû être pris.</p>
+      </div>
+    </div>
 
     <div class="pillar-quote">« Ce n'est pas toujours un manque de courage qui empêche de trancher. C'est souvent un manque de clarté. »</div>
+
+    <div class="pillar-example-grid">
+      <div class="pillar-example-card">
+        <p class="example-label">Vendre son entreprise</p>
+        <p>Au-delà de la valorisation financière, vendre une entreprise que l'on a bâtie touche à l'identité même du dirigeant. La question implicite n'est pas seulement "à quel prix", mais "qui suis-je, si je ne suis plus celui ou celle qui dirige cette entreprise ?"</p>
+      </div>
+      <div class="pillar-example-card">
+        <p class="example-label">Restructurer</p>
+        <p>Réorganiser une équipe, fermer une branche devenue non rentable, revoir un modèle économique : ces décisions demandent d'accepter qu'une partie de ce qui a été construit ne fonctionne plus — un constat rarement facile à regarder en face, même lorsque les chiffres sont sans appel.</p>
+      </div>
+    </div>
+
     <p>
-      <strong>Vendre son entreprise.</strong> Au-delà de la valorisation financière, vendre une entreprise que l'on a bâtie touche à l'identité même du dirigeant. La question implicite n'est pas seulement "à quel prix", mais "qui suis-je, si je ne suis plus celui ou celle qui dirige cette entreprise ?"
-    </p>
-    <p>
-      <strong>Restructurer.</strong> Réorganiser une équipe, fermer une branche devenue non rentable, revoir un modèle économique : ces décisions demandent d'accepter qu'une partie de ce qui a été construit ne fonctionne plus — un constat rarement facile à regarder en face, même lorsque les chiffres sont sans appel.
-    </p>
-    <p>
-      En apparence, ces décisions semblent purement stratégiques. En réalité, elles sont presque toujours influencées par des mécanismes invisibles — des peurs, des schémas répétitifs, des loyautés inconscientes — que la seule analyse des chiffres ne permet pas de voir. C'est précisément le territoire de la clarté décisionnelle : comprendre ce qui, sous la surface, influence encore une décision qui semble purement rationnelle.
+      À première vue, ces décisions semblent purement stratégiques. En réalité, elles sont presque toujours influencées par des dynamiques encore inconscientes — des peurs, des réflexes hérités, des loyautés qui n'ont jamais été nommées — que la seule analyse des chiffres ne permet pas de voir. C'est précisément le territoire de la clarté décisionnelle : comprendre ce qui, sous la surface, influence encore une décision qui semble purement rationnelle.
     </p>
 
-    <div class="pillar-links-box">
+    <div class="pillar-links-box as-grid">
       <p class="pillar-links-title">Pour aller plus loin</p>
       <ul>
         <li><a href="https://www.millionnairedecoeur.com/solitude-decisionnelle-entrepreneur">Lire notre article sur la solitude décisionnelle de l'entrepreneur</a></li>
@@ -1129,10 +1470,18 @@
       </ul>
     </div>
 
-    <h2>Pourquoi les dirigeants prennent-ils seuls les décisions les plus difficiles ?</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="solitude-dirigeant"><span class="h2-icon" aria-hidden="true">👥</span>Pourquoi les dirigeants prennent-ils seuls les décisions les plus difficiles ?</h2>
     <p>
       Un salarié, même à un poste à responsabilité, dispose presque toujours d'un supérieur, d'un comité ou d'un pair à qui soumettre une décision avant de l'assumer pleinement. Un dirigeant d'entreprise, lui, se retrouve souvent seul au moment de trancher les décisions qui comptent le plus — recrutement d'un poste clé, arbitrage entre associés, choix d'investissement, restructuration. Cette solitude n'est pas anecdotique : elle explique en grande partie pourquoi décider est si différent, pour un dirigeant, d'un simple choix professionnel.
     </p>
+
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Cette solitude n'est pas anecdotique : elle explique en grande partie pourquoi décider est si différent, pour un dirigeant, d'un simple choix professionnel.</p>
+    </div>
+
     <p>
       Cette solitude a un effet paradoxal : plus la décision est engageante, moins le dirigeant a de personnes vers qui se tourner sans risquer de révéler un doute, une fragilité, ou une information sensible. Il en résulte une tendance fréquente à repousser la décision, à multiplier les avis extérieurs sans jamais trancher, ou à décider dans l'urgence pour mettre fin à l'inconfort de l'attente — plutôt que de décider avec discernement.
     </p>
@@ -1140,15 +1489,23 @@
       Un accompagnement à la décision des dirigeants ne remplace pas cet entourage professionnel : il offre un espace tiers, neutre et confidentiel, propice à la clarté décisionnelle, où la décision peut être examinée sans les enjeux relationnels ou hiérarchiques qui pèsent habituellement sur un dirigeant lorsqu'il évoque ses doutes.
     </p>
 
-    <h2>La fatigue décisionnelle : quand chaque choix devient plus difficile que le précédent</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="fatigue-decisionnelle"><span class="h2-icon" aria-hidden="true">⏳</span>La fatigue décisionnelle : quand chaque choix devient plus difficile que le précédent</h2>
     <p>
       Diriger une entreprise, c'est décider en continu, du matin au soir, sur des sujets d'importance très inégale — un mail à trancher, un fournisseur à choisir, un recrutement à valider, une orientation stratégique à définir. Chacune de ces décisions consomme une ressource mentale limitée. C'est ce que l'on appelle la fatigue décisionnelle : plus les décisions s'accumulent, plus chaque nouvelle décision devient coûteuse à prendre.
     </p>
+
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Plus les décisions s'accumulent, plus chaque nouvelle décision devient coûteuse à prendre.</p>
+    </div>
+
     <p>
       Contrairement à une fatigue physique, la fatigue décisionnelle ne se voit pas toujours de l'extérieur. Elle se traduit plutôt par des signes plus discrets : une tendance à reporter les décisions importantes, une irritabilité face à des choix qui, quelques mois plus tôt, auraient semblé anodins, une propension à choisir la solution la plus facile plutôt que la plus juste, ou au contraire une paralysie complète face à une décision qui n'aurait dû prendre que quelques minutes.
     </p>
     <p>Quelques signes qui indiquent qu'un dirigeant est en fatigue décisionnelle :</p>
-    <ul>
+    <ul class="icon-list">
       <li>vous reportez systématiquement les décisions qui ne sont pas urgentes</li>
       <li>vous demandez de plus en plus d'avis extérieurs sans jamais trancher</li>
       <li>de petites décisions du quotidien deviennent disproportionnellement pesantes</li>
@@ -1159,17 +1516,19 @@
       Chez l'entrepreneur, ce phénomène est amplifié par trois facteurs : l'absence de délégation possible sur les décisions les plus engageantes, l'accumulation de décisions non traitées qui restent en arrière-plan, et l'isolement décisionnel qui empêche de vérifier son propre jugement auprès d'un pair. Reconnaître la fatigue décisionnelle est souvent la première étape pour sortir d'un cercle où l'on décide de moins en moins bien, précisément parce que l'on décide trop, et sans jamais reprendre son souffle.
     </p>
 
-    <h2>Le coût réel de l'indécision dans une entreprise</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="cout-indecision"><span class="h2-icon" aria-hidden="true">💰</span>Le coût réel de l'indécision dans une entreprise</h2>
     <p>
       Chaque décision repoussée possède un coût — ce que nous appelons le <a href="https://www.millionnairedecoeur.com/decision-cost">Decision Cost</a>. Ce coût n'est pas uniquement financier, même s'il l'est souvent : un recrutement repoussé de six mois, ce sont six mois de surcharge pour une équipe déjà tendue ; une augmentation de prix repoussée d'un an peut représenter l'équivalent d'un salaire perdu sur l'exercice ; une association que l'on n'ose pas dénouer peut coûter, sur plusieurs années, bien plus que le conflit qu'on cherchait à éviter.
     </p>
     <p>Ce coût se manifeste aussi de manière moins visible, mais tout aussi réelle :</p>
-    <ul>
+    <ul class="icon-list">
       <li>une fatigue décisionnelle qui s'installe progressivement</li>
       <li>une perte de discernement, qui rend chaque décision suivante plus difficile que la précédente</li>
       <li>une surcharge mentale permanente, qui empiète sur la vie personnelle</li>
       <li>une baisse d'énergie et de motivation</li>
-      <li>une difficulté croissante à faire confiance à votre propre jugement</li>
+      <li>une difficulté croissante à faire confiance à votre propre discernement</li>
       <li>des opportunités manquées, rarement chiffrées mais réelles</li>
       <li>des équipes qui attendent une direction claire, et qui, à défaut, perdent en engagement</li>
     </ul>
@@ -1177,7 +1536,12 @@
       Plus une décision importante est retardée, plus elle mobilise de ressources mentales — au point que certaines décisions finissent par coûter beaucoup plus cher que les erreurs qu'elles étaient censées éviter.
     </p>
 
-    <div class="pillar-links-box">
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Certaines décisions finissent par coûter beaucoup plus cher que les erreurs qu'elles étaient censées éviter.</p>
+    </div>
+
+    <div class="pillar-links-box as-grid">
       <p class="pillar-links-title">Pour aller plus loin</p>
       <ul>
         <li><a href="https://www.millionnairedecoeur.com/signes-decision-coute-argent">Découvrir les 7 signes qu'une décision vous coûte déjà de l'argent</a></li>
@@ -1187,38 +1551,105 @@
       </ul>
     </div>
 
-    <h2>Pourquoi la suranalyse ne remplace pas la clarté décisionnelle</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="suranalyse"><span class="h2-icon" aria-hidden="true">🔄</span>Pourquoi la suranalyse ne remplace pas la clarté décisionnelle</h2>
     <p>
       Il est fréquent de penser qu'il suffit d'avoir plus de temps, ou plus d'informations, pour trancher une décision difficile. Pourtant, il arrive un moment où analyser davantage n'apporte plus de clarté — et entretient au contraire le problème. C'est ce que l'on appelle la suranalyse : un mécanisme qui donne l'illusion de la rigueur, alors qu'il ne fait souvent que retarder une décision déjà prise, quelque part, mais pas encore assumée.
     </p>
+
+    <div class="pillar-flow">
+      <svg viewBox="0 0 300 460" width="100%" style="max-width:320px; display:block; margin:0 auto;" role="img" aria-label="Schéma du processus : décision importante, suranalyse, blocage, discernement retrouvé, décision assumée">
+        <line x1="150" y1="80" x2="150" y2="106" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,112 145,102 155,102" fill="#D4AF37" fill-opacity="0.6" />
+        <line x1="150" y1="170" x2="150" y2="196" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,202 145,192 155,192" fill="#D4AF37" fill-opacity="0.6" />
+        <line x1="150" y1="260" x2="150" y2="286" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,292 145,282 155,282" fill="#D4AF37" fill-opacity="0.6" />
+        <line x1="150" y1="350" x2="150" y2="376" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,382 145,372 155,372" fill="#D4AF37" fill-opacity="0.6" />
+
+        <rect x="10" y="20" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="55" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Décision importante</text>
+
+        <rect x="10" y="110" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="145" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Suranalyse</text>
+
+        <rect x="10" y="200" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="235" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Blocage</text>
+
+        <rect x="10" y="290" width="280" height="60" rx="6" fill="#D4AF37" fill-opacity="0.12" stroke="#D4AF37" />
+        <text x="150" y="325" text-anchor="middle" fill="#D4AF37" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Discernement retrouvé</text>
+
+        <rect x="10" y="380" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="415" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Décision assumée</text>
+      </svg>
+    </div>
     <p>
       La peur de décider n'est pas un manque de courage. C'est souvent le signe que quelque chose, dans l'invisible, n'a pas encore été vu. Lorsque certaines blessures, certaines peurs, certains schémas répétitifs ou certaines loyautés restent actifs sans que vous en ayez conscience, ils influencent votre perception de la situation — bien au-delà de ce que montrent les chiffres. Vous croyez prendre une décision stratégique. En réalité, vous réagissez parfois à quelque chose de beaucoup plus ancien.
     </p>
 
-    <div class="pillar-links-box">
+    <div class="pillar-links-box as-grid">
       <p class="pillar-links-title">Pour aller plus loin</p>
       <ul>
         <li><a href="https://www.millionnairedecoeur.com/sortir-boucle-indecision">Lire comment sortir d'une boucle d'indécision</a></li>
       </ul>
     </div>
 
-    <h2>Qu'est-ce que la clarté décisionnelle ?</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="clarte-decisionnelle"><span class="h2-icon" aria-hidden="true">💡</span>Qu'est-ce que la clarté décisionnelle ?</h2>
     <p>
       La clarté décisionnelle, c'est la capacité à voir une situation telle qu'elle est réellement, sans que le doute, la peur ou la confusion ne viennent brouiller le choix à faire. Ce n'est pas un état permanent : c'est une capacité qui se perd et qui se retrouve, décision après décision.
     </p>
     <p>
-      Elle se perd le plus souvent sous l'effet de la fatigue décisionnelle, d'une pression extérieure trop forte, ou de schémas personnels restés actifs — une peur ancienne, un conditionnement, une loyauté — qui s'invitent dans une décision qui, sur le papier, ne les concerne pourtant pas.
+      Elle se perd le plus souvent sous l'effet de la fatigue décisionnelle, d'une pression extérieure trop forte, ou de conditionnements personnels restés actifs — une peur ancienne, une loyauté, une habitude prise depuis longtemps — qui s'invitent dans une décision qui, sur le papier, ne les concerne pas vraiment.
     </p>
     <p>
-      Elle revient rarement en ajoutant de l'information : le plus souvent, elle revient en retirant ce qui brouille la perception. Une décision peut être parfaitement documentée — chiffres, avis, comparatifs — sans que le jugement soit pour autant plus clair. À l'inverse, une perception retrouvée permet parfois de trancher en quelques minutes une décision qui semblait insoluble depuis des semaines.
+      Elle revient rarement en ajoutant de l'information : le plus souvent, elle revient en retirant ce qui brouille la perception. Une décision peut être parfaitement documentée — chiffres, avis, comparatifs — sans que la perception soit pour autant plus claire. À l'inverse, une perception retrouvée permet parfois de trancher en quelques minutes une décision qui semblait insoluble depuis des semaines.
     </p>
+
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Elle revient rarement en ajoutant de l'information : le plus souvent, elle revient en retirant ce qui brouille la perception.</p>
+    </div>
 
     <div class="pillar-quote">« Le discernement est la capacité. La clarté en est le résultat. »</div>
 
-    <h2>Comment retrouver son discernement avant une décision importante</h2>
+    <h2 id="retrouver-discernement"><span class="h2-icon" aria-hidden="true">🧠</span>Comment retrouver son discernement avant une décision importante</h2>
     <p>
-      Le discernement entrepreneurial n'est pas une compétence acquise une fois pour toutes. C'est une capacité qui se brouille sous l'effet du stress ou de schémas que l'on ne voit pas toujours soi-même — et qui se retrouve en identifiant ce qui déforme encore la perception d'une situation, plutôt qu'en cherchant un avis de plus.
+      Le discernement entrepreneurial n'est pas une compétence acquise une fois pour toutes. C'est une capacité qui se brouille sous l'effet du stress ou de mécanismes que l'on ne voit pas toujours soi-même — et qui se retrouve en identifiant ce qui déforme encore la perception d'une situation, plutôt qu'en cherchant un avis de plus.
     </p>
+
+    <div class="pillar-flow">
+      <svg viewBox="0 0 300 460" width="100%" style="max-width:320px; display:block; margin:0 auto;" role="img" aria-label="Schéma : décision difficile, confusion, identifier ce qui brouille la perception, discernement retrouvé, décision assumée">
+        <line x1="150" y1="80" x2="150" y2="106" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,112 144,100 156,100" fill="#D4AF37" fill-opacity="0.7" />
+        <line x1="150" y1="170" x2="150" y2="196" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,202 144,190 156,190" fill="#D4AF37" fill-opacity="0.7" />
+        <line x1="150" y1="260" x2="150" y2="286" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,292 144,280 156,280" fill="#D4AF37" fill-opacity="0.7" />
+        <line x1="150" y1="350" x2="150" y2="376" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="1.5" />
+        <polygon points="150,382 144,370 156,370" fill="#D4AF37" fill-opacity="0.7" />
+
+        <rect x="10" y="20" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="55" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Décision difficile</text>
+
+        <rect x="10" y="110" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="145" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Confusion</text>
+
+        <rect x="10" y="200" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="227" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="12.5" font-weight="700">Identifier ce qui brouille</text>
+        <text x="150" y="245" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="12.5" font-weight="700">la perception</text>
+
+        <rect x="10" y="290" width="280" height="60" rx="6" fill="#D4AF37" fill-opacity="0.12" stroke="#D4AF37" />
+        <text x="150" y="325" text-anchor="middle" fill="#D4AF37" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Discernement retrouvé</text>
+
+        <rect x="10" y="380" width="280" height="60" rx="6" fill="#0d141a" stroke="#D4AF37" stroke-opacity="0.35" />
+        <text x="150" y="415" text-anchor="middle" fill="#ffffff" font-family="Poppins, sans-serif" font-size="15" font-weight="700">Décision assumée</text>
+      </svg>
+    </div>
+
     <p>
       Ce travail consiste à mettre en lumière ces mécanismes pour que vous retrouviez une perception juste, plutôt que de vous reposer sur une méthode ou une recommandation extérieure. Je vous aide à voir ce que vous ne pouviez pas voir seul.
     </p>
@@ -1229,7 +1660,12 @@
       Développer son discernement, c'est apprendre à distinguer ce qui relève des faits, ce qui relève de la peur, et ce qui relève d'un schéma ancien. Un dirigeant qui l'a retrouvé ne décide pas nécessairement plus vite : il décide avec un jugement qui ne s'érode plus au fil des semaines, et qu'il retrouve, décision après décision, sans dépendre d'un accompagnement permanent.
     </p>
 
-    <div class="pillar-links-box">
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Développer son discernement, c'est apprendre à distinguer ce qui relève des faits, ce qui relève de la peur, et ce qui relève d'un schéma ancien.</p>
+    </div>
+
+    <div class="pillar-links-box as-grid">
       <p class="pillar-links-title">Pour aller plus loin</p>
       <ul>
         <li><a href="https://www.millionnairedecoeur.com/clarte-decisionnelle-entrepreneur">Découvrir comment retrouver une vraie clarté décisionnelle</a></li>
@@ -1238,29 +1674,41 @@
       </ul>
     </div>
 
-    <h2>Une approche différente du coaching classique</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="coach-decision"><span class="h2-icon" aria-hidden="true">🧭</span>Une approche différente du coaching classique</h2>
     <p>
-      L'expression « coach décision entrepreneur » est souvent tapée sur Google par des dirigeants confrontés à une décision importante. Ce qu'ils recherchent réellement n'est généralement pas quelqu'un qui décide à leur place, mais quelqu'un qui les aide à retrouver leur propre jugement.
+      L'expression « coach décision entrepreneur » est souvent tapée sur Google par des dirigeants confrontés à une décision importante. Ce qu'ils recherchent réellement n'est généralement pas quelqu'un qui décide à leur place, mais quelqu'un qui les aide à retrouver leur propre discernement.
     </p>
     <p>
       Cette recherche apparaît dans des situations précises : une décision reportée depuis plusieurs semaines malgré une analyse déjà approfondie, un choix qui semble simple sur le papier mais qui déclenche une charge émotionnelle disproportionnée, ou l'absence de tiers de confiance à qui soumettre une décision engageante.
     </p>
     <p>
-      Mon approche diffère d'un coaching classique : je ne donne pas de méthode, je ne fais pas de consulting, et je ne dis jamais quoi faire. Un coach aide à développer des compétences, un consultant recommande une stratégie, un mentor partage son expérience — mon travail consiste à révéler ce qui influence la perception : les peurs, les schémas répétitifs, les loyautés qui la faussent souvent à l'insu du dirigeant.
+      Mon approche diffère d'un coaching classique : je ne donne pas de méthode, je ne fais pas de consulting, et je ne dis jamais quoi faire. Un coach aide à développer des compétences, un consultant recommande une stratégie, un mentor partage son expérience — mon travail consiste à révéler ce qui influence la perception : les peurs, les conditionnements, les loyautés qui la faussent souvent à l'insu du dirigeant.
     </p>
+
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Mon approche diffère d'un coaching classique : je ne donne pas de méthode, je ne fais pas de consulting, et je ne dis jamais quoi faire.</p>
+    </div>
+
     <p>
       Concrètement, un échange ne consiste ni en un questionnaire, ni en une grille d'analyse à remplir. C'est un espace où la décision qui vous occupe est examinée sous un angle rarement exploré ailleurs — celui de ce qui, en vous, l'influence encore sans que vous le voyiez. Les décisions restent toujours les vôtres.
     </p>
 
-    <h2>Une aide à la décision pour l'entrepreneur bloqué face à un choix important</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="aide-decision"><span class="h2-icon" aria-hidden="true">🔓</span>Une aide à la décision pour l'entrepreneur bloqué face à un choix important</h2>
     <p>
       Une aide à la décision est souvent recherchée par les dirigeants confrontés à un choix difficile qu'ils n'arrivent pas à trancher, malgré une analyse déjà approfondie. Elle ne consiste pas à ajouter un avis de plus à ceux déjà recueillis : elle consiste à identifier ce qui, dans l'invisible, empêche encore de décider.
     </p>
     <p>
-      Ce blocage se résout rarement en attendant plus longtemps. Il peut parfois se dénouer en quelques minutes, une fois que le mécanisme à son origine est identifié — que la décision concerne un recrutement, une négociation, ou toute autre situation où le jugement s'est momentanément brouillé.
+      Ce blocage se résout rarement en attendant plus longtemps. Il arrive qu'il se dissolve en quelques minutes, une fois que le mécanisme à son origine est identifié — que la décision concerne un recrutement, une négociation, ou toute autre situation où la perception s'est momentanément brouillée.
     </p>
 
-    <h2>Comment prendre une décision stratégique quand les enjeux sont importants ?</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="decision-strategique"><span class="h2-icon" aria-hidden="true">⚖️</span>Comment prendre une décision stratégique quand les enjeux sont importants ?</h2>
     <p>
       Une décision stratégique ne se prend pas de la même manière qu'une décision courante. Elle demande d'abord de distinguer ce qui, dans l'hésitation, relève réellement de l'analyse — et ce qui relève d'un schéma plus ancien qui n'a pas sa place dans le choix présent. C'est cette distinction qui permet de sortir d'une décision bloquée sans se forcer, sans attendre que "le bon moment" arrive de lui-même.
     </p>
@@ -1271,13 +1719,26 @@
       C'est cette démarche qui structure chacun des accompagnements présentés plus bas, selon la profondeur de la décision à laquelle vous êtes confronté.
     </p>
 
-    <h2>Une approche dédiée aux entrepreneurs et dirigeants d'entreprise</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="approche-dediee"><span class="h2-icon" aria-hidden="true">🎯</span>Une approche dédiée aux entrepreneurs et dirigeants d'entreprise</h2>
     <p>
       J'accompagne exclusivement des entrepreneurs, fondateurs, dirigeants d'entreprise et décideurs. Chaque accompagnement est adapté au niveau de complexité de votre situation. Que vous soyez confronté à une décision urgente, à plusieurs enjeux simultanés ou à une pression décisionnelle permanente, il existe un espace adapté.
     </p>
 
-    <h2>Toutes les décisions n'ont pas besoin du même niveau d'accompagnement</h2>
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="niveaux-accompagnement"><span class="h2-icon" aria-hidden="true">📶</span>Toutes les décisions n'ont pas besoin du même niveau d'accompagnement</h2>
     <p>Toutes les situations ne demandent pas le même niveau d'accompagnement. Selon que vous souhaitez clarifier une décision ponctuelle ou retrouver un discernement durable, plusieurs formats existent — les cinq espaces ci-dessous forment un parcours cohérent, du diagnostic ponctuel à l'accompagnement stratégique continu :</p>
+
+    <div class="pillar-path">
+      <div class="pillar-path-step"><div class="pillar-path-num">1</div><a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai">Entrepreneurs Decision Cost Audit AI</a></div>
+      <div class="pillar-path-step"><div class="pillar-path-num">2</div><a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst">Quantum Decision Catalyst</a></div>
+      <div class="pillar-path-step"><div class="pillar-path-num">3</div><a href="https://www.millionnairedecoeur.com/quantum-expansion">Quantum Expansion</a></div>
+      <div class="pillar-path-step"><div class="pillar-path-num">4</div><a href="https://www.millionnairedecoeur.com/quantum-sovereignty">Quantum Sovereignty</a></div>
+      <div class="pillar-path-step"><div class="pillar-path-num">5</div><a href="https://www.millionnairedecoeur.com/quantum-legacy">Quantum Legacy</a></div>
+    </div>
+
     <ul>
       <li>Vous voulez comprendre ce qui vous bloque ? → <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai">Entrepreneurs Decision Cost Audit AI</a></li>
       <li>Vous avez une décision urgente ou importante à trancher ? → <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst">Quantum Decision Catalyst</a></li>
@@ -1288,7 +1749,7 @@
 
   </div>
 
-  <div class="services-grid">
+  <div class="services-grid" id="offres">
 
       <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="service-card" style="animation-delay:0.1s" aria-label="Entrepreneurs Decision Cost Audit AI">
         <div class="service-card-img">
@@ -1364,14 +1825,21 @@
 
   <div class="pillar-content">
 
-    <h2>Une autre manière d'aborder la décision entrepreneuriale</h2>
+    <h2 id="autre-maniere"><span class="h2-icon" aria-hidden="true">🔍</span>Une autre manière d'aborder la décision entrepreneuriale</h2>
     <p>
       La plupart des accompagnements destinés aux dirigeants travaillent sur la stratégie, les compétences, les objectifs. Ce travail commence là où ces approches s'arrêtent : il s'intéresse à ce qui influence encore la perception, la décision et la capacité à discerner avec justesse. Lorsque cette couche devient visible, les décisions retrouvent souvent leur clarté décisionnelle et leur fluidité — sans qu'il soit nécessaire d'ajouter une méthode de plus.
     </p>
 
-    <h2>Questions fréquentes</h2>
+    <div class="pillar-retain">
+      <span class="retain-label">À retenir</span>
+      <p>Lorsque cette couche devient visible, les décisions retrouvent souvent leur clarté décisionnelle et leur fluidité — sans qu'il soit nécessaire d'ajouter une méthode de plus.</p>
+    </div>
+
+    <div class="pillar-divider" aria-hidden="true"><span></span></div>
+
+    <h2 id="faq"><span class="h2-icon" aria-hidden="true">💬</span>Questions fréquentes</h2>
     <p><strong>Qu'est-ce que le discernement entrepreneurial ?</strong><br>
-    C'est la capacité d'un dirigeant à percevoir une situation avec justesse, au-delà des faits déjà connus, sans que des peurs, des schémas répétitifs ou des loyautés invisibles ne viennent fausser sa perception. Le discernement entrepreneurial se brouille sous l'effet de la fatigue décisionnelle et se retrouve en identifiant ce qui, dans l'invisible, influence encore la décision.</p>
+    C'est la capacité d'un dirigeant à percevoir une situation avec justesse, au-delà des faits déjà connus, sans que des peurs, des réflexes hérités ou des loyautés inconscientes ne viennent fausser sa perception. Le discernement entrepreneurial se brouille sous l'effet de la fatigue décisionnelle et se retrouve en identifiant ce qui, en profondeur, influence encore la décision.</p>
     <p><strong>Comment savoir si j'ai besoin d'un accompagnement à la décision ?</strong><br>
     Si une décision précise vous semble bloquée malgré une analyse déjà approfondie, si vous reportez des choix importants depuis plusieurs semaines, ou si vous ressentez une fatigue décisionnelle croissante, un accompagnement à la décision peut vous permettre de retrouver rapidement votre discernement.</p>
     <p><strong>Peut-on faire cet accompagnement à distance, depuis l'étranger ?</strong><br>
@@ -1397,33 +1865,36 @@
     <p><strong>Combien de temps dure un accompagnement ?</strong><br>
     Cela dépend du format choisi : 15 minutes pour Quantum Decision Catalyst, 60 minutes pour Quantum Expansion, un accompagnement mensuel pour Quantum Sovereignty, et un format sur mesure pour Quantum Legacy.</p>
     <p><strong>Est-ce que vous me direz quelle décision prendre ?</strong><br>
-    Non. Je ne décide jamais à votre place. Je ne vous dirai jamais s'il faut investir, signer un contrat, recruter, licencier, vendre votre entreprise, changer d'associé ou prendre toute autre décision. Mon rôle consiste à mettre en lumière les dynamiques conscientes et inconscientes qui peuvent influencer votre perception afin que vous retrouviez votre propre discernement. Vous demeurez seul responsable de vos décisions. Cet accompagnement ne constitue ni un conseil juridique, ni financier, ni médical, ni politique. Mon accompagnement porte exclusivement sur votre discernement et les mécanismes qui influencent votre perception. Il ne constitue jamais une recommandation ou un avis sur la décision à prendre.</p>
+    Non. Je ne décide jamais à votre place — que ce soit pour investir, recruter, licencier, vendre votre entreprise ou changer d'associé. Mon rôle se limite à révéler les dynamiques conscientes et inconscientes qui influencent votre perception, afin que vous retrouviez votre propre discernement. Vous demeurez seul responsable de vos décisions : cet accompagnement ne constitue ni un conseil juridique, financier, médical ou politique, ni une recommandation sur la décision à prendre.</p>
     <p><strong>Est-ce adapté aux dirigeants de grands groupes ?</strong><br>
     Oui, notamment via Quantum Sovereignty et Quantum Legacy, conçus pour les décideurs à haute responsabilité confrontés à des décisions à impact structurel.</p>
-    <p><strong>Comment prendre une décision quand on dirige une entreprise ?</strong><br>
-    En distinguant ce qui relève des faits de ce qui relève d'une peur ou d'un schéma ancien. La prise de décision du dirigeant devient plus fiable lorsque cette distinction est faite consciemment, plutôt que de laisser l'urgence ou l'habitude trancher à sa place.</p>
+    <p><strong>Comment prendre une décision stratégique quand on dirige une entreprise ?</strong><br>
+    En distinguant ce qui relève réellement des faits ou de l'analyse de ce qui relève d'une peur ou d'un schéma plus ancien, qui n'a pas sa place dans la décision présente. La prise de décision du dirigeant devient plus fiable lorsque cette distinction est faite consciemment, plutôt que de laisser l'urgence ou l'habitude trancher à sa place.</p>
     <p><strong>Pourquoi est-il difficile de prendre certaines décisions ?</strong><br>
-    Parce qu'une décision entrepreneuriale touche rarement un seul aspect rationnel : elle engage aussi l'identité du dirigeant, son rapport au risque et à l'argent, et parfois des schémas bien antérieurs à la situation présente.</p>
-    <p><strong>Comment retrouver une clarté décisionnelle ?</strong><br>
-    En retirant ce qui brouille votre perception d'une situation précise, plutôt qu'en cherchant un avis de plus.</p>
+    Parce qu'une décision entrepreneuriale touche rarement un seul aspect rationnel : elle engage aussi l'identité du dirigeant, son rapport au risque et à l'argent, et parfois des empreintes bien antérieures à la situation présente.</p>
+    <p><strong>Comment retrouver sa clarté décisionnelle et améliorer son discernement ?</strong><br>
+    En retirant ce qui brouille votre perception d'une situation précise, plutôt qu'en cherchant un avis de plus — et en pratiquant cette même distinction, décision après décision, plus que par l'accumulation de méthodes.</p>
     <p><strong>Comment sortir de la fatigue décisionnelle ?</strong><br>
     En réduisant le nombre de décisions non traitées qui restent en arrière-plan, plutôt qu'en les laissant s'accumuler indéfiniment.</p>
     <p><strong>Pourquoi ai-je peur de prendre une décision ?</strong><br>
     La peur de décider est rarement un manque de courage : c'est souvent le signe qu'un schéma ancien — une peur, un conditionnement, une loyauté — influence encore votre perception de la situation. Chez un dirigeant, cette peur s'installe d'autant plus facilement qu'il a pris l'habitude de décider seul.</p>
-    <p><strong>Comment prendre une décision stratégique ?</strong><br>
-    En distinguant, dans l'hésitation, ce qui relève réellement de l'analyse de ce qui relève d'un schéma plus ancien qui n'a pas sa place dans la décision présente.</p>
-    <p><strong>Comment améliorer son discernement ?</strong><br>
-    En pratiquant, décision après décision, cette même distinction entre ce qui appartient à la situation présente et ce qui n'est que la résurgence d'un mécanisme ancien — plus que par l'accumulation de méthodes.</p>
     <p><strong>Comment choisir entre plusieurs options ?</strong><br>
     En vérifiant d'abord que l'hésitation provient bien d'une différence réelle entre les options, et non d'un blocage qui empêcherait de se positionner clairement, quelle que soit l'option envisagée.</p>
 
-    <h2>Prendre une décision stratégique en tant qu'entrepreneur</h2>
+    <h2 id="conclusion"><span class="h2-icon" aria-hidden="true">✅</span>Prendre une décision stratégique en tant qu'entrepreneur</h2>
     <p>
       Mieux décider ne demande pas toujours plus d'informations, plus d'avis ou plus de temps de réflexion : le plus souvent, cela demande une perception plus juste, retrouvée en identifiant ce qui la brouillait — fatigue décisionnelle, suranalyse, ou schémas restés actifs sans lien réel avec la décision présente. C'est ce territoire que cette page et l'ensemble de nos articles cherchent à couvrir en profondeur.
     </p>
     <p>
-      Les cinq espaces présentés plus haut ne sont pas de simples formats commerciaux, mais des niveaux de profondeur différents face à une même réalité. Un diagnostic autonome peut suffire à éclairer une décision isolée ; une pression décisionnelle continue appelle un accompagnement dans la durée — non pas pour décider à votre place, mais pour que votre discernement reste disponible, décision après décision, sur les choix qui engagent votre entreprise.
+      Les cinq espaces présentés plus haut ne sont pas de simples formats commerciaux, mais différents niveaux de profondeur face à une même réalité : la décision entrepreneuriale. Un diagnostic autonome peut suffire à éclairer une décision isolée ; une pression décisionnelle continue appelle un accompagnement dans la durée — non pas pour décider à votre place, mais pour que votre discernement reste disponible, décision après décision, sur les choix qui engagent votre entreprise.
     </p>
+
+    <div class="pillar-final-cta">
+      <h2>La prochaine décision vous appartient</h2>
+      <p>Vous n'avez pas besoin que quelqu'un décide à votre place. Vous avez besoin de retrouver un discernement suffisamment clair pour décider avec justesse.</p>
+      <p style="margin-top: 14px;">Les cinq espaces d'accompagnement présentés plus haut répondent à des niveaux de besoins différents. Si vous souhaitez les comparer à nouveau avant de faire votre choix, retrouvez-les en un clic.</p>
+      <a href="#offres" class="pillar-final-cta-btn">Revoir les 5 offres</a>
+    </div>
 
   </div>
 
@@ -1519,7 +1990,7 @@
       "name": "Est-ce que vous me direz quelle décision prendre ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. Je ne décide jamais à votre place. Je ne vous dirai jamais s'il faut investir, signer un contrat, recruter, licencier, vendre votre entreprise, changer d'associé ou prendre toute autre décision. Mon rôle consiste à mettre en lumière les dynamiques conscientes et inconscientes qui peuvent influencer votre perception afin que vous retrouviez votre propre discernement. Vous demeurez seul responsable de vos décisions. Cet accompagnement ne constitue ni un conseil juridique, ni financier, ni médical, ni politique. Mon accompagnement porte exclusivement sur votre discernement et les mécanismes qui influencent votre perception. Il ne constitue jamais une recommandation ou un avis sur la décision à prendre."
+        "text": "Non. Je ne décide jamais à votre place — que ce soit pour investir, recruter, licencier, vendre votre entreprise ou changer d'associé. Mon rôle se limite à révéler les dynamiques conscientes et inconscientes qui influencent votre perception, afin que vous retrouviez votre propre discernement. Vous demeurez seul responsable de vos décisions : cet accompagnement ne constitue ni un conseil juridique, financier, médical ou politique, ni une recommandation sur la décision à prendre."
       }
     },
     {
@@ -1535,7 +2006,7 @@
       "name": "Qu'est-ce que le discernement entrepreneurial ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "C'est la capacité d'un dirigeant à percevoir une situation avec justesse, au-delà des faits déjà connus, sans que des peurs, des schémas répétitifs ou des loyautés invisibles ne viennent fausser sa perception. Le discernement entrepreneurial se brouille sous l'effet de la fatigue décisionnelle et se retrouve en identifiant ce qui, dans l'invisible, influence encore la décision."
+        "text": "C'est la capacité d'un dirigeant à percevoir une situation avec justesse, au-delà des faits déjà connus, sans que des peurs, des réflexes hérités ou des loyautés inconscientes ne viennent fausser sa perception. Le discernement entrepreneurial se brouille sous l'effet de la fatigue décisionnelle et se retrouve en identifiant ce qui, en profondeur, influence encore la décision."
       }
     },
     {
@@ -1556,10 +2027,10 @@
     },
     {
       "@type": "Question",
-      "name": "Comment prendre une décision quand on dirige une entreprise ?",
+      "name": "Comment prendre une décision stratégique quand on dirige une entreprise ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En distinguant ce qui relève des faits de ce qui relève d'une peur ou d'un schéma ancien. La prise de décision du dirigeant devient plus fiable lorsque cette distinction est faite consciemment, plutôt que de laisser l'urgence ou l'habitude trancher à sa place."
+        "text": "En distinguant ce qui relève réellement des faits ou de l'analyse de ce qui relève d'une peur ou d'un schéma plus ancien, qui n'a pas sa place dans la décision présente. La prise de décision du dirigeant devient plus fiable lorsque cette distinction est faite consciemment, plutôt que de laisser l'urgence ou l'habitude trancher à sa place."
       }
     },
     {
@@ -1567,15 +2038,15 @@
       "name": "Pourquoi est-il difficile de prendre certaines décisions ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Parce qu'une décision entrepreneuriale touche rarement un seul aspect rationnel : elle engage aussi l'identité du dirigeant, son rapport au risque et à l'argent, et parfois des schémas bien antérieurs à la situation présente."
+        "text": "Parce qu'une décision entrepreneuriale touche rarement un seul aspect rationnel : elle engage aussi l'identité du dirigeant, son rapport au risque et à l'argent, et parfois des empreintes bien antérieures à la situation présente."
       }
     },
     {
       "@type": "Question",
-      "name": "Comment retrouver une clarté décisionnelle ?",
+      "name": "Comment retrouver sa clarté décisionnelle et améliorer son discernement ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "En retirant ce qui brouille votre perception d'une situation précise, plutôt qu'en cherchant un avis de plus."
+        "text": "En retirant ce qui brouille votre perception d'une situation précise, plutôt qu'en cherchant un avis de plus — et en pratiquant cette même distinction, décision après décision, plus que par l'accumulation de méthodes."
       }
     },
     {
@@ -1592,22 +2063,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "La peur de décider est rarement un manque de courage : c'est souvent le signe qu'un schéma ancien — une peur, un conditionnement, une loyauté — influence encore votre perception de la situation. Chez un dirigeant, cette peur s'installe d'autant plus facilement qu'il a pris l'habitude de décider seul."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment prendre une décision stratégique ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "En distinguant, dans l'hésitation, ce qui relève réellement de l'analyse de ce qui relève d'un schéma plus ancien qui n'a pas sa place dans la décision présente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment améliorer son discernement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "En pratiquant, décision après décision, cette même distinction entre ce qui appartient à la situation présente et ce qui n'est que la résurgence d'un mécanisme ancien — plus que par l'accumulation de méthodes."
       }
     },
     {
