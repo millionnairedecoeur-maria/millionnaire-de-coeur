@@ -1924,7 +1924,7 @@
 
   <div class="services-grid" id="offres">
 
-      <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" class="service-card" style="animation-delay:0.1s" aria-label="Entrepreneurs Decision Cost Audit AI">
+      <a href="https://www.millionnairedecoeur.com/entrepreneurs-decision-cost-audit-ai" id="decision-cost-audit" class="service-card" style="animation-delay:0.1s" aria-label="Entrepreneurs Decision Cost Audit AI">
         <div class="service-card-img">
           <img src="service-audit-ai.jpg" alt="Entrepreneurs Decision Cost Audit AI" />
         </div>
@@ -1938,7 +1938,7 @@
           </div>
         </div>
       </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" class="service-card" style="animation-delay:0.2s" aria-label="Quantum Decision Catalyst">
+      <a href="https://www.millionnairedecoeur.com/quantum-decision-catalyst" id="quantum-decision-catalyst" class="service-card" style="animation-delay:0.2s" aria-label="Quantum Decision Catalyst">
         <div class="service-card-img">
           <img src="service-catalyst.jpg" alt="Quantum Decision Catalyst" />
         </div>
@@ -1952,7 +1952,7 @@
           </div>
         </div>
       </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-expansion" class="service-card" style="animation-delay:0.3s" aria-label="Quantum Expansion">
+      <a href="https://www.millionnairedecoeur.com/quantum-expansion" id="quantum-expansion" class="service-card" style="animation-delay:0.3s" aria-label="Quantum Expansion">
         <div class="service-card-img">
           <img src="service-expansion.jpg" alt="Quantum Expansion" />
         </div>
@@ -1966,7 +1966,7 @@
           </div>
         </div>
       </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-sovereignty" class="service-card" style="animation-delay:0.4s" aria-label="Quantum Sovereignty">
+      <a href="https://www.millionnairedecoeur.com/quantum-sovereignty" id="quantum-sovereignty" class="service-card" style="animation-delay:0.4s" aria-label="Quantum Sovereignty">
         <div class="service-card-img">
           <img src="service-sovereignty.jpg" alt="Quantum Sovereignty" />
         </div>
@@ -1980,7 +1980,7 @@
           </div>
         </div>
       </a>
-      <a href="https://www.millionnairedecoeur.com/quantum-legacy" class="service-card" style="animation-delay:0.5s" aria-label="Quantum Legacy">
+      <a href="https://www.millionnairedecoeur.com/quantum-legacy" id="quantum-legacy" class="service-card" style="animation-delay:0.5s" aria-label="Quantum Legacy">
         <div class="service-card-img">
           <img src="service-legacy.jpg" alt="Quantum Legacy" />
         </div>
@@ -2253,6 +2253,26 @@
 })();
 </script>
 <!-- FIN BANDEAU COOKIES -->
+
+<!-- Correctif scroll d'ancre (scroll-behavior:smooth casse le saut natif au chargement) -->
+<script>
+(function () {
+  if (!window.location.hash) return;
+  function goToHash() {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+  if (document.readyState === "complete") {
+    setTimeout(goToHash, 150);
+  } else {
+    window.addEventListener("load", function () {
+      setTimeout(goToHash, 150);
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
