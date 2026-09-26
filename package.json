@@ -1,0 +1,10 @@
+{
+  "name": "millionnaire-de-coeur",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "stripe": "^14.21.0",
+    "pdf-lib": "^1.17.1",
+    "resend": "^3.5.0"
+  }
+}
