@@ -30,7 +30,7 @@ function getRawBody(req) {
   });
 }
 
-// ── Ajout du filigrane diagonal sur chaque page du PDF ──────────────────────
+// ── Ajout du filigrane discret en bas de chaque page du PDF ──────────────────
 async function addWatermark(pdfBytes, email, date, heure) {
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
@@ -43,8 +43,8 @@ async function addWatermark(pdfBytes, email, date, heure) {
     const { width } = page.getSize();
     const fontSize = 7;
     const textWidth = helvetica.widthOfTextAtSize(watermarkText, fontSize);
-    const x = (width - textWidth) / 2; // centré horizontalement
-    const y = 18; // bas de page, 18pt de marge
+    const x = (width - textWidth) / 2;
+    const y = 18;
 
     page.drawText(watermarkText, {
       x,
@@ -52,7 +52,7 @@ async function addWatermark(pdfBytes, email, date, heure) {
       size: fontSize,
       font: helvetica,
       color: rgb(0.6, 0.6, 0.6),
-      opacity: 0.08, // ~8% — discret, juste visible à l'inspection
+      opacity: 0.08,
     });
   }
 
@@ -65,7 +65,6 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // 1. Lire le corps brut et vérifier la signature Stripe
   let rawBody;
   try {
     rawBody = await getRawBody(req);
@@ -88,28 +87,22 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: `Webhook Error: ${err.message}` });
   }
 
-  // 2. Ignorer tous les événements sauf checkout.session.completed
   if (event.type !== 'checkout.session.completed') {
     return res.status(200).json({ received: true });
   }
 
   const session = event.data.object;
 
-  // 3. Filtrer : ne traiter que les achats du Cahier d'Exercices
   const cahierPriceId = process.env.CAHIER_PRICE_ID;
   if (cahierPriceId) {
-    // Vérification via metadata (injectée dans le lien checkout) ou line_items
     const isForCahier =
       session.metadata?.price_id === cahierPriceId ||
       session.metadata?.product === 'cahier-exercices';
-
     if (!isForCahier) {
-      // Pas le Cahier d'Exercices → ignorer silencieusement
       return res.status(200).json({ received: true });
     }
   }
 
-  // 4. Extraire les infos client
   const customerEmail = session.customer_details?.email;
   const customerName = session.customer_details?.name || '';
   const prenom = customerName.split(' ')[0] || 'Client';
@@ -119,28 +112,21 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ received: true, warning: 'No customer email' });
   }
 
-  // 5. Horodatage en format français
   const now = new Date();
   const date = now.toLocaleDateString('fr-FR', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
+    day: '2-digit', month: '2-digit', year: 'numeric',
   });
   const heure = now.toLocaleTimeString('fr-FR', {
-    hour: '2-digit',
-    minute: '2-digit',
-    timeZone: 'Europe/Paris',
+    hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris',
   });
 
   try {
-    // 6. Lire le PDF template depuis le repo (jamais exposé publiquement)
     const pdfPath = path.join(__dirname, 'cahier-template.pdf');
     if (!fs.existsSync(pdfPath)) {
       throw new Error('PDF template introuvable : api/cahier-template.pdf manquant');
     }
     const pdfBytes = fs.readFileSync(pdfPath);
 
-    // 7. Appliquer le filigrane dynamique
     const watermarkedBytes = await addWatermark(
       new Uint8Array(pdfBytes),
       customerEmail,
@@ -148,47 +134,67 @@ module.exports = async function handler(req, res) {
       heure
     );
 
-    // 8. Encoder en base64 pour la pièce jointe
     const pdfBase64 = Buffer.from(watermarkedBytes).toString('base64');
 
-    // 9. Envoyer l'email avec le PDF personnalisé
+    const espaceUrl = 'https://millionnairedecoeur.com/espace-ecoute-prive-cahier-exercices';
+    const siteUrl = 'https://millionnairedecoeur.com';
+
+    const emailHtml = `<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f5f2eb;">
+<div style="max-width:600px;margin:0 auto;background:#ffffff;padding:48px 40px;font-family:Georgia,serif;color:#1a1a1a;">
+
+  <div style="border-bottom:2px solid #D4AF37;padding-bottom:20px;margin-bottom:32px;">
+    <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#D4AF37;margin:0 0 4px;">Millionnaire de Cœur</p>
+    <h2 style="font-size:16px;font-weight:bold;color:#1a1a1a;margin:0;letter-spacing:2px;text-transform:uppercase;">L’Ingénierie Quantique du Business</h2>
+  </div>
+
+  <p style="font-size:16px;line-height:1.8;margin:0 0 20px;">Bonjour ${prenom},</p>
+
+  <p style="font-size:16px;line-height:1.8;margin:0 0 20px;">
+    Je vous remercie pour votre confiance, et je salue la clarté de votre engagement.
+  </p>
+
+  <p style="font-size:16px;line-height:1.8;margin:0 0 20px;">
+    Ce cahier a été conçu spécifiquement pour vous permettre d’exécuter les protocoles et d’ancrer la posture de votre Future Self après chaque écoute.
+  </p>
+
+  <p style="font-size:16px;line-height:1.8;margin:0 0 28px;">
+    Vous trouverez votre <strong>Cahier d’Exercices et d’Intégration — L’Ingénierie Quantique du Business</strong> en pièce jointe de cet e-mail. Il est entièrement téléchargeable et imprimable. Je vous invite à le compléter avec un stylo bleu effaçable ou au crayon de bois après chaque session d’écoute.
+  </p>
+
+  <p style="font-size:16px;line-height:1.8;margin:0 0 24px;">
+    Si vous avez besoin de revenir sur les audios, capsule par capsule, votre espace d’écoute privé reste accessible en permanence à cette adresse :
+  </p>
+
+  <p style="margin:20px 0;">
+    <a href="${espaceUrl}" style="display:inline-block;background:#1a3a5c;color:#D4AF37;padding:12px 24px;border-radius:4px;text-decoration:none;font-family:Georgia,serif;font-size:14px;font-weight:bold;">👉 ACCÉDER À MON ESPACE D’ÉCOUTE PRIVÉ →</a>
+  </p>
+
+  <p style="font-size:16px;line-height:1.8;margin:32px 0 0;">À très vite,</p>
+
+  <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e8e0d0;">
+    <p style="font-size:16px;font-weight:bold;color:#1a1a1a;margin:0 0 4px;">Maria Francheteau, Ph.D.</p>
+    <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#D4AF37;margin:0 0 2px;">Millionnaire de Cœur</p>
+    <p style="font-size:12px;color:#888;margin:4px 0 0;font-style:italic;">Clarté Décisionnelle &amp; Approche Systémique</p>
+    <p style="font-size:12px;margin:6px 0 0;"><a href="${siteUrl}" style="color:#D4AF37;text-decoration:none;">millionnairedecoeur.com</a></p>
+  </div>
+
+  <div style="margin-top:32px;padding-top:16px;border-top:1px solid #f0ebe0;text-align:center;">
+    <p style="font-size:11px;color:#bbb;margin:0;">Vous recevez cet email car vous avez commandé le Cahier d’Exercices MDC.<br>
+    <a href="${siteUrl}/desabonnement?email=${encodeURIComponent(customerEmail)}" style="color:#D4AF37;font-size:11px;">Se désabonner</a> · <a href="${siteUrl}" style="color:#D4AF37;font-size:11px;">millionnairedecoeur.com</a></p>
+  </div>
+
+</div>
+</body>
+</html>`;
+
     const { error: sendError } = await resend.emails.send({
-      from: 'contact@millionnairedecoeur.com',
+      from: 'Maria Francheteau, Ph.D. — Millionnaire de Cœur <contact@millionnairedecoeur.com>',
       to: customerEmail,
-      subject: "Votre Cahier d'Exercices — Millionnaire de Cœur",
-      html: `
-        <div style="font-family: Georgia, serif; max-width: 580px; margin: 0 auto; color: #1a1a1a; background: #fff; padding: 32px;">
-          <h2 style="color: #D4AF37; font-size: 22px; margin-bottom: 24px;">Bonjour ${prenom},</h2>
-
-          <p style="font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
-            Merci pour votre achat. Vous trouverez en pièce jointe votre
-            <strong>Cahier d'Exercices et d'Intégration — L'Ingénierie Quantique du Business</strong>,
-            personnalisé à votre nom.
-          </p>
-
-          <p style="font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
-            Ce document est protégé. Il a été généré spécifiquement pour vous :
-            toute copie, diffusion ou partage est strictement interdite.
-          </p>
-
-          <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px;">
-            Pour toute question, écrivez-moi à
-            <a href="mailto:contact@millionnairedecoeur.com" style="color: #D4AF37;">
-              contact@millionnairedecoeur.com
-            </a>.
-          </p>
-
-          <hr style="border: none; border-top: 1px solid #e0d5b0; margin: 24px 0;" />
-
-          <p style="font-size: 13px; color: #888; line-height: 1.6;">
-            Maria Francheteau<br>
-            <strong style="color: #D4AF37;">Millionnaire de Cœur</strong><br>
-            <a href="https://www.millionnairedecoeur.com" style="color: #D4AF37;">
-              millionnairedecoeur.com
-            </a>
-          </p>
-        </div>
-      `,
+      subject: '📥 Votre Cahier d’Exercices — L’Ingénierie Quantique du Business',
+      html: emailHtml,
       attachments: [
         {
           filename: 'Cahier-Exercices-MDC.pdf',
@@ -204,7 +210,6 @@ module.exports = async function handler(req, res) {
 
     console.log(`✅ Cahier envoyé à ${customerEmail} (session: ${session.id})`);
 
-    // 10. Enregistrer l'achat dans Google Sheets via Apps Script
     const appsScriptUrl = process.env.APPS_SCRIPT_URL;
     if (appsScriptUrl) {
       try {
@@ -223,9 +228,7 @@ module.exports = async function handler(req, res) {
             stripeSessionId: session.id,
           }),
         });
-        console.log(`📊 Achat logué dans Google Sheets pour ${customerEmail}`);
       } catch (sheetErr) {
-        // Ne pas bloquer l'envoi du PDF si le log échoue
         console.warn('Google Sheets log failed (non-bloquant):', sheetErr.message);
       }
     }
