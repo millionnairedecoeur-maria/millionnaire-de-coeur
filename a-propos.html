@@ -118,10 +118,10 @@
     .hero {
       padding: 120px 40px 60px;
       max-width: 1100px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      display: flex; justify-content: center; align-items: center; gap: 50px;
       animation: fadeUp 0.8s ease both;
     }
-    .hero-text {}
+    .hero-text { max-width: 440px; }
     .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
     .hero h1 {
       font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
@@ -131,7 +131,7 @@
     .hero-photo {
       position: relative;
       display: flex; align-items: center; justify-content: center;
-      justify-self: center; width: fit-content;
+      width: fit-content; flex-shrink: 0;
     }
     .hero-photo img {
       width: 100%; max-width: 250px; height: auto;
@@ -156,7 +156,7 @@
       z-index: -1;
     }
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; padding: 100px 20px 40px; gap: 18px; }
+      .hero { flex-direction: column; padding: 100px 20px 40px; gap: 18px; }
       .hero-text { display: contents; }
       .hero h1 { order: 1; text-align: center; }
       .hero-photo { order: 2; margin: 0 auto; }
