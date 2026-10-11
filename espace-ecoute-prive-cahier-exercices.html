@@ -101,6 +101,10 @@
     .capsule-title { font-size: 1.05rem; font-weight: 700; color: #ffffff; }
     .capsule-title .num { color: #D4AF37; font-weight: 800; }
     .capsule-player { width: 100%; margin-bottom: 14px; }
+    .capsule-speed { display: flex; align-items: center; gap: 8px; margin: 8px 0 14px; flex-wrap: wrap; }
+    .capsule-speed-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-right: 2px; }
+    .capsule-speed button { background: transparent; border: 1px solid rgba(212,175,55,0.45); color: rgba(255,255,255,0.8); border-radius: 999px; padding: 4px 12px; font-size: 0.8rem; cursor: pointer; font-family: inherit; }
+    .capsule-speed button.active { background: #D4AF37; border-color: #D4AF37; color: #0b1220; font-weight: 600; }
     audio { width: 100%; height: 40px; border-radius: 8px; }
     .capsule-note { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 300; font-style: italic; }
 
@@ -376,6 +380,31 @@
     note.textContent = noteForModule(cap.id);
 
     playerWrap.appendChild(audio);
+
+    // Vitesse de lecture (sans possibilité de téléchargement)
+    var speedBar = document.createElement('div');
+    speedBar.className = 'capsule-speed';
+    var speedLabel = document.createElement('span');
+    speedLabel.className = 'capsule-speed-label';
+    speedLabel.textContent = 'Vitesse :';
+    speedBar.appendChild(speedLabel);
+    [1, 1.25, 1.5, 2].forEach(function(rate) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = String(rate).replace('.', ',') + '×';
+      if (rate === 1) b.className = 'active';
+      b.addEventListener('click', function() {
+        audio.playbackRate = rate;
+        Array.prototype.forEach.call(speedBar.querySelectorAll('button'), function(x) { x.className = ''; });
+        b.className = 'active';
+      });
+      speedBar.appendChild(b);
+    });
+    playerWrap.appendChild(speedBar);
+    audio.addEventListener('play', function() {
+      var actif = speedBar.querySelector('button.active');
+      if (actif) audio.playbackRate = parseFloat(actif.textContent.replace(',', '.'));
+    });
     card.appendChild(header);
     card.appendChild(playerWrap);
     card.appendChild(note);
