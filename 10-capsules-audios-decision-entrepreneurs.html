@@ -196,13 +196,15 @@
     .form-title { font-family: 'Poppins', sans-serif; font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 700; text-align: center; margin-bottom: 26px; color: #ffffff; }
     .form-group { margin-bottom: 18px; }
     .form-group label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.75); margin-bottom: 7px; text-transform: uppercase; }
-    .form-group input {
+    .form-group input, .form-group select {
       width: 100%; padding: 13px 16px; border-radius: 8px;
       border: 1px solid rgba(212,175,55,0.25); background: rgba(255,255,255,0.04);
       color: #ffffff; font-size: 0.95rem; font-family: 'Poppins', sans-serif;
       transition: border-color 0.2s;
     }
-    .form-group input:focus { outline: none; border-color: var(--gold); }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); }
+    .form-group select { appearance: none; -webkit-appearance: none; cursor: pointer; background-image: linear-gradient(45deg, transparent 50%, #D4AF37 50%), linear-gradient(135deg, #D4AF37 50%, transparent 50%); background-position: calc(100% - 20px) 55%, calc(100% - 15px) 55%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+    .form-group select option { color: #0d141a; background: #ffffff; }
     .form-group input::placeholder { color: rgba(255,255,255,0.35); }
     @keyframes rotateGlow { 100% { transform: rotate(360deg); } }
     .btn-submit { position: relative; width: 100%; margin-top: 8px; padding: 3px; border-radius: 60px; overflow: hidden; display: block; cursor: pointer; border: none; background: transparent; transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
@@ -369,6 +371,21 @@
           <label for="email">Adresse email</label>
           <input type="email" id="email" name="email" required autocomplete="email" />
         </div>
+        <div class="form-group">
+          <label for="pays">Pays</label>
+          <select id="pays" name="pays" required autocomplete="country-name">
+            <option value="" disabled selected>Choisissez votre pays</option>
+            <option>France</option>
+            <option>Belgique</option>
+            <option>Suisse</option>
+            <option>Luxembourg</option>
+            <option>Monaco</option>
+            <option>Canada</option>
+            <option>États-Unis</option>
+            <option>Autre pays d'Europe</option>
+            <option>Autre pays</option>
+          </select>
+        </div>
         <input type="text" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" />
         <button type="submit" class="btn-submit">
           <span class="btn-submit-inner">RECEVOIR LES 10 CAPSULES AUDIOS →</span>
@@ -453,6 +470,7 @@
     var data = {
       prenom: document.getElementById('prenom').value,
       email: document.getElementById('email').value,
+      pays: document.getElementById('pays').value,
       botcheck: document.querySelector('[name="botcheck"]').value
     };
     // Pivot temporaire : redirection vers l'espace d'écoute de transition (cahier d'exercices)
