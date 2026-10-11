@@ -445,8 +445,8 @@
     }
   });
 
-  // ⚠️ À REMPLACER : URL Google Apps Script fournie par l'agent technique
-  var AUDIOS_SIGNUP_ENDPOINT = "REMPLACER_PAR_URL_APPS_SCRIPT_INSCRITS_AUDIOS";
+  // Apps Script « MDC - Capsules, Cahier et Nurturing » : Google Sheet + Sender (mail des capsules)
+  var AUDIOS_SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxLJQAZelCENzT38r85W4CLXLyIyUw2rE7DOrZK6tDadXGJ0jLmwIwnOWkqXYqfT9swZQ/exec";
 
   document.getElementById('audiosForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -469,6 +469,7 @@
     fetch(AUDIOS_SIGNUP_ENDPOINT, {
       method: 'POST',
       mode: 'no-cors',
+      keepalive: true,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     }).then(goToEspacePrive).catch(goToEspacePrive);
