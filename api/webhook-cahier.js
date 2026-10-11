@@ -5,9 +5,7 @@
 //  ENV VARS REQUIS (à configurer dans Vercel → Settings → Env Variables) :
 //    STRIPE_SECRET_KEY       → clé secrète Stripe (sk_live_...)
 //    STRIPE_WEBHOOK_SECRET   → secret du webhook Stripe (whsec_...)
-//    CAHIER_PRICE_ID         → ID du prix Stripe (price_...), ex: price_1AbcDef...
 //    RESEND_API_KEY          → clé API Resend (re_...) — resend.com
-//    APPS_SCRIPT_URL         → URL du Web App Apps Script MDC (pour log Google Sheets)
 //
 //  PDF SOURCE : api/cahier-template.pdf (dans le repo, jamais exposé publiquement)
 // ============================================================
@@ -22,6 +20,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ── Lecture du corps brut (nécessaire pour la vérification Stripe) ──────────
 function getRawBody(req) {
+  if (Buffer.isBuffer(req.rawBody)) return Promise.resolve(req.rawBody);
   return new Promise((resolve, reject) => {
     const chunks = [];
     req.on('data', (chunk) => chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk)));
@@ -30,31 +29,45 @@ function getRawBody(req) {
   });
 }
 
-// ── Ajout du filigrane discret en bas de chaque page du PDF ──────────────────
-async function addWatermark(pdfBytes, email, date, heure) {
+// ── Filigrane nominatif visible sur les pages intérieures (pas sur la couverture ni la 4e de couverture) ──
+function texteCompatible(font, texte) {
+  const autorises = new Set(font.getCharacterSet());
+  return Array.from(String(texte || '').normalize('NFC')).map((c) => {
+    if (autorises.has(c.codePointAt(0))) return c;
+    const remplacements = { 'Ł': 'L', 'ł': 'l', 'Đ': 'D', 'đ': 'd', 'Ħ': 'H', 'ħ': 'h', 'ı': 'i' };
+    const simple = remplacements[c] || c.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return simple && autorises.has(simple.codePointAt(0)) ? simple : '';
+  }).join('');
+}
+
+async function addWatermark(pdfBytes, nomComplet, email, date) {
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const pages = pdfDoc.getPages();
 
-  // Filigrane discret en bas de page — email + date/heure uniquement
-  const watermarkText = `${email} — ${date} ${heure}`;
+  const watermarkText = texteCompatible(
+    helvetica,
+    `Licence personnelle de ${nomComplet} — ${email} — achat du ${date} · Reproduction, partage et revente interdits`
+  );
 
-  for (const page of pages) {
+  pages.forEach((page, index) => {
+    if (index === 0 || index === pages.length - 1) return; // couverture avant et arrière
     const { width } = page.getSize();
-    const fontSize = 7;
-    const textWidth = helvetica.widthOfTextAtSize(watermarkText, fontSize);
-    const x = (width - textWidth) / 2;
-    const y = 18;
-
+    let fontSize = 5.6;
+    let textWidth = helvetica.widthOfTextAtSize(watermarkText, fontSize);
+    if (textWidth > width - 40) {
+      fontSize = fontSize * (width - 40) / textWidth;
+      textWidth = helvetica.widthOfTextAtSize(watermarkText, fontSize);
+    }
     page.drawText(watermarkText, {
-      x,
-      y,
+      x: (width - textWidth) / 2,
+      y: 36,
       size: fontSize,
       font: helvetica,
-      color: rgb(0.6, 0.6, 0.6),
-      opacity: 0.08,
+      color: rgb(0.45, 0.45, 0.45),
+      opacity: 0.85,
     });
-  }
+  });
 
   return pdfDoc.save();
 }
@@ -93,19 +106,19 @@ module.exports = async function handler(req, res) {
 
   const session = event.data.object;
 
-  const cahierPriceId = process.env.CAHIER_PRICE_ID;
-  if (cahierPriceId) {
-    const isForCahier =
-      session.metadata?.price_id === cahierPriceId ||
-      session.metadata?.product === 'cahier-exercices';
-    if (!isForCahier) {
-      return res.status(200).json({ received: true });
-    }
+  // Le cahier est reconnu par l'identifiant de son lien de paiement Stripe (29 €)
+  const CAHIER_PAYMENT_LINK = 'plink_1UJyj9KHZQOqYMkzKIWkavza';
+  if (session.payment_link !== CAHIER_PAYMENT_LINK) {
+    return res.status(200).json({ received: true });
   }
 
   const customerEmail = session.customer_details?.email;
   const customerName = session.customer_details?.name || '';
-  const prenom = customerName.split(' ')[0] || 'Client';
+  const champPrenom = (session.custom_fields || []).find(
+    (f) => (f.label?.custom || '').toLowerCase().startsWith('pr')
+  );
+  const prenom = (champPrenom?.text?.value || '').trim() || customerName.split(' ')[0] || '';
+  const nomComplet = customerName || prenom || customerEmail;
 
   if (!customerEmail) {
     console.error('No customer email in session:', session.id);
@@ -114,7 +127,7 @@ module.exports = async function handler(req, res) {
 
   const now = new Date();
   const date = now.toLocaleDateString('fr-FR', {
-    day: '2-digit', month: '2-digit', year: 'numeric',
+    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Paris',
   });
   const heure = now.toLocaleTimeString('fr-FR', {
     hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris',
@@ -129,9 +142,9 @@ module.exports = async function handler(req, res) {
 
     const watermarkedBytes = await addWatermark(
       new Uint8Array(pdfBytes),
+      nomComplet,
       customerEmail,
-      date,
-      heure
+      date
     );
 
     const pdfBase64 = Buffer.from(watermarkedBytes).toString('base64');
@@ -150,7 +163,7 @@ module.exports = async function handler(req, res) {
     <h2 style="font-size:16px;font-weight:bold;color:#1a1a1a;margin:0;letter-spacing:2px;text-transform:uppercase;">L’Ingénierie Quantique du Business</h2>
   </div>
 
-  <p style="font-size:16px;line-height:1.8;margin:0 0 20px;">Bonjour ${prenom},</p>
+  <p style="font-size:16px;line-height:1.8;margin:0 0 20px;">Bonjour${prenom ? ' ' + prenom : ''},</p>
 
   <p style="font-size:16px;line-height:1.8;margin:0 0 20px;">
     Je vous remercie pour votre confiance, et je salue la clarté de votre engagement.
@@ -164,21 +177,24 @@ module.exports = async function handler(req, res) {
     Vous trouverez votre <strong>Cahier d’Exercices et d’Intégration — L’Ingénierie Quantique du Business</strong> en pièce jointe de cet e-mail. Il est entièrement téléchargeable et imprimable. Je vous invite à le compléter avec un stylo bleu effaçable ou au crayon de bois après chaque session d’écoute.
   </p>
 
+  <p style="font-size:16px;line-height:1.8;margin:0 0 28px;">
+    Ce cahier est nominatif : votre nom figure sur chaque page intérieure. Merci de le réserver à votre usage personnel.
+  </p>
+
   <p style="font-size:16px;line-height:1.8;margin:0 0 24px;">
     Si vous avez besoin de revenir sur les audios, capsule par capsule, votre espace d’écoute privé reste accessible en permanence à cette adresse :
   </p>
 
   <p style="margin:20px 0;">
-    <a href="${espaceUrl}" style="display:inline-block;background:#1a3a5c;color:#D4AF37;padding:12px 24px;border-radius:4px;text-decoration:none;font-family:Georgia,serif;font-size:14px;font-weight:bold;">👉 ACCÉDER À MON ESPACE D’ÉCOUTE PRIVÉ →</a>
+    <a href="${espaceUrl}" style="display:inline-block;background:#1a3a5c;color:#D4AF37;padding:12px 24px;border-radius:4px;text-decoration:none;font-family:Georgia,serif;font-size:14px;font-weight:bold;">Accéder à mon espace d’écoute privé</a>
   </p>
 
-  <p style="font-size:16px;line-height:1.8;margin:32px 0 0;">À très vite,</p>
+  <p style="font-size:16px;line-height:1.8;margin:32px 0 0;">Bien à vous,</p>
 
   <div style="margin-top:24px;padding-top:24px;border-top:1px solid #e8e0d0;">
-    <p style="font-size:16px;font-weight:bold;color:#1a1a1a;margin:0 0 4px;">Maria Francheteau, Ph.D.</p>
-    <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#D4AF37;margin:0 0 2px;">Millionnaire de Cœur</p>
-    <p style="font-size:12px;color:#888;margin:4px 0 0;font-style:italic;">Clarté Décisionnelle &amp; Approche Systémique</p>
-    <p style="font-size:12px;margin:6px 0 0;"><a href="${siteUrl}" style="color:#D4AF37;text-decoration:none;">millionnairedecoeur.com</a></p>
+    <p style="font-size:15px;font-weight:bold;color:#000000;margin:0 0 4px;">Maria Francheteau.</p>
+    <p style="font-size:13px;color:#D4AF37;margin:0 0 4px;">Millionnaire de Cœur — Clarté Décisionnelle &amp; Approche Systémique</p>
+    <p style="font-size:13px;margin:0;"><a href="${siteUrl}" style="color:#1a3a5c;text-decoration:underline;">millionnairedecoeur.com</a></p>
   </div>
 
   <div style="margin-top:32px;padding-top:16px;border-top:1px solid #f0ebe0;text-align:center;">
@@ -193,7 +209,7 @@ module.exports = async function handler(req, res) {
     const { error: sendError } = await resend.emails.send({
       from: 'Maria Francheteau, Ph.D. — Millionnaire de Cœur <contact@millionnairedecoeur.com>',
       to: customerEmail,
-      subject: '📥 Votre Cahier d’Exercices — L’Ingénierie Quantique du Business',
+      subject: 'Votre Cahier d’Exercices — L’Ingénierie Quantique du Business',
       html: emailHtml,
       attachments: [
         {
@@ -208,30 +224,9 @@ module.exports = async function handler(req, res) {
       return res.status(500).json({ error: 'Email sending failed', details: sendError });
     }
 
-    console.log(`✅ Cahier envoyé à ${customerEmail} (session: ${session.id})`);
+    console.log(`Cahier envoyé à ${customerEmail} (session: ${session.id})`);
 
-    const appsScriptUrl = process.env.APPS_SCRIPT_URL;
-    if (appsScriptUrl) {
-      try {
-        await fetch(appsScriptUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            action: 'logCahierAchat',
-            prenom: prenom,
-            email: customerEmail,
-            nom: customerName,
-            montant: '29',
-            devise: 'EUR',
-            date: date,
-            heure: heure,
-            stripeSessionId: session.id,
-          }),
-        });
-      } catch (sheetErr) {
-        console.warn('Google Sheets log failed (non-bloquant):', sheetErr.message);
-      }
-    }
+    // Le Google Sheet et Sender sont mis à jour par Make (scénario Paiements Stripe).
 
     return res.status(200).json({ success: true, email: customerEmail });
 
@@ -240,3 +235,6 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: err.message });
   }
 };
+
+// Corps brut obligatoire pour vérifier la signature Stripe
+module.exports.config = { api: { bodyParser: false } };
