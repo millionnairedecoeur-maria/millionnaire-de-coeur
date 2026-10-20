@@ -40,14 +40,14 @@ function texteCompatible(font, texte) {
   }).join('');
 }
 
-async function addWatermark(pdfBytes, nomComplet, email, date) {
+async function addWatermark(pdfBytes, nomComplet, email, date, heure) {
   const pdfDoc = await PDFDocument.load(pdfBytes);
   const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const pages = pdfDoc.getPages();
 
   const watermarkText = texteCompatible(
     helvetica,
-    `Licence personnelle de ${nomComplet} — ${email} — achat du ${date} · Reproduction, partage et revente interdits`
+    `Licence personnelle de ${nomComplet} — ${email} — achat du ${date} à ${heure} · Reproduction, partage et revente interdits`
   );
 
   pages.forEach((page, index) => {
@@ -144,7 +144,8 @@ module.exports = async function handler(req, res) {
       new Uint8Array(pdfBytes),
       nomComplet,
       customerEmail,
-      date
+      date,
+      heure
     );
 
     const pdfBase64 = Buffer.from(watermarkedBytes).toString('base64');
