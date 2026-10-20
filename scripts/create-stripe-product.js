@@ -21,12 +21,12 @@ async function main() {
 
   // ── 1. Créer le produit ──────────────────────────────────────────────────
   const product = await stripe.products.create({
-    name: "Cahier d'Exercices & d'Intégration - L'Ingénierie Quantique du Business",
+    name: "Cahier d'exercices du Business Quantique",
     description:
       "Cahier téléchargeable de 64 pages : 30 protocoles pour ancrer, exercice après exercice, " +
       "rempli au stylo, page après page, les décisions de votre Future Self, pour attirer plus de clients, " +
       "plus d'argent, plus de liberté sans forcer. Maria Francheteau, autrice du livre " +
-      "L'Ingénierie Quantique du Business, vous invite à découvrir ce cahier en exclusivité.",
+      "Le Business Quantique, vous invite à découvrir ce cahier en exclusivité.",
     metadata: {
       product_key: 'cahier-exercices',
       site: 'millionnairedecoeur.com',

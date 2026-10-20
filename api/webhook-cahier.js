@@ -174,7 +174,7 @@ module.exports = async function handler(req, res) {
   </p>
 
   <p style="font-size:16px;line-height:1.8;margin:0 0 28px;">
-    Vous trouverez votre <strong>Cahier d’Exercices et d’Intégration — L’Ingénierie Quantique du Business</strong> en pièce jointe de cet e-mail. Il est entièrement téléchargeable et imprimable. Je vous invite à le compléter avec un stylo bleu effaçable ou au crayon de bois après chaque session d’écoute.
+    Vous trouverez votre <strong>Cahier d’exercices du Business Quantique</strong> en pièce jointe de cet e-mail. Il est entièrement téléchargeable et imprimable. Je vous invite à le compléter avec un stylo bleu effaçable ou au crayon de bois après chaque session d’écoute.
   </p>
 
   <p style="font-size:16px;line-height:1.8;margin:0 0 28px;">
@@ -198,7 +198,7 @@ module.exports = async function handler(req, res) {
   </div>
 
   <div style="margin-top:32px;padding-top:16px;border-top:1px solid #f0ebe0;text-align:center;">
-    <p style="font-size:11px;color:#bbb;margin:0;">Vous recevez cet email car vous avez commandé le Cahier d’Exercices MDC.<br>
+    <p style="font-size:11px;color:#bbb;margin:0;">Vous recevez cet email car vous avez commandé le Cahier d’exercices du Business Quantique.<br>
     <a href="${siteUrl}/desabonnement?email=${encodeURIComponent(customerEmail)}" style="color:#D4AF37;font-size:11px;">Se désabonner</a> · <a href="${siteUrl}" style="color:#D4AF37;font-size:11px;">millionnairedecoeur.com</a></p>
   </div>
 
@@ -209,11 +209,11 @@ module.exports = async function handler(req, res) {
     const { error: sendError } = await resend.emails.send({
       from: 'Maria Francheteau, Ph.D. — Millionnaire de Cœur <contact@millionnairedecoeur.com>',
       to: customerEmail,
-      subject: 'Votre Cahier d’Exercices — L’Ingénierie Quantique du Business',
+      subject: 'Votre Cahier d’exercices du Business Quantique',
       html: emailHtml,
       attachments: [
         {
-          filename: 'Cahier-Exercices-MDC.pdf',
+          filename: 'Cahier-exercices-du-Business-Quantique.pdf',
           content: pdfBase64,
         },
       ],
