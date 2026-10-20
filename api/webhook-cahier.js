@@ -175,7 +175,7 @@ module.exports = async function handler(req, res) {
   </p>
 
   <p style="font-size:16px;line-height:1.8;margin:0 0 28px;">
-    Vous trouverez votre <strong>Cahier d’exercices du Business Quantique</strong> en pièce jointe de cet e-mail. Il est entièrement téléchargeable et imprimable. Je vous invite à le compléter avec un stylo bleu effaçable ou au crayon de bois après chaque session d’écoute.
+    Vous trouverez votre <strong>Cahier d’exercices du Business Quantique</strong> en pièce jointe de cet e-mail. Il est entièrement téléchargeable et imprimable. Je vous invite à le compléter avec un stylo bleu effaçable ou au crayon de bois après chaque session d’écoute. Les exercices de ce cahier sont ceux du livre complet <em>Le Business Quantique</em>, à paraître.
   </p>
 
   <p style="font-size:16px;line-height:1.8;margin:0 0 28px;">
