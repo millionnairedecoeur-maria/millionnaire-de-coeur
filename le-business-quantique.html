@@ -358,6 +358,21 @@
             <label for="email">Adresse email</label>
             <input type="email" id="email" name="email" required autocomplete="email" />
           </div>
+          <div class="form-group">
+            <label for="pays">Pays</label>
+            <select id="pays" name="pays" required autocomplete="country-name">
+              <option value="" disabled selected>Choisissez votre pays</option>
+              <option>France</option>
+              <option>Belgique</option>
+              <option>Suisse</option>
+              <option>Luxembourg</option>
+              <option>Monaco</option>
+              <option>Canada</option>
+              <option>États-Unis</option>
+              <option>Autre pays d'Europe</option>
+              <option>Autre pays</option>
+            </select>
+          </div>
           <label class="consent" for="nurturing">
             <input type="checkbox" id="nurturing" name="nurturing" />
             <span>Je souhaite aussi recevoir la lettre du lundi de Maria Francheteau (désinscription en un clic).</span>
@@ -448,6 +463,7 @@
       action: 'attente',
       prenom: document.getElementById('prenom').value,
       email: document.getElementById('email').value,
+      pays: document.getElementById('pays').value,
       nurturing: document.getElementById('nurturing').checked,
       botcheck: document.querySelector('[name="botcheck"]').value
     };
