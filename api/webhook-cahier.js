@@ -107,7 +107,7 @@ module.exports = async function handler(req, res) {
   const session = event.data.object;
 
   // Le cahier est reconnu par l'identifiant de son lien de paiement Stripe (29 €)
-  const CAHIER_PAYMENT_LINK = 'plink_1UJyj9KHZQOqYMkzKIWkavza';
+  const CAHIER_PAYMENT_LINK = 'plink_1UJyj9KHZQOqYMkzKlWkavza';
   if (session.payment_link !== CAHIER_PAYMENT_LINK) {
     return res.status(200).json({ received: true });
   }
