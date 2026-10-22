@@ -2,6 +2,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/lettre-du-lundi",
+      "destination": "/light-la-lettre-du-lundi",
+      "permanent": true
+    },
+    {
       "source": "/decision-cost-audit-chat",
       "destination": "/entrepreneurs-decision-cost-audit-ai",
       "permanent": true
