@@ -300,6 +300,12 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.millionnairedecoeur.com/lettre-du-lundi</loc>
+    <lastmod>2026-10-22</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
   <!-- Pages legales -->
   <url>
