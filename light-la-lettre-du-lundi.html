@@ -465,7 +465,7 @@
       document.getElementById('formDefault').style.display = 'none';
       document.getElementById('formSuccess').classList.add('visible');
     }
-    var url = LETTRE_ENDPOINT + '?a=nurturing&e=' + encodeURIComponent(email) + '&p=' + encodeURIComponent(prenom) + '&c=' + encodeURIComponent(document.getElementById('pays').value);
+    var url = LETTRE_ENDPOINT + '?a=nurturing&e=' + encodeURIComponent(email) + '&p=' + encodeURIComponent(prenom) + '&pays=' + encodeURIComponent(document.getElementById('pays').value);
     fetch(url, { mode: 'no-cors', keepalive: true }).then(done).catch(done);
   });
 </script>
